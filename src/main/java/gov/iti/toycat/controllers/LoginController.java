@@ -2,7 +2,6 @@ package gov.iti.toycat.controllers;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import gov.iti.toycat.models.User;
 import gov.iti.toycat.services.UserServices;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -40,24 +39,24 @@ public class LoginController extends HttpServlet {
     }
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException { 
-        User user=new User(0,"",request.getParameter("name"),request.getParameter("password"));
-        PrintWriter out=response.getWriter();
-        user=new UserServices().login(user);
-        if(user!=null){
-        //response.sendRedirect("welcome.html");
-        HttpSession session = request.getSession(true);
-        session.setAttribute("user", user);
-        RequestDispatcher rd = request.getRequestDispatcher("search.jsp");
-        rd.forward(request, response);
-        }
-       else { 
-        response.setContentType("text/html");
-        //response.sendRedirect("http://localhost:9091/Form/logInForm.html");
-        RequestDispatcher rd = request.getRequestDispatcher("index.html");
-        out.println("<label style=\"color: red\">Login Failed, please try again.<label>"); 
-       // rd.forward(request, response);
-        rd.include(request, response);
-        //out.println("<h4>esraa</h4>");   
-       }
+    //     User user=new User(0,"",request.getParameter("name"),request.getParameter("password"));
+    //     PrintWriter out=response.getWriter();
+    //     user=new UserServices().login(user);
+    //     if(user!=null){
+    //     //response.sendRedirect("welcome.html");
+    //     HttpSession session = request.getSession(true);
+    //     session.setAttribute("user", user);
+    //     RequestDispatcher rd = request.getRequestDispatcher("search.jsp");
+    //     rd.forward(request, response);
+    //     }
+    //    else { 
+    //     response.setContentType("text/html");
+    //     //response.sendRedirect("http://localhost:9091/Form/logInForm.html");
+    //     RequestDispatcher rd = request.getRequestDispatcher("index.html");
+    //     out.println("<label style=\"color: red\">Login Failed, please try again.<label>"); 
+    //    // rd.forward(request, response);
+    //     rd.include(request, response);
+    //     //out.println("<h4>esraa</h4>");   
+    //    }
     }
 }

@@ -5,7 +5,6 @@ import java.lang.reflect.InvocationTargetException;
 
 import org.apache.commons.beanutils.BeanUtils;
 
-import gov.iti.toycat.models.User;
 import gov.iti.toycat.services.UserServices;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -47,24 +46,24 @@ public class RegisterController extends HttpServlet {
     }
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {       
-        User user=new User();
-        try {
-            BeanUtils.populate (user, request.getParameterMap());
-        } catch (IllegalAccessException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        UserServices registerService=new UserServices ();
-        if(registerService.register (user)){
-           //do somthing 
+        // User user=new User();
+        // try {
+        //     BeanUtils.populate (user, request.getParameterMap());
+        // } catch (IllegalAccessException e) {
+        //     // TODO Auto-generated catch block
+        //     e.printStackTrace();
+        // } catch (InvocationTargetException e) {
+        //     // TODO Auto-generated catch block
+        //     e.printStackTrace();
+        // }
+        // UserServices registerService=new UserServices ();
+        // if(registerService.register (user)){
+        //    //do somthing 
 
-        }
-        else{
-          //do anther-Thing   
-        }
+        // }
+        // else{
+        //   //do anther-Thing   
+        // }
         
     }
 }
