@@ -2,10 +2,10 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelsVersion>4.0.0</modelsVersion>
+  <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.iti</groupId>
-  <artifactId>mvc</artifactId>
+  <groupId>com.orm</groupId>
+  <artifactId>account</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>mvc</name>
@@ -46,6 +46,21 @@
     <artifactId>commons-beanutils</artifactId>
     <version>1.9.4</version>
 </dependency>
+<dependency>
+<groupId>jakarta.persistence</groupId>
+<artifactId>jakarta.persistence-api</artifactId>
+<version>3.1.0</version>
+</dependency>
+<dependency>
+<groupId>org.hibernate.orm</groupId>
+<artifactId>hibernate-core</artifactId>
+<version>6.1.7.Final</version>
+</dependency>
+    <dependency>
+      <groupId>org.eclipse.persistence</groupId>
+      <artifactId>jakarta.persistence</artifactId>
+      <version>2.2.3</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -114,10 +129,19 @@
 <configuration>
 <username>admin</username>
 <password>admin</password>
-<url>http://localhost:9091/manager/text</url>
+<url>http://localhost:9090/manager/text</url>
 <path>/${project.artifactId}</path>
 </configuration>
 </plugin>
+ <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>3.1.0</version>
+          <configuration>
+            <mainClass>com.orm.Controller.test</mainClass>
+            <cleanupDaemonThreads>false</cleanupDaemonThreads>
+          </configuration>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>

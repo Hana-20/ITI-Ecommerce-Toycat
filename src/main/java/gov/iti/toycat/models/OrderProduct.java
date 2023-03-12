@@ -34,7 +34,7 @@ public class OrderProduct implements Serializable {
     private int quantity;
     @JoinColumn(name = "order_id", referencedColumnName = "id", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Order1 order1;
+    private Order order1;
     @JoinColumn(name = "product_id", referencedColumnName = "id", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Product product;
@@ -71,11 +71,11 @@ public class OrderProduct implements Serializable {
         this.quantity = quantity;
     }
 
-    public Order1 getOrder1() {
+    public Order getOrder1() {
         return order1;
     }
 
-    public void setOrder1(Order1 order1) {
+    public void setOrder1(Order order1) {
         this.order1 = order1;
     }
 

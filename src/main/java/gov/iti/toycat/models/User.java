@@ -29,7 +29,7 @@ import jakarta.persistence.TemporalType;
 @Table(name = "users")
 @NamedQueries({
     @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u")})
-public class Users implements Serializable {
+public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -59,16 +59,16 @@ public class Users implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userEmail", fetch = FetchType.LAZY)
     private Set<Cart> cartSet;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userEmail", fetch = FetchType.LAZY)
-    private Set<Order1> order1Set;
+    private Set<Order> order1Set;
 
-    public Users() {
+    public User() {
     }
 
-    public Users(String email) {
+    public User(String email) {
         this.email = email;
     }
 
-    public Users(String email, String username, String password, BigDecimal creditLimit, Date birthday, String address, Character role) {
+    public User(String email, String username, String password, BigDecimal creditLimit, Date birthday, String address, Character role) {
         this.email = email;
         this.username = username;
         this.password = password;
@@ -142,11 +142,11 @@ public class Users implements Serializable {
         this.cartSet = cartSet;
     }
 
-    public Set<Order1> getOrder1Set() {
+    public Set<Order> getOrder1Set() {
         return order1Set;
     }
 
-    public void setOrder1Set(Set<Order1> order1Set) {
+    public void setOrder1Set(Set<Order> order1Set) {
         this.order1Set = order1Set;
     }
 
@@ -160,10 +160,10 @@ public class Users implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Users)) {
+        if (!(object instanceof User)) {
             return false;
         }
-        Users other = (Users) object;
+        User other = (User) object;
         if ((this.email == null && other.email != null) || (this.email != null && !this.email.equals(other.email))) {
             return false;
         }

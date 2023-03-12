@@ -24,13 +24,13 @@ import jakarta.persistence.Table;
 
 /**
  *
- * @author hanaa
+ * @author hana
  */
 @Entity
 @Table(name = "order")
 @NamedQueries({
     @NamedQuery(name = "Order1.findAll", query = "SELECT o FROM Order1 o")})
-public class Order1 implements Serializable {
+public class Order implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -47,18 +47,18 @@ public class Order1 implements Serializable {
     private BigDecimal totalPrice;
     @JoinColumn(name = "user_email", referencedColumnName = "email")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Users userEmail;
+    private User userEmail;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "order1", fetch = FetchType.LAZY)
     private Set<OrderProduct> orderProductSet;
 
-    public Order1() {
+    public Order() {
     }
 
-    public Order1(Integer id) {
+    public Order(Integer id) {
         this.id = id;
     }
 
-    public Order1(Integer id, String status, BigDecimal totalPrice) {
+    public Order(Integer id, String status, BigDecimal totalPrice) {
         this.id = id;
         this.status = status;
         this.totalPrice = totalPrice;
@@ -88,11 +88,11 @@ public class Order1 implements Serializable {
         this.totalPrice = totalPrice;
     }
 
-    public Users getUserEmail() {
+    public User getUserEmail() {
         return userEmail;
     }
 
-    public void setUserEmail(Users userEmail) {
+    public void setUserEmail(User userEmail) {
         this.userEmail = userEmail;
     }
 
@@ -114,10 +114,10 @@ public class Order1 implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Order1)) {
+        if (!(object instanceof Order)) {
             return false;
         }
-        Order1 other = (Order1) object;
+        Order other = (Order) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

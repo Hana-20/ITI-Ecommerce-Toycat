@@ -44,7 +44,7 @@ public class Cart implements Serializable {
     private BigDecimal totalPrice;
     @JoinColumn(name = "user_email", referencedColumnName = "email")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Users userEmail;
+    private User userEmail;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart", fetch = FetchType.LAZY)
     private Set<CartProduct> cartProductSet;
 
@@ -76,11 +76,11 @@ public class Cart implements Serializable {
         this.totalPrice = totalPrice;
     }
 
-    public Users getUserEmail() {
+    public User getUserEmail() {
         return userEmail;
     }
 
-    public void setUserEmail(Users userEmail) {
+    public void setUserEmail(User userEmail) {
         this.userEmail = userEmail;
     }
 
