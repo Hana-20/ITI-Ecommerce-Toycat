@@ -3,7 +3,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
 https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd" 
 version="3.0">
-    <persistence-unit name="HAM" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="toycat-pu" transaction-type="RESOURCE_LOCAL">
         
         <description></description>
         
@@ -28,10 +28,10 @@ version="3.0">
         <!-- <class>com.orm.models.Car</class> -->
         
         <properties>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/biddingschema" />
-            <property name="jakarta.persistence.jdbc.user" value="root" />
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/toycat?createDatabaseIfNotExist=true" />
+            <property name="jakarta.persistence.jdbc.user" value="toycat" />
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-            <property name="jakarta.persistence.jdbc.password" value="12345" />
+            <property name="jakarta.persistence.jdbc.password" value="toycat" />
             <!--<property name="jakarta.persistence.schema-generation.database.action" value="create"/>-->
             <!--<property name="jakarta.persistence.schema-generation.create-source" value="metadata"/>-->
             <!--<property name="jakarta.persistence.schema-generation.database.action" value="update"/>-->

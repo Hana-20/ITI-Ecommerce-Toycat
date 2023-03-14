@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package gov.iti.toycat.models;
+package gov.iti.toycat.models.entities;
 
 import java.io.Serializable;
 import jakarta.persistence.Basic;
@@ -21,46 +21,46 @@ import jakarta.persistence.Table;
  * @author hanaa
  */
 @Entity
-@Table(name = "order_product")
+@Table(name = "cart_product")
 @NamedQueries({
-    @NamedQuery(name = "OrderProduct.findAll", query = "SELECT o FROM OrderProduct o")})
-public class OrderProduct implements Serializable {
+    @NamedQuery(name = "CartProduct.findAll", query = "SELECT c FROM CartProduct c")})
+public class CartProduct implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @EmbeddedId
-    protected OrderProductPK orderProductPK;
+    protected CartProductPK cartProductPK;
     @Basic(optional = false)
     @Column(name = "quantity")
     private int quantity;
-    @JoinColumn(name = "order_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "cart_id", referencedColumnName = "id", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Order order1;
+    private Cart cart;
     @JoinColumn(name = "product_id", referencedColumnName = "id", insertable = false, updatable = false)
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Product product;
 
-    public OrderProduct() {
+    public CartProduct() {
     }
 
-    public OrderProduct(OrderProductPK orderProductPK) {
-        this.orderProductPK = orderProductPK;
+    public CartProduct(CartProductPK cartProductPK) {
+        this.cartProductPK = cartProductPK;
     }
 
-    public OrderProduct(OrderProductPK orderProductPK, int quantity) {
-        this.orderProductPK = orderProductPK;
+    public CartProduct(CartProductPK cartProductPK, int quantity) {
+        this.cartProductPK = cartProductPK;
         this.quantity = quantity;
     }
 
-    public OrderProduct(int orderId, int productId) {
-        this.orderProductPK = new OrderProductPK(orderId, productId);
+    public CartProduct(int cartId, int productId) {
+        this.cartProductPK = new CartProductPK(cartId, productId);
     }
 
-    public OrderProductPK getOrderProductPK() {
-        return orderProductPK;
+    public CartProductPK getCartProductPK() {
+        return cartProductPK;
     }
 
-    public void setOrderProductPK(OrderProductPK orderProductPK) {
-        this.orderProductPK = orderProductPK;
+    public void setCartProductPK(CartProductPK cartProductPK) {
+        this.cartProductPK = cartProductPK;
     }
 
     public int getQuantity() {
@@ -71,12 +71,12 @@ public class OrderProduct implements Serializable {
         this.quantity = quantity;
     }
 
-    public Order getOrder1() {
-        return order1;
+    public Cart getCart() {
+        return cart;
     }
 
-    public void setOrder1(Order order1) {
-        this.order1 = order1;
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 
     public Product getProduct() {
@@ -90,18 +90,18 @@ public class OrderProduct implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (orderProductPK != null ? orderProductPK.hashCode() : 0);
+        hash += (cartProductPK != null ? cartProductPK.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof OrderProduct)) {
+        if (!(object instanceof CartProduct)) {
             return false;
         }
-        OrderProduct other = (OrderProduct) object;
-        if ((this.orderProductPK == null && other.orderProductPK != null) || (this.orderProductPK != null && !this.orderProductPK.equals(other.orderProductPK))) {
+        CartProduct other = (CartProduct) object;
+        if ((this.cartProductPK == null && other.cartProductPK != null) || (this.cartProductPK != null && !this.cartProductPK.equals(other.cartProductPK))) {
             return false;
         }
         return true;
@@ -109,7 +109,7 @@ public class OrderProduct implements Serializable {
 
     @Override
     public String toString() {
-        return "newpackage.OrderProduct[ orderProductPK=" + orderProductPK + " ]";
+        return "newpackage.CartProduct[ cartProductPK=" + cartProductPK + " ]";
     }
     
 }

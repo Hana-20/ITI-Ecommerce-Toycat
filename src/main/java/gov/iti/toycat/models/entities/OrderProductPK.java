@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package gov.iti.toycat.models;
+package gov.iti.toycat.models.entities;
 
 import java.io.Serializable;
 import jakarta.persistence.Basic;
@@ -14,29 +14,29 @@ import jakarta.persistence.Embeddable;
  * @author hanaa
  */
 @Embeddable
-public class CartProductPK implements Serializable {
+public class OrderProductPK implements Serializable {
 
     @Basic(optional = false)
-    @Column(name = "cart_id")
-    private int cartId;
+    @Column(name = "order_id")
+    private int orderId;
     @Basic(optional = false)
     @Column(name = "product_id")
     private int productId;
 
-    public CartProductPK() {
+    public OrderProductPK() {
     }
 
-    public CartProductPK(int cartId, int productId) {
-        this.cartId = cartId;
+    public OrderProductPK(int orderId, int productId) {
+        this.orderId = orderId;
         this.productId = productId;
     }
 
-    public int getCartId() {
-        return cartId;
+    public int getOrderId() {
+        return orderId;
     }
 
-    public void setCartId(int cartId) {
-        this.cartId = cartId;
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 
     public int getProductId() {
@@ -50,7 +50,7 @@ public class CartProductPK implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (int) cartId;
+        hash += (int) orderId;
         hash += (int) productId;
         return hash;
     }
@@ -58,11 +58,11 @@ public class CartProductPK implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof CartProductPK)) {
+        if (!(object instanceof OrderProductPK)) {
             return false;
         }
-        CartProductPK other = (CartProductPK) object;
-        if (this.cartId != other.cartId) {
+        OrderProductPK other = (OrderProductPK) object;
+        if (this.orderId != other.orderId) {
             return false;
         }
         if (this.productId != other.productId) {
@@ -73,7 +73,7 @@ public class CartProductPK implements Serializable {
 
     @Override
     public String toString() {
-        return "newpackage.CartProductPK[ cartId=" + cartId + ", productId=" + productId + " ]";
+        return "newpackage.OrderProductPK[ orderId=" + orderId + ", productId=" + productId + " ]";
     }
     
 }
