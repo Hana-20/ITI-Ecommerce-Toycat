@@ -21,7 +21,7 @@ import jakarta.persistence.Table;
  * @author hanaa
  */
 @Entity
-@Table(name = "order_product")
+@Table(name = "order_product", catalog = "toycat", schema = "")
 @NamedQueries({
     @NamedQuery(name = "OrderProduct.findAll", query = "SELECT o FROM OrderProduct o")})
 public class OrderProduct implements Serializable {
@@ -32,12 +32,12 @@ public class OrderProduct implements Serializable {
     @Basic(optional = false)
     @Column(name = "quantity")
     private int quantity;
-    @JoinColumn(name = "order_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "order_id", referencedColumnName = "id")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Order order1;
-    @JoinColumn(name = "product_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private Order orderId;
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Product product;
+    private Product productId1;
 
     public OrderProduct() {
     }
@@ -51,8 +51,8 @@ public class OrderProduct implements Serializable {
         this.quantity = quantity;
     }
 
-    public OrderProduct(int orderId, int productId) {
-        this.orderProductPK = new OrderProductPK(orderId, productId);
+    public OrderProduct(int cartId, int productId) {
+        this.orderProductPK = new OrderProductPK(cartId, productId);
     }
 
     public OrderProductPK getOrderProductPK() {
@@ -71,20 +71,20 @@ public class OrderProduct implements Serializable {
         this.quantity = quantity;
     }
 
-    public Order getOrder1() {
-        return order1;
+    public Order getOrderId() {
+        return orderId;
     }
 
-    public void setOrder1(Order order1) {
-        this.order1 = order1;
+    public void setOrderId(Order orderId) {
+        this.orderId = orderId;
     }
 
-    public Product getProduct() {
-        return product;
+    public Product getProductId1() {
+        return productId1;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProductId1(Product productId1) {
+        this.productId1 = productId1;
     }
 
     @Override
@@ -109,7 +109,7 @@ public class OrderProduct implements Serializable {
 
     @Override
     public String toString() {
-        return "newpackage.OrderProduct[ orderProductPK=" + orderProductPK + " ]";
+        return "gov.iti.model.OrderProduct[ orderProductPK=" + orderProductPK + " ]";
     }
     
 }

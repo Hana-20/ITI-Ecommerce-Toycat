@@ -24,12 +24,12 @@ import jakarta.persistence.Table;
 
 /**
  *
- * @author hana
+ * @author hanaa
  */
 @Entity
-@Table(name = "order")
+@Table(name = "order", catalog = "toycat", schema = "")
 @NamedQueries({
-    @NamedQuery(name = "Order1.findAll", query = "SELECT o FROM Order1 o")})
+    @NamedQuery(name = "Order.findAll", query = "SELECT o FROM Order o")})
 public class Order implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -48,7 +48,7 @@ public class Order implements Serializable {
     @JoinColumn(name = "user_email", referencedColumnName = "email")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private User userEmail;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "order1", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "orderId", fetch = FetchType.LAZY)
     private Set<OrderProduct> orderProductSet;
 
     public Order() {
@@ -126,7 +126,7 @@ public class Order implements Serializable {
 
     @Override
     public String toString() {
-        return "newpackage.Order1[ id=" + id + " ]";
+        return "gov.iti.model.Order1[ id=" + id + " ]";
     }
     
 }

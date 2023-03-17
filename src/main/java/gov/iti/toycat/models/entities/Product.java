@@ -28,7 +28,7 @@ import jakarta.persistence.Table;
  * @author hanaa
  */
 @Entity
-@Table(name = "product")
+@Table(name = "product", catalog = "toycat", schema = "")
 @NamedQueries({
     @NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p")})
 public class Product implements Serializable {
@@ -39,12 +39,15 @@ public class Product implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    @Column(name = "description")
+    private String description;
+    @Basic(optional = false)
+    @Lob
+    @Column(name = "image")
+    private byte[] image;
     @Basic(optional = false)
     @Column(name = "name")
     private String name;
-    @Lob
-    @Column(name = "description")
-    private String description;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Basic(optional = false)
     @Column(name = "price")
@@ -52,16 +55,12 @@ public class Product implements Serializable {
     @Basic(optional = false)
     @Column(name = "quantity")
     private int quantity;
-    @Basic(optional = false)
-    @Lob
-    @Column(name = "image")
-    private byte[] image;
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private Category categoryId;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "productId1", fetch = FetchType.LAZY)
     private Set<CartProduct> cartProductSet;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "productId1", fetch = FetchType.LAZY)
     private Set<OrderProduct> orderProductSet;
 
     public Product() {
@@ -71,12 +70,12 @@ public class Product implements Serializable {
         this.id = id;
     }
 
-    public Product(Integer id, String name, BigDecimal price, int quantity, byte[] image) {
+    public Product(Integer id, byte[] image, String name, BigDecimal price, int quantity) {
         this.id = id;
+        this.image = image;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
-        this.image = image;
     }
 
     public Integer getId() {
@@ -87,20 +86,28 @@ public class Product implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getDescription() {
         return description;
     }
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public BigDecimal getPrice() {
@@ -117,14 +124,6 @@ public class Product implements Serializable {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
-
-    public byte[] getImage() {
-        return image;
-    }
-
-    public void setImage(byte[] image) {
-        this.image = image;
     }
 
     public Category getCategoryId() {
@@ -173,7 +172,7 @@ public class Product implements Serializable {
 
     @Override
     public String toString() {
-        return "newpackage.Product[ id=" + id + " ]";
+        return "gov.iti.model.Product[ id=" + id + " ]";
     }
     
 }

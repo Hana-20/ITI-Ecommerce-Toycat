@@ -19,10 +19,10 @@ version="3.0">
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <shared-cache-mode>ALL</shared-cache-mode>
         <validation-mode>AUTO</validation-mode> -->
-       <class>com.orm.models.Product</class> 
+       <!-- <class>com.orm.models.Product</class> 
        <class>com.orm.models.Seller</class>
        <class>com.orm.models.User</class>
-       <class>com.orm.models.Category</class>
+       <class>com.orm.models.Category</class> -->
      <!--<exclude-unlisted-classes>true</exclude-unlisted-classes>-->
 
         <!-- <class>com.orm.models.Car</class> -->
@@ -34,7 +34,7 @@ version="3.0">
             <property name="jakarta.persistence.jdbc.password" value="toycat" />
             <!--<property name="jakarta.persistence.schema-generation.database.action" value="create"/>-->
             <!--<property name="jakarta.persistence.schema-generation.create-source" value="metadata"/>-->
-            <!--<property name="jakarta.persistence.schema-generation.database.action" value="update"/>-->
+            <!-- <property name="jakarta.persistence.schema-generation.database.action" value="update"/> -->
             <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create" /> 
             <!--<property name="jakarta.persistence.schema-generation.create-database-schemas" value="false"/>-->
         </properties>

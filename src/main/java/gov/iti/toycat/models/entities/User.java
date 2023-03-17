@@ -5,7 +5,6 @@
 package gov.iti.toycat.models.entities;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Set;
 import jakarta.persistence.Basic;
@@ -26,9 +25,9 @@ import jakarta.persistence.TemporalType;
  * @author hanaa
  */
 @Entity
-@Table(name = "users")
+@Table(name = "users", catalog = "toycat", schema = "")
 @NamedQueries({
-    @NamedQuery(name = "Users.findAll", query = "SELECT u FROM Users u")})
+    @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")})
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -37,25 +36,25 @@ public class User implements Serializable {
     @Column(name = "email")
     private String email;
     @Basic(optional = false)
-    @Column(name = "username")
-    private String username;
-    @Basic(optional = false)
-    @Column(name = "password")
-    private String password;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Basic(optional = false)
-    @Column(name = "credit_limit")
-    private BigDecimal creditLimit;
+    @Column(name = "address")
+    private String address;
     @Basic(optional = false)
     @Column(name = "birthday")
     @Temporal(TemporalType.DATE)
     private Date birthday;
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Basic(optional = false)
-    @Column(name = "address")
-    private String address;
+    @Column(name = "credit_limit")
+    private double creditLimit;
+    @Basic(optional = false)
+    @Column(name = "password")
+    private String password;
     @Basic(optional = false)
     @Column(name = "role")
-    private Character role;
+    private char role;
+    @Basic(optional = false)
+    @Column(name = "username")
+    private String username;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userEmail", fetch = FetchType.LAZY)
     private Set<Cart> cartSet;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userEmail", fetch = FetchType.LAZY)
@@ -68,14 +67,14 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public User(String email, String username, String password, BigDecimal creditLimit, Date birthday, String address, Character role) {
+    public User(String email, String username,String password,double creditLimit, Date birthday, String address,   char role) {
         this.email = email;
-        this.username = username;
-        this.password = password;
-        this.creditLimit = creditLimit;
-        this.birthday = birthday;
         this.address = address;
+        this.birthday = birthday;
+        this.creditLimit = creditLimit;
+        this.password = password;
         this.role = role;
+        this.username = username;
     }
 
     public String getEmail() {
@@ -86,28 +85,12 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public String getUsername() {
-        return username;
+    public String getAddress() {
+        return address;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public BigDecimal getCreditLimit() {
-        return creditLimit;
-    }
-
-    public void setCreditLimit(BigDecimal creditLimit) {
-        this.creditLimit = creditLimit;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public Date getBirthday() {
@@ -118,12 +101,20 @@ public class User implements Serializable {
         this.birthday = birthday;
     }
 
-    public String getAddress() {
-        return address;
+    public double getCreditLimit() {
+        return creditLimit;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setCreditLimit(double creditLimit) {
+        this.creditLimit = creditLimit;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Character getRole() {
@@ -132,6 +123,14 @@ public class User implements Serializable {
 
     public void setRole(Character role) {
         this.role = role;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public Set<Cart> getCartSet() {
@@ -172,7 +171,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "newpackage.Users[ email=" + email + " ]";
+        return "gov.iti.model.Users[ email=" + email + " ]";
     }
     
 }

@@ -27,7 +27,7 @@ import jakarta.persistence.Table;
  * @author hanaa
  */
 @Entity
-@Table(name = "cart")
+@Table(name = "cart", catalog = "toycat", schema = "")
 @NamedQueries({
     @NamedQuery(name = "Cart.findAll", query = "SELECT c FROM Cart c")})
 public class Cart implements Serializable {
@@ -45,7 +45,7 @@ public class Cart implements Serializable {
     @JoinColumn(name = "user_email", referencedColumnName = "email")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
     private User userEmail;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart", fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cartId1", fetch = FetchType.LAZY)
     private Set<CartProduct> cartProductSet;
 
     public Cart() {
@@ -114,7 +114,7 @@ public class Cart implements Serializable {
 
     @Override
     public String toString() {
-        return "newpackage.Cart[ id=" + id + " ]";
+        return "gov.iti.model.Cart[ id=" + id + " ]";
     }
     
 }

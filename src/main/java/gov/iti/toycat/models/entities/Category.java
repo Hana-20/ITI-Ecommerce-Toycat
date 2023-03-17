@@ -22,7 +22,7 @@ import jakarta.persistence.Table;
  * @author hanaa
  */
 @Entity
-@Table(name = "category")
+@Table(name = "category", catalog = "toycat", schema = "")
 @NamedQueries({
     @NamedQuery(name = "Category.findAll", query = "SELECT c FROM Category c")})
 public class Category implements Serializable {
@@ -96,7 +96,7 @@ public class Category implements Serializable {
 
     @Override
     public String toString() {
-        return "newpackage.Category[ id=" + id + " ]";
+        return "gov.iti.model.Category[ id=" + id + " ]";
     }
     
 }

@@ -21,7 +21,7 @@ import jakarta.persistence.Table;
  * @author hanaa
  */
 @Entity
-@Table(name = "cart_product")
+@Table(name = "cart_product", catalog = "toycat", schema = "")
 @NamedQueries({
     @NamedQuery(name = "CartProduct.findAll", query = "SELECT c FROM CartProduct c")})
 public class CartProduct implements Serializable {
@@ -32,12 +32,12 @@ public class CartProduct implements Serializable {
     @Basic(optional = false)
     @Column(name = "quantity")
     private int quantity;
-    @JoinColumn(name = "cart_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "cart_id", referencedColumnName = "id")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Cart cart;
-    @JoinColumn(name = "product_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private Cart cartId1;
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Product product;
+    private Product productId1;
 
     public CartProduct() {
     }
@@ -71,20 +71,20 @@ public class CartProduct implements Serializable {
         this.quantity = quantity;
     }
 
-    public Cart getCart() {
-        return cart;
+    public Cart getCartId1() {
+        return cartId1;
     }
 
-    public void setCart(Cart cart) {
-        this.cart = cart;
+    public void setCartId1(Cart cartId1) {
+        this.cartId1 = cartId1;
     }
 
-    public Product getProduct() {
-        return product;
+    public Product getProductId1() {
+        return productId1;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    public void setProductId1(Product productId1) {
+        this.productId1 = productId1;
     }
 
     @Override
@@ -109,7 +109,7 @@ public class CartProduct implements Serializable {
 
     @Override
     public String toString() {
-        return "newpackage.CartProduct[ cartProductPK=" + cartProductPK + " ]";
+        return "gov.iti.model.CartProduct[ cartProductPK=" + cartProductPK + " ]";
     }
     
 }
