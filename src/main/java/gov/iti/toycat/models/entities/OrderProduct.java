@@ -9,7 +9,6 @@ import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.NamedQueries;
@@ -21,9 +20,7 @@ import jakarta.persistence.Table;
  * @author hanaa
  */
 @Entity
-@Table(name = "order_product", catalog = "toycat", schema = "")
-@NamedQueries({
-    @NamedQuery(name = "OrderProduct.findAll", query = "SELECT o FROM OrderProduct o")})
+@Table(name = "order_product")
 public class OrderProduct implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -32,12 +29,12 @@ public class OrderProduct implements Serializable {
     @Basic(optional = false)
     @Column(name = "quantity")
     private int quantity;
-    @JoinColumn(name = "order_id", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Order orderId;
-    @JoinColumn(name = "product_id", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Product productId1;
+    @JoinColumn(name = "order_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @ManyToOne(optional = false)
+    private Order order;
+    @JoinColumn(name = "product_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @ManyToOne(optional = false)
+    private Product product;
 
     public OrderProduct() {
     }
@@ -51,8 +48,8 @@ public class OrderProduct implements Serializable {
         this.quantity = quantity;
     }
 
-    public OrderProduct(int cartId, int productId) {
-        this.orderProductPK = new OrderProductPK(cartId, productId);
+    public OrderProduct(int orderId, int productId) {
+        this.orderProductPK = new OrderProductPK(orderId, productId);
     }
 
     public OrderProductPK getOrderProductPK() {
@@ -71,20 +68,20 @@ public class OrderProduct implements Serializable {
         this.quantity = quantity;
     }
 
-    public Order getOrderId() {
-        return orderId;
+    public Order getorder() {
+        return order;
     }
 
-    public void setOrderId(Order orderId) {
-        this.orderId = orderId;
+    public void setorder(Order order) {
+        this.order = order;
     }
 
-    public Product getProductId1() {
-        return productId1;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setProductId1(Product productId1) {
-        this.productId1 = productId1;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     @Override
@@ -109,7 +106,7 @@ public class OrderProduct implements Serializable {
 
     @Override
     public String toString() {
-        return "gov.iti.model.OrderProduct[ orderProductPK=" + orderProductPK + " ]";
+        return "gov.iti.toycat.models.entities.OrderProduct[ orderProductPK=" + orderProductPK + " ]";
     }
     
 }

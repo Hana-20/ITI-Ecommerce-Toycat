@@ -9,7 +9,6 @@ import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.NamedQueries;
@@ -21,9 +20,12 @@ import jakarta.persistence.Table;
  * @author hanaa
  */
 @Entity
-@Table(name = "cart_product", catalog = "toycat", schema = "")
+@Table(name = "cart_product")
 @NamedQueries({
-    @NamedQuery(name = "CartProduct.findAll", query = "SELECT c FROM CartProduct c")})
+    @NamedQuery(name = "CartProduct.findAll", query = "SELECT c FROM CartProduct c"),
+    @NamedQuery(name = "CartProduct.findByQuantity", query = "SELECT c FROM CartProduct c WHERE c.quantity = :quantity"),
+    @NamedQuery(name = "CartProduct.findByCartId", query = "SELECT c FROM CartProduct c WHERE c.cartProductPK.cartId = :cartId"),
+    @NamedQuery(name = "CartProduct.findByProductId", query = "SELECT c FROM CartProduct c WHERE c.cartProductPK.productId = :productId")})
 public class CartProduct implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -32,12 +34,12 @@ public class CartProduct implements Serializable {
     @Basic(optional = false)
     @Column(name = "quantity")
     private int quantity;
-    @JoinColumn(name = "cart_id", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Cart cartId1;
-    @JoinColumn(name = "product_id", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    private Product productId1;
+    @JoinColumn(name = "cart_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @ManyToOne(optional = false)
+    private Cart cart;
+    @JoinColumn(name = "product_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @ManyToOne(optional = false)
+    private Product product;
 
     public CartProduct() {
     }
@@ -71,20 +73,20 @@ public class CartProduct implements Serializable {
         this.quantity = quantity;
     }
 
-    public Cart getCartId1() {
-        return cartId1;
+    public Cart getCart() {
+        return cart;
     }
 
-    public void setCartId1(Cart cartId1) {
-        this.cartId1 = cartId1;
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 
-    public Product getProductId1() {
-        return productId1;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setProductId1(Product productId1) {
-        this.productId1 = productId1;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     @Override
@@ -109,7 +111,7 @@ public class CartProduct implements Serializable {
 
     @Override
     public String toString() {
-        return "gov.iti.model.CartProduct[ cartProductPK=" + cartProductPK + " ]";
+        return "gov.iti.toycat.models.entities.CartProduct[ cartProductPK=" + cartProductPK + " ]";
     }
     
 }

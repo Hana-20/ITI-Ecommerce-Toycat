@@ -17,26 +17,26 @@ import jakarta.persistence.Embeddable;
 public class OrderProductPK implements Serializable {
 
     @Basic(optional = false)
-    @Column(name = "cartId")
-    private int cartId;
+    @Column(name = "order_id")
+    private int orderId;
     @Basic(optional = false)
-    @Column(name = "productId")
+    @Column(name = "product_id")
     private int productId;
 
     public OrderProductPK() {
     }
 
-    public OrderProductPK(int cartId, int productId) {
-        this.cartId = cartId;
+    public OrderProductPK(int orderId, int productId) {
+        this.orderId = orderId;
         this.productId = productId;
     }
 
-    public int getCartId() {
-        return cartId;
+    public int getOrderId() {
+        return orderId;
     }
 
-    public void setCartId(int cartId) {
-        this.cartId = cartId;
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
 
     public int getProductId() {
@@ -50,7 +50,7 @@ public class OrderProductPK implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (int) cartId;
+        hash += (int) orderId;
         hash += (int) productId;
         return hash;
     }
@@ -62,7 +62,7 @@ public class OrderProductPK implements Serializable {
             return false;
         }
         OrderProductPK other = (OrderProductPK) object;
-        if (this.cartId != other.cartId) {
+        if (this.orderId != other.orderId) {
             return false;
         }
         if (this.productId != other.productId) {
@@ -73,7 +73,7 @@ public class OrderProductPK implements Serializable {
 
     @Override
     public String toString() {
-        return "gov.iti.model.OrderProductPK[ cartId=" + cartId + ", productId=" + productId + " ]";
+        return "gov.iti.toycat.models.entities.OrderProductPK[ orderId=" + orderId + ", productId=" + productId + " ]";
     }
     
 }

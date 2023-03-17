@@ -59,6 +59,7 @@ try {
     System.out.println("Failed to convert string to double");        
         }
     String sDate1="05/09/2000";
+    // String sDate1=request.getParameter("birthdate");
     Date date1=null;
     try {
         date1 = new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);

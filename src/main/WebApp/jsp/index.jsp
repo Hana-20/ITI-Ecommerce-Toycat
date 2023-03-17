@@ -160,53 +160,54 @@
                                 <div class="tab-pane" id="create-account" role="tabpanel" aria-labelledby="tab2"
                                     aria-hidden='true'>
                                     <!-- Addition of Form 2 -->
-                                    <form class="d-flex flex-column" action="register" method="post">
+                                    <form class="d-flex flex-column" action="register" method="post" id="registration-form" class="needs-validation" novalidate>
                                         <div class="form-group">
                                             <label for="exampleInputUsername2">Username <span
                                                     class='required'>*</span></label>
                                             <input type="text" class="form-control" id="exampleInputUsername2"
-                                                role="username" name="name" placeholder="Enter Username">
+                                                role="username" name="name" placeholder="Enter Username" required>
+                                                <div class="invalid-feedback">Please enter your name.</div>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail2">Email address <span
                                                     class='required'>*</span></label>
                                             <input type="email" class="form-control" id="exampleInputEmail2"
-                                                role="email" name="email" placeholder="Enter email">
+                                                role="email" name="email" placeholder="Enter email" required>
+                                                <div class="invalid-feedback" >Please enter your email.</div>
+                                                
                                         </div>
                                 
                                         <div class="row">
                                             <div class="col-sm-6">
                                               <div class="form-group">
                                                 <label for="creditLimit">Credit limit <span class="required">*</span></label>
-                                                <input type="number" class="form-control" id="creditLimit" role="creditLimit" name ="creditLimit" placeholder="Enter credit limit">
-                                              </div>
+                                                <input type="number" class="form-control" id="creditLimit" role="creditLimit" name ="creditLimit" placeholder="Enter credit limit" required>
+                                                <div class="invalid-feedback">Please enter your creditLimit.</div>
+                                            </div>
                                             </div>
                                             <div class="col-sm-6">
                                               <div class="form-group">
                                                 <label for="birthdate">Birthdate <span class="required">*</span></label>
-                                                <input type="date" class="form-control" id="birthdate" role="birthdate" name="birthdate" placeholder="Enter birthdate" >
-                                              </div>
+                                                <input type="date" class="form-control" id="birthdate" role="birthdate" name="birthdate" placeholder="Enter birthdate" required >
+                                                <div class="invalid-feedback">Please enter your birthdate.</div>
+                                            </div>
                                             </div>
                                           </div>
                                         <div class="form-group">
                                             <label for="address">Address:<span
                                                     class='required'>*</span></label>
-                                            <input type="text" class="form-control" id="address" role="address" name="address" placeholder="Enter your address">
+                                            <input type="text" class="form-control" id="address" role="address" name="address" placeholder="Enter your address" required>
+                                            <div class="invalid-feedback">Please enter your address.</div>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword2">Password <span class='required'>*</span></label>
                                             <div class="input-group d-flex flex-row">
-                                                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" name="password">
-                                                <div class="input-group-append">
-                                                    <div class="input-group-text">
-                                                        <i class='bi bi-eye-fill ml-2'></i>
-                                                    </div>
-                                                </div>
+                                                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" name="password" required>
                                             </div>
+                                            <div class="invalid-feedback">Please enter your address.</div>
                                         </div>
-                                        <input type="submit"
-                                            class="btn btn-default btn-hover btn-orange rounded-0">CREATE
-                                            ACCOUNT</button><br>
+                                        <button type="submit"
+                                            class="btn btn-default btn-hover btn-orange rounded-0">CREATE ACCOUNT</button><br>
                                     </form>
                                 </div>
                             </div>
@@ -1124,14 +1125,15 @@
         </div>
     </footer>
 
-    <script src="Javascript/index.js"></script>
+    <!-- <script src="Javascript/index.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
     </script>
-    <script>
+    <script src="script/register.js"></script>
+    <!-- <script>
         // cart page
         window.onload = function () {
             cart_num = JSON.parse(localStorage.getItem("Products_IDs")).length;
@@ -1139,6 +1141,6 @@
             wishlist_num = JSON.parse(localStorage.getItem("Wishlist_IDs")).length;
             document.querySelector('#wishlist-badge').innerHTML = wishlist_num;
         }
-    </script>
+    </script> -->
 </body>
 </html>

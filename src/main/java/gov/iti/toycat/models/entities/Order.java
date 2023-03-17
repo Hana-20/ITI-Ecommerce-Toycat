@@ -26,8 +26,8 @@ import jakarta.persistence.Table;
  * @author hanaa
  */
 @Entity
-@Table(name = "cart")
-public class Cart implements Serializable {
+@Table(name = "orders")
+public class Order implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -35,6 +35,9 @@ public class Cart implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
+    @Basic(optional = false)
+    @Column(name = "status")
+    private String status;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Basic(optional = false)
     @Column(name = "total_price")
@@ -42,18 +45,19 @@ public class Cart implements Serializable {
     @JoinColumn(name = "user_email", referencedColumnName = "email")
     @ManyToOne(optional = false)
     private User userEmail;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
-    private Collection<CartProduct> cartProductCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "order")
+    private Collection<OrderProduct> orderProductCollection;
 
-    public Cart() {
+    public Order() {
     }
 
-    public Cart(Integer id) {
+    public Order(Integer id) {
         this.id = id;
     }
 
-    public Cart(Integer id, BigDecimal totalPrice) {
+    public Order(Integer id, String status, BigDecimal totalPrice) {
         this.id = id;
+        this.status = status;
         this.totalPrice = totalPrice;
     }
 
@@ -63,6 +67,14 @@ public class Cart implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public BigDecimal getTotalPrice() {
@@ -81,12 +93,12 @@ public class Cart implements Serializable {
         this.userEmail = userEmail;
     }
 
-    public Collection<CartProduct> getCartProductCollection() {
-        return cartProductCollection;
+    public Collection<OrderProduct> getOrderProductCollection() {
+        return orderProductCollection;
     }
 
-    public void setCartProductCollection(Collection<CartProduct> cartProductCollection) {
-        this.cartProductCollection = cartProductCollection;
+    public void setOrderProductCollection(Collection<OrderProduct> orderProductCollection) {
+        this.orderProductCollection = orderProductCollection;
     }
 
     @Override
@@ -99,10 +111,10 @@ public class Cart implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Cart)) {
+        if (!(object instanceof Order)) {
             return false;
         }
-        Cart other = (Cart) object;
+        Order other = (Order) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -111,7 +123,7 @@ public class Cart implements Serializable {
 
     @Override
     public String toString() {
-        return "gov.iti.toycat.models.entities.Cart[ id=" + id + " ]";
+        return "gov.iti.toycat.models.entities.order[ id=" + id + " ]";
     }
     
 }

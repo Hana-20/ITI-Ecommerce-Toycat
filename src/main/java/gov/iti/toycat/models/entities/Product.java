@@ -6,12 +6,11 @@ package gov.iti.toycat.models.entities;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Set;
+import java.util.Collection;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -28,9 +27,7 @@ import jakarta.persistence.Table;
  * @author hanaa
  */
 @Entity
-@Table(name = "product", catalog = "toycat", schema = "")
-@NamedQueries({
-    @NamedQuery(name = "Product.findAll", query = "SELECT p FROM Product p")})
+@Table(name = "products")
 public class Product implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -56,12 +53,12 @@ public class Product implements Serializable {
     @Column(name = "quantity")
     private int quantity;
     @JoinColumn(name = "category_id", referencedColumnName = "id")
-    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @ManyToOne(optional = false)
     private Category categoryId;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "productId1", fetch = FetchType.LAZY)
-    private Set<CartProduct> cartProductSet;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "productId1", fetch = FetchType.LAZY)
-    private Set<OrderProduct> orderProductSet;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
+    private Collection<CartProduct> cartProductCollection;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
+    private Collection<OrderProduct> orderProductCollection;
 
     public Product() {
     }
@@ -134,20 +131,20 @@ public class Product implements Serializable {
         this.categoryId = categoryId;
     }
 
-    public Set<CartProduct> getCartProductSet() {
-        return cartProductSet;
+    public Collection<CartProduct> getCartProductCollection() {
+        return cartProductCollection;
     }
 
-    public void setCartProductSet(Set<CartProduct> cartProductSet) {
-        this.cartProductSet = cartProductSet;
+    public void setCartProductCollection(Collection<CartProduct> cartProductCollection) {
+        this.cartProductCollection = cartProductCollection;
     }
 
-    public Set<OrderProduct> getOrderProductSet() {
-        return orderProductSet;
+    public Collection<OrderProduct> getOrderProductCollection() {
+        return orderProductCollection;
     }
 
-    public void setOrderProductSet(Set<OrderProduct> orderProductSet) {
-        this.orderProductSet = orderProductSet;
+    public void setOrderProductCollection(Collection<OrderProduct> orderProductCollection) {
+        this.orderProductCollection = orderProductCollection;
     }
 
     @Override
@@ -172,7 +169,7 @@ public class Product implements Serializable {
 
     @Override
     public String toString() {
-        return "gov.iti.model.Product[ id=" + id + " ]";
+        return "gov.iti.toycat.models.entities.Product[ id=" + id + " ]";
     }
     
 }

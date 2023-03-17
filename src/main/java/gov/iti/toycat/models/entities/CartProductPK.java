@@ -17,10 +17,10 @@ import jakarta.persistence.Embeddable;
 public class CartProductPK implements Serializable {
 
     @Basic(optional = false)
-    @Column(name = "cartId")
+    @Column(name = "cart_id")
     private int cartId;
     @Basic(optional = false)
-    @Column(name = "productId")
+    @Column(name = "product_id")
     private int productId;
 
     public CartProductPK() {
@@ -73,7 +73,7 @@ public class CartProductPK implements Serializable {
 
     @Override
     public String toString() {
-        return "gov.iti.model.CartProductPK[ cartId=" + cartId + ", productId=" + productId + " ]";
+        return "gov.iti.toycat.models.entities.CartProductPK[ cartId=" + cartId + ", productId=" + productId + " ]";
     }
     
 }

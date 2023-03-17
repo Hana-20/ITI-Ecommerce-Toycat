@@ -5,12 +5,11 @@
 package gov.iti.toycat.models.entities;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.Collection;
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
@@ -22,9 +21,8 @@ import jakarta.persistence.Table;
  * @author hanaa
  */
 @Entity
-@Table(name = "category", catalog = "toycat", schema = "")
-@NamedQueries({
-    @NamedQuery(name = "Category.findAll", query = "SELECT c FROM Category c")})
+@Table(name = "categories")
+
 public class Category implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -35,8 +33,8 @@ public class Category implements Serializable {
     @Basic(optional = false)
     @Column(name = "name")
     private String name;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoryId", fetch = FetchType.LAZY)
-    private Set<Product> productSet;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "categoryId")
+    private Collection<Product> productCollection;
 
     public Category() {
     }
@@ -66,12 +64,12 @@ public class Category implements Serializable {
         this.name = name;
     }
 
-    public Set<Product> getProductSet() {
-        return productSet;
+    public Collection<Product> getProductCollection() {
+        return productCollection;
     }
 
-    public void setProductSet(Set<Product> productSet) {
-        this.productSet = productSet;
+    public void setProductCollection(Collection<Product> productCollection) {
+        this.productCollection = productCollection;
     }
 
     @Override
@@ -96,7 +94,7 @@ public class Category implements Serializable {
 
     @Override
     public String toString() {
-        return "gov.iti.model.Category[ id=" + id + " ]";
+        return "gov.iti.toycat.models.entities.Category[ id=" + id + " ]";
     }
     
 }

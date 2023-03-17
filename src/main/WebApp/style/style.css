@@ -119,3 +119,18 @@ button{
 .social i{
   margin-right: 4px;
 }
+/* Style invalid form controls */
+.form-control:invalid {
+    border-color: #dc3545;
+  }
+  
+  /* Style validation messages */
+  .invalid-feedback {
+    display: none;
+    color: #dc3545;
+  }
+  
+  /* Show validation messages for invalid form controls */
+  .was-validated .form-control:invalid + .invalid-feedback {
+    display: block;
+  }
