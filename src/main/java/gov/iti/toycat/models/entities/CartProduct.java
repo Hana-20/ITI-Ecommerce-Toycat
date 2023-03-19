@@ -21,11 +21,7 @@ import jakarta.persistence.Table;
  */
 @Entity
 @Table(name = "cart_product")
-@NamedQueries({
-    @NamedQuery(name = "CartProduct.findAll", query = "SELECT c FROM CartProduct c"),
-    @NamedQuery(name = "CartProduct.findByQuantity", query = "SELECT c FROM CartProduct c WHERE c.quantity = :quantity"),
-    @NamedQuery(name = "CartProduct.findByCartId", query = "SELECT c FROM CartProduct c WHERE c.cartProductPK.cartId = :cartId"),
-    @NamedQuery(name = "CartProduct.findByProductId", query = "SELECT c FROM CartProduct c WHERE c.cartProductPK.productId = :productId")})
+
 public class CartProduct implements Serializable {
 
     private static final long serialVersionUID = 1L;
