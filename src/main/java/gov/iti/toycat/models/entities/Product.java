@@ -41,7 +41,7 @@ public class Product implements Serializable {
     @Basic(optional = false)
     @Lob
     @Column(name = "image")
-    private byte[] image;
+    private String image;
     @Basic(optional = false)
     @Column(name = "name")
     private String name;
@@ -67,7 +67,7 @@ public class Product implements Serializable {
         this.id = id;
     }
 
-    public Product(Integer id, byte[] image, String name, BigDecimal price, int quantity) {
+    public Product(Integer id, String image, String name, BigDecimal price, int quantity) {
         this.id = id;
         this.image = image;
         this.name = name;
@@ -91,11 +91,11 @@ public class Product implements Serializable {
         this.description = description;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
@@ -169,7 +169,10 @@ public class Product implements Serializable {
 
     @Override
     public String toString() {
-        return "gov.iti.toycat.models.entities.Product[ id=" + id + " ]";
+        return "Product [id=" + id + ", description=" + description + ", image=" + image + ", name=" + name + ", price="
+                + price + ", quantity=" + quantity + ", categoryId=" + categoryId + "]";
     }
+
+
     
 }
