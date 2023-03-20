@@ -4,15 +4,32 @@ import gov.iti.toycat.models.entities.User;
 import gov.iti.toycat.repositories.UserRepository;
 
 
+
 public class UserServices {
-    UserRepository userRepository=new UserRepository();
+  
      public boolean register(User user){
+        UserRepository userRepository=new UserRepository();
         return userRepository.inserUser(user);
         
      }
-    // public Users login(User user){
-    // }
-    // public List<User> selectUsers(String name){
-    // }
-
+    public boolean isEmailExist(String email) {
+        UserRepository userRepository=new UserRepository();
+        if(userRepository.getUser(email)!=null){
+            return true;
+        }
+        return false;
+     }
+    public boolean login(User user){
+        UserRepository userRepository=new UserRepository();
+        User loggedUser =userRepository.getUser(user.getEmail());
+        if(loggedUser!=null && loggedUser.getPassword().equals(user.getPassword())){
+            return false;
+        }
+        else{
+            return true;
+        }   
+    }
 }
+
+
+

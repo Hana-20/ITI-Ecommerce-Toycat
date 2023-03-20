@@ -27,6 +27,23 @@
         <servlet-name>register</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>checkEmailExiistatnce</servlet-name>
+        <servlet-class>gov.iti.toycat.controllers.EmailRegistrationController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>checkEmailExiistatnce</servlet-name>
+        <url-pattern>/email</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Home</servlet-name>
+        <servlet-class>gov.iti.toycat.controllers.HomeController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Home</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
     <listener>
     <listener-class>
     gov.iti.toycat.listeners.ContextListener

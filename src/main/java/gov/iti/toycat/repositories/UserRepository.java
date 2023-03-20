@@ -6,14 +6,22 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 
 public class UserRepository {
-    ConnectionManager conncetionManger=ConnectionManager.getInstance();
-    private EntityManagerFactory entityManagerFactory=conncetionManger.getEntityManagerFactory(); 
-    public boolean inserUser(User user){
+    ConnectionManager conncetionManger = ConnectionManager.getInstance();
+    private EntityManagerFactory entityManagerFactory = conncetionManger.getEntityManagerFactory();
+
+    public boolean inserUser(User user) {
         EntityManager entityManger = entityManagerFactory.createEntityManager();
         entityManger.getTransaction().begin();
         entityManger.persist(user);
         entityManger.getTransaction().commit();
         entityManger.close();
-        return false;
+        return true;
+    }
+
+    public User getUser(String email) {
+        EntityManager entityManger = entityManagerFactory.createEntityManager();
+        User user = entityManger.find(User.class, email);
+       return user;
+
     }
 }

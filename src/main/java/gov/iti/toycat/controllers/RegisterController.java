@@ -49,7 +49,6 @@ public class RegisterController extends HttpServlet {
     }
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {       
-        PrintWriter out=response.getWriter();
         String creditLimitStr = request.getParameter("creditLimit");
         double creditLimit=0.0;
 try {
@@ -59,7 +58,7 @@ try {
     System.out.println("Failed to convert string to double");        
         }
     String sDate1="05/09/2000";
-    // String sDate1=request.getParameter("birthdate");
+    //sDate1=request.getParameter("birthdate");
     Date date1=null;
     try {
         date1 = new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);
