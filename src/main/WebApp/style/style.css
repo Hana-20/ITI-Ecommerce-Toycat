@@ -529,13 +529,17 @@
     font-size: 4.5vw;
     font-family: 'Times New Roman', Times, serif;
     margin-bottom: 0;
+    text-shadow: #000000;
 }
 
 .carousel-slider-text p {
     font-size: 2vw;
-    color: #B4F146;
+    color: #b26323;
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 0.3em;
+    font-weight: bold;
+    text-shadow: #000000;
+   
 }
 
 .carousel-slider-text button {

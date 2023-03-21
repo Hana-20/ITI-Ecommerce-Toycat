@@ -16,32 +16,23 @@
 <body>
     <header class='mb-5'>
         <!-- Start of Top Bar -->
-        <div class="top-header" role='top header' id="back-to-top">
-            <div class="social-img-holder" role='image holder'>
-                <img src="Images/facebook.png" alt="facebook-icon" role='icon' aria-label='facebook icon'>
-                <img src="Images/youtube.png" alt="youtube-icon" role='icon' aria-label='youtube icon'>
-                <img src="Images/Twitter.png" alt="twitter-icon" role='icon' aria-label='twitter icon'>
-            </div>
-            <div class="search-box" role='search' id="search-box">
-                <input type="search" name="searchbox" role="form" id="searchbox"
-                    placeholder="Search Products and Brands" aria-labelledby="search-box">
-                <img src="Images/magglass.png" alt="search-icon" role='icon' aria-label='magnifying glass icon'>
-            </div>
+        <!-- <div class="top-header" role='top header' id="back-to-top">
+        
             <div class="information-tab" role="info container">
                 <img src="Images/call.png" id='call-icon' alt="call-icon" role='icon' aria-label='Phone icon'>
                 <a id='ph-number' href="" role='link'>+91 9838203708</a>
                 <a href="Seller-page.html" role='link'>Sell on Company</a>
                 <a href="#" role='link'>Download App</a>
-                <img src="Images/langicon.png" id="flag-icon" alt="lang-icon" role='icon' aria-label='language icon'>
-                <form action="#" aria-label='form'>
-                    <select name="lang-select" id="lang-select" aria-labelledby="select box">
-                        <option value="India" role="option" aria-labelledby="Option1">India</option>
+                <img src="Images/langicon.png" id="flag-icon" alt="lang-icon" role='icon' aria-label='language icon'> -->
+                <!-- <form action="#" aria-label='form'> -->
+                    <div name="lang-select" id="lang-select" aria-labelledby="select box"> 
+                        <!-- <option value="India" role="option" aria-labelledby="Option1">India</option>
                         <option value="UK" role="option" aria-labelledby="Option1">UK</option>
                         <option value="Canada" role="option" aria-labelledby="Option2">Canada</option>
-                        <option value="Germany" role="option" aria-labelledby="Option3">Germany</option>
-                    </select>
-                </form>
-            </div>
+                        <option value="Germany" role="option" aria-labelledby="Option3">Germany</option> -->
+                        </div>
+                <!-- </form> -->
+            <!-- </div> -->
         </div>
         <!-- End of Top Bar -->
 
@@ -229,18 +220,18 @@
             <div id="carousel-slider" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="Images/banner-model.png" alt="First slide">
+                        <img class="d-block w-100" src="Images/baies_home.jpg" alt="First slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="Images/banner-model.png" alt="Second slide">
+                        <img class="d-block w-100" src="Images/baies_home.jpg" alt="Second slide">
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="Images/banner-model.png" alt="Third slide">
+                        <img class="d-block w-100" src="Images/baies_home.jpg" alt="Third slide">
                     </div>
                     <div class="carousel-slider-text">
                         <p>60% Discount</p>
-                        <h2>Ethnic<br>Collection</h2>
-                        <p>Best Cloth Collection of 2020!</p>
+                        <h2>Coolest<br>Toys</h2>
+                        <p>Best Toys 2023!</p>
                         <button onclick="location.href='Product-list.html';">SHOP NOW</button>
                     </div>
                 </div>
@@ -1065,23 +1056,21 @@
                     <a href="#" role='link'>Privacy Policy</a>
                     <a href="#" role='link'>Terms of Sale</a>
                     <a href="#" role='link'>Terms of Use</a>
-                    <a href="#" role='link'>Report Abuse and Takedown Policy</a>
+                    
                 </div>
                 <div class="col col-xl-2 col-lg-3 col-md-2 col-sm-3 d-flex flex-column align-items-start">
                     <h3>COMPANY</h3>
                     <a href="#" role='link'>About Us</a>
                     <a href="#" role='link'>Core Values</a>
                     <a href="#" role='link'>Careers</a>
-                    <a href="#" role='link'>Blog</a>
-                    <a href="#" role='link'>Site Map</a>
+
                 </div>
                 <div class="col col-xl-3 col-lg-3 col-md-4 col-sm-5 d-flex flex-column align-items-start">
                     <h3>SNAPDEAL BUSINESS</h3>
                     <a href="#" role='link'>Shopping App</a>
                     <a href="#" role='link'>Sell on Snapdeal</a>
                     <a href="#" role='link'>Advertise on Snapdeal</a>
-                    <a href="#" role='link'>Media Enquiries</a>
-                    <a href="#" role='link'>Be an Affiliate</a>
+                   
                 </div>
                 <div
                     class="col col-xl-2 col-lg-3 col-md-3 col-sm-4 mt-md-0 mt-sm-5 d-flex flex-column align-items-start">
@@ -1090,46 +1079,10 @@
                     <a href="FAQ.html" role='link'>FAQ</a>
                     <a href="#" role='link'>Online Shopping</a>
                 </div>
-                <div class="col col-xl-3 col-lg-5 col-md-6 col-sm-7 mt-xl-0 mt-lg-5 mt-md-5 mt-sm-5">
-                    <h3>SUBSCRIBE</h3>
-                    <div class="input-group mb-2 d-flex justify-content-center align-items-center">
-                        <input type="text" class="form-control" placeholder="Your Email Address"
-                            aria-label="Recipient's username" aria-describedby="button-addon2">
-                        <button class="btn btn-outline-secondary d-flex align-items-center" type="button"
-                            id="button-addon2">Search</button>
-                    </div>
-                    <small>Register now to get updates on promotions and coupons.<br> Or <a href="#">Download
-                            App</a></small>
-                </div>
+               
             </div>
         </div>
-        <hr>
-        <div class="bottom-footer container-fluid w-75">
-            <div class="row">
-                <div class="col d-flex flex-row justify-content-between">
-                    <div class="box-1">
-                        <h3>PAYMENT</h3>
-                        <div class="card-holder">
-                            <img src="Images/card1.png" alt="card1" role="icon" aria-label='card image'>
-                            <img src="Images/card2.png" alt="card2" role="icon" aria-label='card image'>
-                            <img src="Images/card3.png" alt="card3" role="icon" aria-label='card image'>
-                            <img src="Images/card4.png" alt="card4" role="icon" aria-label='card image'>
-                            <img src="Images/card2.png" alt="cod" role="icon" aria-label='card image'>
-                            <img src="Images/card1.png" alt="netbanking" role="icon" aria-label='card image'>
-                        </div>
-                    </div>
-                    <div class="box-2">
-                        <h3>SOCIAL</h3>
-                        <div class="social-holder">
-                            <img src="Images/facebook.png" alt="facebook" role="icon" aria-label='facebook icon'>
-                            <img src="Images/tw-footer.png" alt="twitter" role="icon" aria-label='twitter icon'>
-                            <img src="Images/yt-footer.png" alt="youtube" role="icon" aria-label='youtube icon'>
-                            <img src="Images/ins-footer.png" alt="instagram" role="icon" aria-label='instagram icon'>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </footer>
 
     <script src="Javascript/index.js"></script>
