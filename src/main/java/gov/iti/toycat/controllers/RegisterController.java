@@ -57,11 +57,11 @@ try {
 } catch (NumberFormatException e) {
     System.out.println("Failed to convert string to double");        
         }
-    String sDate1="05/09/2000";
-    //sDate1=request.getParameter("birthdate");
+    String sDate1=null;
+    sDate1=request.getParameter("birthdate");
     Date date1=null;
     try {
-        date1 = new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);
+        date1 = new SimpleDateFormat("dd-MM-yyyy").parse(sDate1);
     } catch (ParseException e) {
         // TODO Auto-generated catch block
         e.printStackTrace();

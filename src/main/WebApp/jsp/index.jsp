@@ -123,19 +123,19 @@
                                 <div class="tab-pane active" id="login" role="tabpanel" aria-labelledby="tab1"
                                     aria-hidden='false'>
                                     <!-- Addition of Form 1 -->
-                                    <form class="d-flex flex-column">
+                                    <form class="d-flex flex-column" action="login" method="post" id="loginForm" class="needs-validation" novalidate>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Email address <span
                                                     class='required'>*</span></label>
-                                            <input type="email" class="form-control" id="exampleInputEmail1"
-                                                role="email" placeholder="Enter email">
+                                            <input type="email" class="form-control" id="loginEmail"
+                                                role="email" name="loginEmail" placeholder="Enter email" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Password <span
                                                     class='required'>*</span></label>
                                             <div class="input-group d-flex flex-row">
-                                                <input type="password" class="form-control" id="exampleInputPassword1"
-                                                    placeholder="Password">
+                                                <input type="password" class="form-control" id="loginPassword" 
+                                                role="password" name="loginPassword" placeholder="Password" required>
                                                 <div class="input-group-append">
                                                     <div class="input-group-text">
                                                         <i class='bi bi-eye-fill ml-2'></i>

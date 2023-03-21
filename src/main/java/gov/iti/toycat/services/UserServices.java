@@ -23,10 +23,10 @@ public class UserServices {
         UserRepository userRepository=new UserRepository();
         User loggedUser =userRepository.getUser(user.getEmail());
         if(loggedUser!=null && loggedUser.getPassword().equals(user.getPassword())){
-            return false;
+            return true;
         }
         else{
-            return true;
+            return false;
         }   
     }
 }
