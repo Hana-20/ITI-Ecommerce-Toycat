@@ -20,7 +20,10 @@ public class UserRepository {
 
     public User getUser(String email) {
         EntityManager entityManger = entityManagerFactory.createEntityManager();
-        User user = entityManger.find(User.class, email);
+        User user = entityManger.find(User.class, email.trim());
+        System.out.println("loggedUser email: "+user.getEmail());
+        System.out.println("loggedUser password: "+user.getPassword());
+
        return user;
 
     }

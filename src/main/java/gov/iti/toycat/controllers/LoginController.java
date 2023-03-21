@@ -40,24 +40,24 @@ public class LoginController extends HttpServlet {
     }
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException { 
-        User user=new User(request.getParameter("email"),request.getParameter("password"));
         PrintWriter out=response.getWriter();
+        User user=new User(request.getParameter("loginEmail"),request.getParameter("loginPassword"));
         boolean isUthrized=new UserServices().login(user);
+        System.out.println("Email: "+user.getEmail());
+        System.out.println("password: "+user.getPassword());
         if(isUthrized){
-        //response.sendRedirect("welcome.html");
         HttpSession session = request.getSession(true);
         session.setAttribute("user", user);
-        RequestDispatcher rd = request.getRequestDispatcher("home");
-        rd.forward(request, response);
+        response.sendRedirect("home");
         }
        else { 
-        response.setContentType("text/html");
-        //response.sendRedirect("http://localhost:9091/Form/logInForm.html");
-        RequestDispatcher rd = request.getRequestDispatcher("index.html");
-        out.println("<label style=\"color: red\">Login Failed, please try again.<label>"); 
-       // rd.forward(request, response);
-        rd.include(request, response);
-        //out.println("<h4>esraa</h4>");   
+        // response.setContentType("text/html");
+        // //response.sendRedirect("http://localhost:9091/Form/logInForm.html");
+        // RequestDispatcher rd = request.getRequestDispatcher("home");
+        
+        // rd.forward(request, response);
+        // rd.include(request, response);
+        out.println("<h4>in-valid</h4>");   
        }
     }
 }

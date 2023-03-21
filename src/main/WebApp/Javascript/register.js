@@ -13,7 +13,6 @@ cPasswordInput.addEventListener("blur", function () {
   if (cPasswordInput.value.trim() === '') {
     validateConfirmPassword.innerHTML = "Please enter your password confirmtion"
       cPasswordInput.classList.add("is-invalid");
-    
   }
   
   else {

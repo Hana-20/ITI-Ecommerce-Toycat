@@ -21,7 +21,7 @@
     </servlet-mapping>
      <servlet>
         <servlet-name>logIn</servlet-name>
-        <servlet-class>servlates.ServlateLoginForm</servlet-class>
+        <servlet-class>gov.iti.toycat.controllers.LoginController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>logIn</servlet-name>
@@ -37,11 +37,11 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>checkEmailExiistatnce</servlet-name>
+        <servlet-name>checkEmailExistatnce</servlet-name>
         <servlet-class>gov.iti.toycat.controllers.EmailRegistrationController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>checkEmailExiistatnce</servlet-name>
+        <servlet-name>checkEmailExistatnce</servlet-name>
         <url-pattern>/email</url-pattern>
     </servlet-mapping>
     <servlet>
