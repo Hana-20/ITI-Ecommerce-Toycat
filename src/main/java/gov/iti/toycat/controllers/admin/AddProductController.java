@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Enumeration;
+import java.util.UUID;
 
 import com.google.gson.Gson;
 
@@ -30,7 +31,7 @@ import jakarta.servlet.http.Part;
 @MultipartConfig
 public class AddProductController extends HttpServlet {
 
-    private static final String UPLOAD_DIR = "images";
+    private static final String UPLOAD_DIR = "Images";
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -56,12 +57,21 @@ public class AddProductController extends HttpServlet {
         if (!uploadDir.exists()) {
             uploadDir.mkdir();
         }
+
+        String uniqueID = Long.toString(System.currentTimeMillis()) + "_" +
+                UUID.randomUUID().toString();
+
         String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
-        String filePath = UPLOAD_DIR + File.separator + fileName;
+        String filePath = UPLOAD_DIR + File.separator + uniqueID + fileName;
+        System.out.println("filePath: " + filePath);
         try (InputStream fileContent = filePart.getInputStream()) {
             Files.copy(fileContent, Paths.get(getServletContext().getRealPath("/") + filePath));
         }
+
         String imageUrl = request.getContextPath() + "/" + filePath;
+        System.out.println("imgeUrl: " + imageUrl);
+        // String imageUrl = request.getContextPath() + "/" + filePath;
+
         ProductDTO product = new ProductDTO(null, description, imageUrl, name, quantity, price, category);
         new ProductService().addProduct(product);
 
