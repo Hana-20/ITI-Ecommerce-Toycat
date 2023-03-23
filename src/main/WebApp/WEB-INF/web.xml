@@ -1,9 +1,8 @@
 <web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
-    version="5.0"
-    metadata-complete="true">
-    <servlet>
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" version="5.0" >
+
+    <!-- ======== Admin URLs Mapping =======  -->
+    <!-- <servlet>
         <servlet-name>admin-products</servlet-name>
         <servlet-class>gov.iti.toycat.controllers.admin.ProductsController</servlet-class>
     </servlet>
@@ -11,23 +10,43 @@
         <servlet-name>admin-products</servlet-name>
         <url-pattern>/admin/products</url-pattern>
     </servlet-mapping>
-     <servlet>
-        <servlet-name>search</servlet-name>
-        <servlet-class>servlates.SearchServlate</servlet-class>
+
+    <servlet>
+        <servlet-name>admin-add-product</servlet-name>
+        <servlet-class>gov.iti.toycat.controllers.admin.AddProductController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>search</servlet-name>
-        <url-pattern>/SearchServlate</url-pattern>
+        <servlet-name>admin-add-product</servlet-name>
+        <url-pattern>/admin/products/add</url-pattern>
     </servlet-mapping>
-     <servlet>
-        <servlet-name>logIn</servlet-name>
-        <servlet-class>servlates.ServlateLoginForm</servlet-class>
+
+    <servlet>
+        <servlet-name>admin</servlet-name>
+        <servlet-class>gov.iti.toycat.controllers.admin.AdminController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>logIn</servlet-name>
-        <url-pattern>/login</url-pattern>
-    </servlet-mapping>
-     <servlet>
+        <servlet-name>admin</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping> -->
+
+    <!-- ======== END of Admin URLs Mapping =======  -->
+
+    <!-- ======== API Mapping =======  -->
+    <!-- <servlet>
+        <servlet-name>categories</servlet-name>
+        <servlet-class>gov.iti.toycat.controllers.CategoriesController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>categories</servlet-name>
+        <url-pattern>/api/categories</url-pattern>
+    </servlet-mapping> -->
+
+    <!-- ======== End of API Mapping =======  -->
+
+
+
+
+    <servlet>
         <servlet-name>register</servlet-name>
         <servlet-class>gov.iti.toycat.controllers.RegisterController</servlet-class>
     </servlet>
@@ -44,21 +63,14 @@
         <servlet-name>checkEmailExiistatnce</servlet-name>
         <url-pattern>/email</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>Home</servlet-name>
-        <servlet-class>gov.iti.toycat.controllers.HomeController</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Home</servlet-name>
-        <url-pattern>/home</url-pattern>
-    </servlet-mapping>
-    <listener>
-    <listener-class>
-    gov.iti.toycat.listeners.ContextListener
-    </listener-class>
-</listener>
-     <welcome-file-list>
-    <welcome-file>jsp/index.jsp</welcome-file>
-  </welcome-file-list>
   
+    <listener>
+        <listener-class>
+    gov.iti.toycat.listeners.ContextListener
+        </listener-class>
+    </listener>
+    <welcome-file-list>
+        <welcome-file>jsp/index.jsp</welcome-file>
+    </welcome-file-list>
+
 </web-app>

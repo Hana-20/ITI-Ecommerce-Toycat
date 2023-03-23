@@ -9,10 +9,6 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
   <link
@@ -20,9 +16,12 @@
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="admin/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="admin/css/style.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/admin/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/admin/css/style.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="${pageContext.request.contextPath}/admin/css/style.css" rel="stylesheet">
 
 
 </head>
@@ -50,14 +49,14 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="${pageContext.request.contextPath}/admin">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="admin/products">
+        <a class="nav-link collapsed" href="${pageContext.request.contextPath}/admin/products" >
           <i class="bi bi-bag"></i>
           <span>Products</span>
         </a>
@@ -113,7 +112,7 @@
 
 
               <!-- Add Product Form -->
-              <form class="needs-validation" novalidate>
+              <form class="needs-validation" novalidate id="add-product-form"  method="post" enctype="multipart/form-data">
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Name</label>
                   <div class="col-sm-10">
@@ -128,11 +127,8 @@
                 <div class="row mb-3">
                   <label class="col-sm-2 col-form-label">Category</label>
                   <div class="col-sm-10">
-                    <select class="form-select" aria-label="Default select example" required>
-                      <option selected>Select Category</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                    <select  name="category" class="form-select" id="category-select" aria-label="Default select example" required>
+         
                     </select>
 
                   </div>
@@ -141,7 +137,7 @@
                 <div class="row mb-3">
                   <label for="inputPassword" class="col-sm-2 col-form-label">Description</label>
                   <div class="col-sm-10">
-                    <textarea class="form-control" style="height: 100px"></textarea>
+                    <textarea  name="description" class="form-control" style="height: 100px"></textarea>
                   </div>
                 </div>
 
@@ -170,7 +166,7 @@
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-2 col-form-label">Image</label>
                   <div class="col-sm-10">
-                    <input class="form-control" type="file" id="formFile" name="image" required>
+                    <input class="form-control" type="file" id="formFile" name="image" required accept="image/*">
                     <div class="invalid-feedback">
                       This field is required.
                     </div>
@@ -209,11 +205,13 @@
       class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="${pageContext.request.contextPath}/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
   <!-- Template Main JS File -->
-  <script src="admin/js/main.js"></script>
+  <script src="${pageContext.request.contextPath}/admin/js/main.js"></script>
+  <script src="${pageContext.request.contextPath}/admin/js/add-product.js"></script>
+ 
 
 </body>
 

@@ -19,13 +19,12 @@
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
     rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="admin/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="admin/css/style.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/admin/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/admin/css/style.css" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="admin/css/style.css" rel="stylesheet">
+  <link href="${pageContext.request.contextPath}/admin/css/style.css" rel="stylesheet">
 
 
 </head>
@@ -250,11 +249,11 @@
       class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="${pageContext.request.contextPath}/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 
   <!-- Template Main JS File -->
-  <script src="admin/js/main.js"></script>
+  <script src="${pageContext.request.contextPath}/admin/js/main.js"></script>
 
 </body>
 
