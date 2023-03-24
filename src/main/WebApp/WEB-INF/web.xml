@@ -52,6 +52,14 @@
         <servlet-name>Home</servlet-name>
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
+      <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>gov.iti.toycat.controllers.LogoutController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
     <listener>
     <listener-class>
     gov.iti.toycat.listeners.ContextListener

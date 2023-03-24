@@ -2,6 +2,7 @@ package gov.iti.toycat.controllers;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import gov.iti.toycat.models.dtos.User.LoginDTO;
 import gov.iti.toycat.models.entities.User;
 import gov.iti.toycat.services.UserServices;
 import jakarta.servlet.http.HttpServletRequest;
@@ -36,18 +37,25 @@ public class LoginController extends HttpServlet {
         
     }
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException { 
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // do preparing
+        System.out.println("SignInController.doGet");
+        var user = (User) request.getSession().getAttribute("user");
+        if (user != null) {
+            response.sendRedirect("home");
+           
+        }
     }
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException { 
         PrintWriter out=response.getWriter();
-        User user=new User(request.getParameter("loginEmail"),request.getParameter("loginPassword"));
-        boolean isUthrized=new UserServices().login(user);
+        LoginDTO user=new LoginDTO(request.getParameter("loginEmail"),request.getParameter("loginPassword"));
+       User isUthrized=new UserServices().login(user);
         System.out.println("Email: "+user.getEmail());
         System.out.println("password: "+user.getPassword());
-        if(isUthrized){
+        if(isUthrized!=null){
         HttpSession session = request.getSession(true);
-        session.setAttribute("user", user);
+        session.setAttribute("user",isUthrized);
         response.sendRedirect("home");
         }
        else { 

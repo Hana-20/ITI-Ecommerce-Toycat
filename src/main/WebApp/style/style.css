@@ -422,7 +422,7 @@
     height: 3.5em;
 }
 
-#signin {
+.sign {
     width: 7em;
     height: 2.5em;
     border-radius: 2em;
@@ -433,7 +433,7 @@
     outline: none;
 }
 
-#signin:hover {
+.sign:hover {
     background-color: white;
     border: 1px solid #FD6E00;
     color: #FD6E00;
@@ -686,7 +686,7 @@
         border: none !important;
     }
 
-    #signin {
+    .sign {
         width: 100vw;
         height: 3.5em;
         font-size: 0.6em;
@@ -755,7 +755,7 @@
         border-radius: 1em;
     }
 
-    #signin {
+    .sign {
         width: 100vw;
         height: 3.5em;
         font-size: 0.6em;
@@ -839,7 +839,7 @@
         border-radius: 1em;
     }
 
-    #signin {
+    .sign{
         width: 100vw;
         height: 3.5em;
         font-size: 0.7em;
@@ -922,7 +922,7 @@
         border-radius: 1em;
     }
 
-    #signin {
+    .sign {
         width: 100vw;
         height: 3.5em;
         font-size: 0.6em;
@@ -1019,7 +1019,7 @@
         border-radius: 1em;
     }
 
-    #signin {
+    .sign {
         width: 100vw;
         height: 3.5em;
         font-size: 0.6em;
@@ -1112,7 +1112,7 @@
         border-radius: 1em;
     }
 
-    #signin {
+    .sign {
         width: 100vw;
         height: 3.5em;
         font-size: 0.6em;

@@ -92,8 +92,8 @@
                             <c:choose>
                                
                                 <c:when test="${not empty sessionScope.user}">
-                                    <form class="form-inline my-2 my-lg-0 d-flex flex-column align-items-stretch justify-content-start">
-                                        <button class="btn btn-orange my-2 my-sm-0" id="signout" type="button"
+                                    <form class="form-inline my-2 my-lg-0 d-flex flex-column align-items-stretch justify-content-start" method="post" action="logout">
+                                        <button class="btn btn-orange my-2 my-sm-0" id="signout" type="submit" class="sign"
                                                 data-toggle="modal"  aria-labelledby='sign-out-btn'>LOG OUT</button>
                                     </form>
                                 </c:when>
@@ -101,7 +101,7 @@
                                 <c:otherwise>
                                     <form class=>
                                         <button class="btn btn-orange my-2 my-sm-0" id="signin" type="button"
-                                                data-toggle="modal" data-target="#exampleModalCenter"
+                                                data-toggle="modal" data-target="#exampleModalCenter" class="sign"
                                                 aria-labelledby='sign-in-btn'>SIGN IN</button>
                                     </form>
                                 </c:otherwise>

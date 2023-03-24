@@ -1,5 +1,6 @@
 package gov.iti.toycat.services;
 
+import gov.iti.toycat.models.dtos.User.LoginDTO;
 import gov.iti.toycat.models.entities.User;
 import gov.iti.toycat.repositories.UserRepository;
 
@@ -19,15 +20,11 @@ public class UserServices {
         }
         return false;
      }
-    public boolean login(User user){
+    public User login(LoginDTO user){
         UserRepository userRepository=new UserRepository();
-        User loggedUser =userRepository.getUser(user.getEmail());
-        if(loggedUser!=null && loggedUser.getPassword().equals(user.getPassword())){
-            return true;
-        }
-        else{
-            return false;
-        }   
+        User loggedUser =userRepository.getUserByEmailAndPassword(user);
+            return loggedUser;
+        
     }
 }
 
