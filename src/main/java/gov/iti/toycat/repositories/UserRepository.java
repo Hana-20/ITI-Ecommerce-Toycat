@@ -50,7 +50,7 @@ public class UserRepository {
         // Execute the query
         TypedQuery<User> query = entityManager.createQuery(criteriaQuery);
         List<User> result = query.getResultList();
-        System.out.println(result.get(0));
+       // System.out.println(result.get(0));
         // Check if the login was successful
         if (!result.isEmpty()) {
             user = result.get(0);

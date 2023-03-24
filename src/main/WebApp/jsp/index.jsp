@@ -81,9 +81,7 @@
                                     <a class="nav-link" href="Wishlist.html">Wishlist</a>
                                     <span class="badge" id="wishlist-badge">0</span>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link ml-xl-3 ml-md-0" href="My-profile.html">Profile</a>
-                                </li>
+
                                 <li class="nav-item notification">
                                     <a class="nav-link" href="Cart-page.html" id="cart-btn">Cart</a>
                                     <span class="badge" id="cart-badge">0</span>
@@ -99,7 +97,7 @@
                                 </c:when>
                                 
                                 <c:otherwise>
-                                    <form class=>
+                                    <form >
                                         <button class="btn btn-orange my-2 my-sm-0" id="signin" type="button"
                                                 data-toggle="modal" data-target="#exampleModalCenter" class="sign"
                                                 aria-labelledby='sign-in-btn'>SIGN IN</button>
@@ -141,6 +139,7 @@
                                     <!-- Addition of Form 1 -->
                                     <form class="d-flex flex-column" action="login" method="post" id="loginForm"
                                         class="needs-validation" novalidate>
+                                        <div class="text-danger error-message"></div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Email address <span
                                                     class='required'>*</span></label>
@@ -163,8 +162,6 @@
                                         </div>
                                         <button type="submit" class="btn btn-orange rounded-0">SIGN
                                             IN</button><br>
-                                        <button type="submit" class="btn btn-default2 rounded-0">FORGOT YOUR
-                                            PASSWORD?</button>
                                     </form>
                                 </div>
                                 <div class="tab-pane" id="create-account" role="tabpanel" aria-labelledby="tab2"
@@ -1167,6 +1164,7 @@
 
     <script src="Javascript/index.js"></script>
     <script src="Javascript/register.js"></script>
+    <script src="Javascript/login.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
         </script>
