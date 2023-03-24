@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Dashboard - NiceAdmin Bootstrap Template</title>
+    <title>Dashboard - Toycat</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -20,7 +20,7 @@
     <link href="${pageContext.request.contextPath}/admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/admin/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/admin/css/style.css" rel="stylesheet">
-
+    <link href="${pageContext.request.contextPath}/admin/vendor/simple-datatables/style.css" rel="stylesheet">
     <!-- Template Main CSS File -->
     <link href="${pageContext.request.contextPath}/admin/css/style.css" rel="stylesheet">
 
@@ -98,8 +98,45 @@
             <h1>Products</h1>
         </div><!-- End Page Title -->
 
-        <section class="section ">
-
+        <section class="section dashboard">
+            <!-- Product List -->
+            <div class="col-12">
+                <div class="card recent-sales overflow-auto">
+  
+           
+  
+                  <div class="card-body">
+                    <h5 class="card-title">Products List <span>|<a href="${pageContext.request.contextPath}/admin/products/add"> Add Product</a></span></h5>
+  
+                    <table class="table table-borderless datatable">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Preview</th>
+                          <th scope="col">Product</th>
+                          <th scope="col">Quantity</th>
+                          <th scope="col">Price</th>
+                          <th scope="col">Category</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <c:forEach var="product" items="${productsList}">
+                            <tr>
+                                <th scope="row">${product.id}</th>
+                                <td class="top-selling"><img src="${product.image}" alt=""></td>
+                                <td>${product.name}</td>
+                                <td>${product.quantity}</td>
+                                <td>${product.price}</td>
+                                <td>${product.categoryDto.name}</td>
+                            </tr>
+                        </c:forEach>
+                      </tbody>
+                    </table>
+  
+                  </div>
+  
+                </div>
+              </div><!-- End Product List -->
         </section>
 
     </main><!-- End #main -->
@@ -111,7 +148,8 @@
 
     <!-- Vendor JS Files -->
     <script src="${pageContext.request.contextPath}/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <script src="${pageContext.request.contextPath}/admin/vendor/simple-datatables/simple-datatables.js"></script>
+    <script src="${pageContext.request.contextPath}/admin/vendor/tinymce/tinymce.min.js"></script>
 
     <!-- Template Main JS File -->
     <script src="${pageContext.request.contextPath}/admin/js/main.js"></script>

@@ -19,8 +19,9 @@ public class ProductsController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("GET: /admin/products");
-        // ProductService productService = new ProductService();
-        // List<ProductDTO> productsList = productService.getAllProducts();
+        ProductService productService = new ProductService();
+        List<ProductDTO> productsList = productService.getAllProducts();
+        request.setAttribute("productsList", productsList);
         // response.setContentType("application/json");
         // String jsonProductList = new Gson().toJson(productsList);
         // response.getWriter().write(jsonProductList);
