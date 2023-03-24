@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,15 +25,15 @@
                 <a href="Seller-page.html" role='link'>Sell on Company</a>
                 <a href="#" role='link'>Download App</a>
                 <img src="Images/langicon.png" id="flag-icon" alt="lang-icon" role='icon' aria-label='language icon'> -->
-                <!-- <form action="#" aria-label='form'> -->
-                    <div name="lang-select" id="lang-select" aria-labelledby="select box"> 
-                        <!-- <option value="India" role="option" aria-labelledby="Option1">India</option>
+        <!-- <form action="#" aria-label='form'> -->
+        <div name="lang-select" id="lang-select" aria-labelledby="select box">
+            <!-- <option value="India" role="option" aria-labelledby="Option1">India</option>
                         <option value="UK" role="option" aria-labelledby="Option1">UK</option>
                         <option value="Canada" role="option" aria-labelledby="Option2">Canada</option>
                         <option value="Germany" role="option" aria-labelledby="Option3">Germany</option> -->
-                        </div>
-                <!-- </form> -->
-            <!-- </div> -->
+        </div>
+        <!-- </form> -->
+        <!-- </div> -->
         </div>
         <!-- End of Top Bar -->
 
@@ -41,8 +42,8 @@
             <div class="sticky-bar-wrapper bg-white" id="sticky-section">
                 <nav class="navbar navbar-expand-lg navbar-light bg-white" id="bottom-header-navbar">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="index.html"><img id="logo_img" src="Images/logo.png" alt="logo" role="img"
-                                aria-label=" website logo"></a>
+                        <a class="navbar-brand" href="index.html"><img id="logo_img" src="Images/logo.png" alt="logo"
+                                role="img" aria-label=" website logo"></a>
                         <div class="input-group d-xl-none d-lg-none" id="search-box-container">
                             <input type="search" id="search-box-hidden" class="form-control"
                                 placeholder="Search products and Brands" aria-label="search box"
@@ -62,11 +63,11 @@
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link drop-btn" href="Product-list.html">Categories</a>
-                                        <div class="dropdown-content mt-2">
-                                            <a href="Product-list.html">Men</a>
-                                            <a href="Product-list.html">Women</a>
-                                            <a href="Product-list.html">Ethnic</a>
-                                        </div>
+                                    <div class="dropdown-content mt-2">
+                                        <a href="Product-list.html">Men</a>
+                                        <a href="Product-list.html">Women</a>
+                                        <a href="Product-list.html">Ethnic</a>
+                                    </div>
                                 </li>
                                 <li class="nav-item dropdown2">
                                     <a class="nav-link drop-btn2" href="my-order.html">Orders</a>
@@ -74,7 +75,7 @@
                                         <a href="my-order.html">My Orders</a>
                                         <a href="Track-order.html">Track Orders</a>
                                         <a href="Return-order.html">Return Orders</a>
-                                      </div>
+                                    </div>
                                 </li>
                                 <li class="nav-item wishlist">
                                     <a class="nav-link" href="Wishlist.html">Wishlist</a>
@@ -88,10 +89,23 @@
                                     <span class="badge" id="cart-badge">0</span>
                                 </li>
                             </ul>
-                            <form class="form-inline my-2 my-lg-0 d-flex flex-column align-items-stretch justify-content-start">
-                                <button class="btn btn-orange my-2 my-sm-0" id="signin" type="button" data-toggle="modal"
-                                data-target="#exampleModalCenter" aria-labelledby='sign-in-btn'>SIGN IN</button>
-                            </form>
+                            <c:choose>
+                               
+                                <c:when test="${not empty sessionScope.user}">
+                                    <form class="form-inline my-2 my-lg-0 d-flex flex-column align-items-stretch justify-content-start">
+                                        <button class="btn btn-orange my-2 my-sm-0" id="signout" type="button"
+                                                data-toggle="modal"  aria-labelledby='sign-out-btn'>LOG OUT</button>
+                                    </form>
+                                </c:when>
+                                
+                                <c:otherwise>
+                                    <form class=>
+                                        <button class="btn btn-orange my-2 my-sm-0" id="signin" type="button"
+                                                data-toggle="modal" data-target="#exampleModalCenter"
+                                                aria-labelledby='sign-in-btn'>SIGN IN</button>
+                                    </form>
+                                </c:otherwise>
+                            </c:choose>
                         </div>
                     </div>
                 </nav>
@@ -111,31 +125,35 @@
                             <!-- Addition of Tabs -->
                             <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                                 <li class="nav-item">
-                                    <a href="#login" id="tab1" class='nav-link active' style="border-color: white;" aria-controls="login"
-                                        aria-selected='true' role="tab" tabindex=1 data-toggle='tab'>LOGIN</a>
+                                    <a href="#login" id="tab1" class='nav-link active' style="border-color: white;"
+                                        aria-controls="login" aria-selected='true' role="tab" tabindex=1
+                                        data-toggle='tab'>LOGIN</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#create-account" id="tab2" class='nav-link' style="border-color: white;" aria-controls="create-account"
-                                        aria-selected='false' role="tab" tabindex=0 data-toggle='tab'>CREATE ACCOUNT</a>
+                                    <a href="#create-account" id="tab2" class='nav-link' style="border-color: white;"
+                                        aria-controls="create-account" aria-selected='false' role="tab" tabindex=0
+                                        data-toggle='tab'>CREATE ACCOUNT</a>
                                 </li>
                             </ul>
                             <div class="tab-content mt-3" id="myTabContent">
                                 <div class="tab-pane active" id="login" role="tabpanel" aria-labelledby="tab1"
                                     aria-hidden='false'>
                                     <!-- Addition of Form 1 -->
-                                    <form class="d-flex flex-column" action="login" method="post" id="loginForm" class="needs-validation" novalidate>
+                                    <form class="d-flex flex-column" action="login" method="post" id="loginForm"
+                                        class="needs-validation" novalidate>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Email address <span
                                                     class='required'>*</span></label>
-                                            <input type="email" class="form-control" id="loginEmail"
-                                                role="email" name="loginEmail" placeholder="Enter email" required>
+                                            <input type="email" class="form-control" id="loginEmail" role="email"
+                                                name="loginEmail" placeholder="Enter email" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Password <span
                                                     class='required'>*</span></label>
                                             <div class="input-group d-flex flex-row">
-                                                <input type="password" class="form-control" id="loginPassword" 
-                                                role="password" name="loginPassword" placeholder="Password" required>
+                                                <input type="password" class="form-control" id="loginPassword"
+                                                    role="password" name="loginPassword" placeholder="Password"
+                                                    required>
                                                 <div class="input-group-append">
                                                     <div class="input-group-text">
                                                         <i class='bi bi-eye-fill ml-2'></i>
@@ -152,61 +170,75 @@
                                 <div class="tab-pane" id="create-account" role="tabpanel" aria-labelledby="tab2"
                                     aria-hidden='true'>
                                     <!-- Addition of Form 2 -->
-                                    <form class="d-flex flex-column" action="register" method="post" id="registration-form" class="needs-validation" novalidate>
+                                    <form class="d-flex flex-column" action="register" method="post"
+                                        id="registration-form" class="needs-validation" novalidate>
                                         <div class="form-group">
                                             <label for="exampleInputUsername2">Username <span
                                                     class='required'>*</span></label>
                                             <input type="text" class="form-control" id="exampleInputUsername2"
                                                 role="username" name="name" placeholder="Enter Username" required>
-                                                <div class="invalid-feedback">Please enter your name.</div>
+                                            <div class="invalid-feedback">Please enter your name.</div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="email">Email address <span
-                                                    class='required'>*</span></label>
-                                            <input type="email" class="form-control" id="email"
-                                                role="email" name="email" placeholder="Enter email" required>
-                                                <div class="invalid-feedback" id="emailValidation">Please enter your email.</div>
-                                                
+                                            <label for="email">Email address <span class='required'>*</span></label>
+                                            <input type="email" class="form-control" id="email" role="email"
+                                                name="email" placeholder="Enter email" required>
+                                            <div class="invalid-feedback" id="emailValidation">Please enter your email.
+                                            </div>
+
                                         </div>
-                                
+
                                         <div class="row">
                                             <div class="col-sm-6">
-                                              <div class="form-group">
-                                                <label for="creditLimit">Credit limit <span class="required">*</span></label>
-                                                <input type="number" class="form-control" id="creditLimit" role="creditLimit" name ="creditLimit" placeholder="Enter credit limit" required>
-                                                <div class="invalid-feedback">Please enter your creditLimit.</div>
-                                            </div>
+                                                <div class="form-group">
+                                                    <label for="creditLimit">Credit limit <span
+                                                            class="required">*</span></label>
+                                                    <input type="number" class="form-control" id="creditLimit"
+                                                        role="creditLimit" name="creditLimit"
+                                                        placeholder="Enter credit limit" required>
+                                                    <div class="invalid-feedback">Please enter your creditLimit.</div>
+                                                </div>
                                             </div>
                                             <div class="col-sm-6">
-                                              <div class="form-group">
-                                                <label for="birthdate">Birthdate <span class="required">*</span></label>
-                                                <input type="date" class="form-control" id="birthdate" role="birthdate" name="birthdate" placeholder="Enter birthdate" required >
-                                                <div class="invalid-feedback">Please enter your birthdate.</div>
+                                                <div class="form-group">
+                                                    <label for="birthdate">Birthdate <span
+                                                            class="required">*</span></label>
+                                                    <input type="date" class="form-control" id="birthdate"
+                                                        role="birthdate" name="birthdate" placeholder="Enter birthdate"
+                                                        required>
+                                                    <div class="invalid-feedback">Please enter your birthdate.</div>
+                                                </div>
                                             </div>
-                                            </div>
-                                          </div>
+                                        </div>
                                         <div class="form-group">
-                                            <label for="address">Address:<span
-                                                    class='required'>*</span></label>
-                                            <input type="text" class="form-control" id="address" role="address" name="address" placeholder="Enter your address" required>
+                                            <label for="address">Address:<span class='required'>*</span></label>
+                                            <input type="text" class="form-control" id="address" role="address"
+                                                name="address" placeholder="Enter your address" required>
                                             <div class="invalid-feedback">Please enter your address.</div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputPassword2">Password <span class='required'>*</span></label>
+                                            <label for="exampleInputPassword2">Password <span
+                                                    class='required'>*</span></label>
                                             <div class="input-group d-flex flex-row">
-                                                <input type="password" class="form-control" id="password" placeholder="Password" name="password" required >
-                                                <div class="invalid-feedback" id ="passwordValidation">Please enter your password </div>
+                                                <input type="password" class="form-control" id="password"
+                                                    placeholder="Password" name="password" required>
+                                                <div class="invalid-feedback" id="passwordValidation">Please enter your
+                                                    password </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="confirmPassword">Confirm Password <span class='required'>*</span></label>
+                                            <label for="confirmPassword">Confirm Password <span
+                                                    class='required'>*</span></label>
                                             <div class="input-group d-flex flex-row">
-                                                <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm password" name="confirmPassword" required >
-                                                <div class="invalid-feedback" id ="cPasswordValidation">Please enter your password confirmation  </div>
+                                                <input type="password" class="form-control" id="confirmPassword"
+                                                    placeholder="Confirm password" name="confirmPassword" required>
+                                                <div class="invalid-feedback" id="cPasswordValidation">Please enter your
+                                                    password confirmation </div>
                                             </div>
                                         </div>
                                         <button type="submit"
-                                            class="btn btn-default btn-hover btn-orange rounded-0">CREATE ACCOUNT</button><br>
+                                            class="btn btn-default btn-hover btn-orange rounded-0">CREATE
+                                            ACCOUNT</button><br>
                                     </form>
                                 </div>
                             </div>
@@ -306,8 +338,10 @@
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
                                             alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
                                 </div>
                                 <img class="card-img-top" src="Images/product1.png" alt="Card image cap">
                                 <span class='new_tag'>NEW</span>
@@ -335,8 +369,10 @@
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
                                             alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
                                 </div>
                                 <img class="card-img-top" src="Images/product2.png" alt="Card image cap">
                                 <div class="card-body d-flex flex-column align-items-center">
@@ -363,8 +399,10 @@
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
                                             alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
                                 </div>
                                 <img class="card-img-top" src="Images/product3.png" alt="Card image cap">
                                 <span class='new_tag'>NEW</span>
@@ -382,7 +420,7 @@
                                         <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
                                             aria-label='star rating'>
                                         <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
-                                        aria-label='star rating'>
+                                            aria-label='star rating'>
                                     </div>
                                 </div>
                             </div>
@@ -392,8 +430,10 @@
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
                                             alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
                                 </div>
                                 <img class="card-img-top" src="Images/product4.png" alt="Card image cap">
                                 <span class='new_tag'>NEW</span>
@@ -407,9 +447,9 @@
                                         <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
                                             aria-label='star rating'>
                                         <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
-                                        aria-label='star rating'>
+                                            aria-label='star rating'>
                                         <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
-                                        aria-label='star rating'>
+                                            aria-label='star rating'>
                                         <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
                                             aria-label='star rating'>
                                     </div>
@@ -421,8 +461,10 @@
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
                                             alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
                                 </div>
                                 <img class="card-img-top" src="Images/product5.png" alt="Card image cap">
                                 <div class="card-body d-flex flex-column align-items-center">
@@ -449,8 +491,10 @@
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
                                             alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
                                 </div>
                                 <img class="card-img-top" src="Images/product6.png" alt="Card image cap">
                                 <div class="card-body d-flex flex-column align-items-center">
@@ -465,7 +509,7 @@
                                         <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
                                             aria-label='star rating'>
                                         <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
-                                        aria-label='star rating'>
+                                            aria-label='star rating'>
                                         <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
                                             aria-label='star rating'>
                                     </div>
@@ -483,8 +527,10 @@
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
                                             alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
                                 </div>
                                 <img class="card-img-top" src="Images/product5.png" alt="Card image cap">
                                 <div class="card-body d-flex flex-column align-items-center">
@@ -511,93 +557,10 @@
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
                                             alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
-                                </div>
-                                <img class="card-img-top" src="Images/product5.png" alt="Card image cap">
-                                <span class='new_tag'>NEW</span>
-                                <div class="card-body d-flex flex-column align-items-center">
-                                    <h5 class="card-title">Dummy Text Lorel</h5>
-                                    <p class="card-text mb-0"><strong>Rs 400</strong> <del>Rs 1000</del> <span
-                                            class="offer">(60%Off)</span></p>
-                                    <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
-                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
-                                            aria-label='star rating'>
-                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
-                                            aria-label='star rating'>
-                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
-                                            aria-label='star rating'>
-                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
-                                            aria-label='star rating'>
-                                        <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
-                                            aria-label='star rating'>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-lg-4 col-md-6 col-sm-12">
-                            <div class="prod-card mb-4" id="product5">
-                                <div class="icons d-flex justify-content-center" id="card_icons">
-                                    <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
-                                            alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
-                                </div>
-                                <img class="card-img-top" src="Images/product5.png" alt="Card image cap">
-                                <div class="card-body d-flex flex-column align-items-center">
-                                    <h5 class="card-title">Dummy Text Lorel</h5>
-                                    <p class="card-text mb-0"><strong>Rs 400</strong> <del>Rs 1000</del> <span
-                                            class="offer">(60%Off)</span></p>
-                                    <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
-                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
-                                            aria-label='star rating'>
-                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
-                                            aria-label='star rating'>
-                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
-                                            aria-label='star rating'>
-                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
-                                            aria-label='star rating'>
-                                        <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
-                                            aria-label='star rating'>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-lg-4 col-md-6 col-sm-12">
-                            <div class="prod-card mb-4" id="product5">
-                                <div class="icons d-flex justify-content-center" id="card_icons">
-                                    <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
-                                            alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
-                                </div>
-                                <img class="card-img-top" src="Images/product5.png" alt="Card image cap">
-                                <div class="card-body d-flex flex-column align-items-center">
-                                    <h5 class="card-title">Dummy Text Lorel</h5>
-                                    <p class="card-text mb-0"><strong>Rs 400</strong> <del>Rs 1000</del> <span
-                                            class="offer">(60%Off)</span></p>
-                                    <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
-                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
-                                            aria-label='star rating'>
-                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
-                                            aria-label='star rating'>
-                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
-                                            aria-label='star rating'>
-                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
-                                            aria-label='star rating'>
-                                        <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
-                                            aria-label='star rating'>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col col-lg-4 col-md-6 col-sm-12">
-                            <div class="prod-card mb-4" id="product5">
-                                <div class="icons d-flex justify-content-center" id="card_icons">
-                                    <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
-                                            alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
                                 </div>
                                 <img class="card-img-top" src="Images/product5.png" alt="Card image cap">
                                 <span class='new_tag'>NEW</span>
@@ -625,8 +588,101 @@
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
                                             alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
+                                </div>
+                                <img class="card-img-top" src="Images/product5.png" alt="Card image cap">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                    <h5 class="card-title">Dummy Text Lorel</h5>
+                                    <p class="card-text mb-0"><strong>Rs 400</strong> <del>Rs 1000</del> <span
+                                            class="offer">(60%Off)</span></p>
+                                    <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
+                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                            aria-label='star rating'>
+                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                            aria-label='star rating'>
+                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                            aria-label='star rating'>
+                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                            aria-label='star rating'>
+                                        <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                            aria-label='star rating'>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-lg-4 col-md-6 col-sm-12">
+                            <div class="prod-card mb-4" id="product5">
+                                <div class="icons d-flex justify-content-center" id="card_icons">
+                                    <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
+                                            alt="inner heart icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
+                                </div>
+                                <img class="card-img-top" src="Images/product5.png" alt="Card image cap">
+                                <div class="card-body d-flex flex-column align-items-center">
+                                    <h5 class="card-title">Dummy Text Lorel</h5>
+                                    <p class="card-text mb-0"><strong>Rs 400</strong> <del>Rs 1000</del> <span
+                                            class="offer">(60%Off)</span></p>
+                                    <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
+                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                            aria-label='star rating'>
+                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                            aria-label='star rating'>
+                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                            aria-label='star rating'>
+                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                            aria-label='star rating'>
+                                        <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                            aria-label='star rating'>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-lg-4 col-md-6 col-sm-12">
+                            <div class="prod-card mb-4" id="product5">
+                                <div class="icons d-flex justify-content-center" id="card_icons">
+                                    <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
+                                            alt="inner heart icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
+                                </div>
+                                <img class="card-img-top" src="Images/product5.png" alt="Card image cap">
+                                <span class='new_tag'>NEW</span>
+                                <div class="card-body d-flex flex-column align-items-center">
+                                    <h5 class="card-title">Dummy Text Lorel</h5>
+                                    <p class="card-text mb-0"><strong>Rs 400</strong> <del>Rs 1000</del> <span
+                                            class="offer">(60%Off)</span></p>
+                                    <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
+                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                            aria-label='star rating'>
+                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                            aria-label='star rating'>
+                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                            aria-label='star rating'>
+                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                            aria-label='star rating'>
+                                        <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                            aria-label='star rating'>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col col-lg-4 col-md-6 col-sm-12">
+                            <div class="prod-card mb-4" id="product5">
+                                <div class="icons d-flex justify-content-center" id="card_icons">
+                                    <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
+                                            alt="inner heart icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
                                 </div>
                                 <img class="card-img-top" src="Images/product5.png" alt="Card image cap">
                                 <span class='new_tag'>NEW</span>
@@ -660,15 +716,17 @@
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
                                             alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
                                 </div>
                                 <img class="card-img-top" src="Images/product4.png" alt="Card image cap">
                                 <span class='new_tag'>NEW</span>
                                 <div class="card-body d-flex flex-column align-items-center">
                                     <h5 class="card-title">Dummy Text Lorel</h5>
                                     <p class="card-text mb-0"><strong>Rs 748</strong> <del>Rs 1870</del> <span
-                                        class="offer">(60%Off)</span></p>
+                                            class="offer">(60%Off)</span></p>
                                     <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
                                         <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
                                             aria-label='star rating'>
@@ -689,14 +747,16 @@
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
                                             alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
                                 </div>
                                 <img class="card-img-top" src="Images/product4.png" alt="Card image cap">
                                 <div class="card-body d-flex flex-column align-items-center">
                                     <h5 class="card-title">Dummy Text Lorel</h5>
                                     <p class="card-text mb-0"><strong>Rs 748</strong> <del>Rs 1870</del> <span
-                                        class="offer">(60%Off)</span></p>
+                                            class="offer">(60%Off)</span></p>
                                     <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
                                         <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
                                             aria-label='star rating'>
@@ -717,14 +777,16 @@
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
                                             alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
                                 </div>
                                 <img class="card-img-top" src="Images/product4.png" alt="Card image cap">
                                 <div class="card-body d-flex flex-column align-items-center">
                                     <h5 class="card-title">Dummy Text Lorel</h5>
                                     <p class="card-text mb-0"><strong>Rs 748</strong> <del>Rs 1870</del> <span
-                                        class="offer">(60%Off)</span></p>
+                                            class="offer">(60%Off)</span></p>
                                     <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
                                         <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
                                             aria-label='star rating'>
@@ -745,14 +807,16 @@
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
                                             alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
                                 </div>
                                 <img class="card-img-top" src="Images/product4.png" alt="Card image cap">
                                 <div class="card-body d-flex flex-column align-items-center">
                                     <h5 class="card-title">Dummy Text Lorel</h5>
                                     <p class="card-text mb-0"><strong>Rs 748</strong> <del>Rs 1870</del> <span
-                                        class="offer">(60%Off)</span></p>
+                                            class="offer">(60%Off)</span></p>
                                     <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
                                         <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
                                             aria-label='star rating'>
@@ -773,15 +837,17 @@
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
                                             alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
                                 </div>
                                 <img class="card-img-top" src="Images/product4.png" alt="Card image cap">
                                 <span class='new_tag'>NEW</span>
                                 <div class="card-body d-flex flex-column align-items-center">
                                     <h5 class="card-title">Dummy Text Lorel</h5>
                                     <p class="card-text mb-0"><strong>Rs 748</strong> <del>Rs 1870</del> <span
-                                        class="offer">(60%Off)</span></p>
+                                            class="offer">(60%Off)</span></p>
                                     <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
                                         <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
                                             aria-label='star rating'>
@@ -802,14 +868,16 @@
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
                                             alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
                                 </div>
                                 <img class="card-img-top" src="Images/product4.png" alt="Card image cap">
                                 <div class="card-body d-flex flex-column align-items-center">
                                     <h5 class="card-title">Dummy Text Lorel</h5>
                                     <p class="card-text mb-0"><strong>Rs 748</strong> <del>Rs 1870</del> <span
-                                        class="offer">(60%Off)</span></p>
+                                            class="offer">(60%Off)</span></p>
                                     <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
                                         <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
                                             aria-label='star rating'>
@@ -836,14 +904,16 @@
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
                                             alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
                                 </div>
                                 <img class="card-img-top" src="Images/product6.png" alt="Card image cap">
                                 <div class="card-body d-flex flex-column align-items-center">
                                     <h5 class="card-title">Dummy Text Lorel</h5>
                                     <p class="card-text mb-0"><strong>Rs 1200</strong> <del>Rs 3000</del> <span
-                                        class="offer">(60%Off)</span></p>
+                                            class="offer">(60%Off)</span></p>
                                     <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
                                         <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
                                             aria-label='star rating'>
@@ -864,14 +934,16 @@
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
                                             alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
                                 </div>
                                 <img class="card-img-top" src="Images/product6.png" alt="Card image cap">
                                 <div class="card-body d-flex flex-column align-items-center">
                                     <h5 class="card-title">Dummy Text Lorel</h5>
                                     <p class="card-text mb-0"><strong>Rs 1200</strong> <del>Rs 3000</del> <span
-                                        class="offer">(60%Off)</span></p>
+                                            class="offer">(60%Off)</span></p>
                                     <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
                                         <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
                                             aria-label='star rating'>
@@ -892,14 +964,16 @@
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
                                             alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
                                 </div>
                                 <img class="card-img-top" src="Images/product6.png" alt="Card image cap">
                                 <div class="card-body d-flex flex-column align-items-center">
                                     <h5 class="card-title">Dummy Text Lorel</h5>
                                     <p class="card-text mb-0"><strong>Rs 1200</strong> <del>Rs 3000</del> <span
-                                        class="offer">(60%Off)</span></p>
+                                            class="offer">(60%Off)</span></p>
                                     <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
                                         <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
                                             aria-label='star rating'>
@@ -920,14 +994,16 @@
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
                                             alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
                                 </div>
                                 <img class="card-img-top" src="Images/product6.png" alt="Card image cap">
                                 <div class="card-body d-flex flex-column align-items-center">
                                     <h5 class="card-title">Dummy Text Lorel</h5>
                                     <p class="card-text mb-0"><strong>Rs 1200</strong> <del>Rs 3000</del> <span
-                                        class="offer">(60%Off)</span></p>
+                                            class="offer">(60%Off)</span></p>
                                     <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
                                         <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
                                             aria-label='star rating'>
@@ -948,15 +1024,17 @@
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
                                             alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
                                 </div>
                                 <img class="card-img-top" src="Images/product6.png" alt="Card image cap">
                                 <span class='new_tag'>NEW</span>
                                 <div class="card-body d-flex flex-column align-items-center">
                                     <h5 class="card-title">Dummy Text Lorel</h5>
                                     <p class="card-text mb-0"><strong>Rs 1200</strong> <del>Rs 3000</del> <span
-                                        class="offer">(60%Off)</span></p>
+                                            class="offer">(60%Off)</span></p>
                                     <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
                                         <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
                                             aria-label='star rating'>
@@ -977,15 +1055,17 @@
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
                                             alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                            alt="inner eye icon"></a>
+                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                            alt="inner shopping icon"></a>
                                 </div>
                                 <img class="card-img-top" src="Images/product6.png" alt="Card image cap">
                                 <span class='new_tag'>NEW</span>
                                 <div class="card-body d-flex flex-column align-items-center">
                                     <h5 class="card-title">Dummy Text Lorel</h5>
                                     <p class="card-text mb-0"><strong>Rs 1200</strong> <del>Rs 3000</del> <span
-                                        class="offer">(60%Off)</span></p>
+                                            class="offer">(60%Off)</span></p>
                                     <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
                                         <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
                                             aria-label='star rating'>
@@ -1056,7 +1136,7 @@
                     <a href="#" role='link'>Privacy Policy</a>
                     <a href="#" role='link'>Terms of Sale</a>
                     <a href="#" role='link'>Terms of Use</a>
-                    
+
                 </div>
                 <div class="col col-xl-2 col-lg-3 col-md-2 col-sm-3 d-flex flex-column align-items-start">
                     <h3>COMPANY</h3>
@@ -1070,7 +1150,7 @@
                     <a href="#" role='link'>Shopping App</a>
                     <a href="#" role='link'>Sell on Snapdeal</a>
                     <a href="#" role='link'>Advertise on Snapdeal</a>
-                   
+
                 </div>
                 <div
                     class="col col-xl-2 col-lg-3 col-md-3 col-sm-4 mt-md-0 mt-sm-5 d-flex flex-column align-items-start">
@@ -1079,7 +1159,7 @@
                     <a href="FAQ.html" role='link'>FAQ</a>
                     <a href="#" role='link'>Online Shopping</a>
                 </div>
-               
+
             </div>
         </div>
 
@@ -1089,7 +1169,7 @@
     <script src="Javascript/register.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
-    </script>
+        </script>
     <script>
         // cart page
         window.onload = function () {
@@ -1100,4 +1180,5 @@
         }
     </script>
 </body>
+
 </html>
