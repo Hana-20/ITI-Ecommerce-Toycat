@@ -17,12 +17,7 @@ public class ProductRepository {
     }
 
     public List<Product> findAll() {
-        // CriteriaQuery<Product> query =
-        // entityManager.getCriteriaBuilder().createQuery(Product.class);
-        // query.select(query.from(Product.class));
-
         List<Product> products = entityManager.createQuery("select p from Product p", Product.class).getResultList();
-       // System.out.println("ProductRepository: products: " + products);
         return products;
     }
 
@@ -34,28 +29,21 @@ public class ProductRepository {
     }
 
     public List<Product> searchProducts(String queryString) {
-        // CriteriaQuery<Product> query =
-        // entityManager.getCriteriaBuilder().createQuery(Product.class);
-        // query.select(query.from(Product.class));
-
-        System.out.println("inside ------------------------- search");
-        System.out.println(queryString);
-        
-        TypedQuery<Product> query = entityManager.createQuery("SELECT p FROM Product p WHERE LOWER(p.name) LIKE CONCAT('%', LOWER(:query), '%')", Product.class); 
+        TypedQuery<Product> query = entityManager.createQuery(
+                "SELECT p FROM Product p WHERE LOWER(p.name) LIKE CONCAT('%', LOWER(:query), '%')", Product.class);
         query.setParameter("query", queryString);
         List<Product> matchingProducts = query.getResultList();
 
-        // TypedQuery<Product> query = entityManager.createQuery("select p from Product p where p.name LIKE '%?1%'" , Product.class);
-        // List<Product> products = query.setParameter(1, queryString).getResultList();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println("ProductRepository: search products: " +matchingProducts);
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
         return matchingProducts;
+    }
+
+    public int deleteProduct(int id) {
+        entityManager.getTransaction().begin();
+
+        int deletedCount = entityManager.createQuery("DELETE FROM Product p WHERE p.id = :productId")
+                .setParameter("productId", id)
+                .executeUpdate();
+        entityManager.getTransaction().commit();
+        return deletedCount;
     }
 }

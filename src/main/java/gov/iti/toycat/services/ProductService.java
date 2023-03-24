@@ -19,7 +19,7 @@ public class ProductService {
     public List<ProductDTO> getAllProducts() {
         List<ProductDTO> productsDto = new ArrayList<ProductDTO>();
         List<Product> products = productRepository.findAll();
-        System.out.println("productRepository.findAll() " +  products );
+        System.out.println("productRepository.findAll() " + products);
         for (Product product : products) {
             productsDto.add(ProductMapper.toDto(product));
         }
@@ -41,6 +41,10 @@ public class ProductService {
     public ProductDTO addProduct(ProductDTO productDto){
         Product product = ProductMapper.toEntity(productDto);
         productRepository.insertProduct(product);
-        return(ProductMapper.toDto(product));
+        return (ProductMapper.toDto(product));
+    }
+
+    public boolean deleteProductWithId(String id) {
+        return productRepository.deleteProduct(Integer.parseInt(id)) > 0;
     }
 }
