@@ -21,7 +21,6 @@ public class ProductRepository {
         // query.select(query.from(Product.class));
 
         List<Product> products = entityManager.createQuery("select p from Product p", Product.class).getResultList();
-        System.out.println("ProductRepository: products: " + products);
         return products;
     }
 
@@ -30,5 +29,15 @@ public class ProductRepository {
         entityManager.persist(product);
         entityManager.getTransaction().commit();
         return product;
+    }
+
+    public int deleteProduct(int id) {
+        entityManager.getTransaction().begin();
+
+        int deletedCount = entityManager.createQuery("DELETE FROM Product p WHERE p.id = :productId")
+                .setParameter("productId", id)
+                .executeUpdate();
+        entityManager.getTransaction().commit();
+        return deletedCount;
     }
 }

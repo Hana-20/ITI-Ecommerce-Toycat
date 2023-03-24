@@ -1260,6 +1260,15 @@ h6 {
 }
 
 
-select{
+select, option{
   cursor: pointer;
 }
+
+.icon-delete-button{
+  background: none;
+  border: none;
+  display: inline;
+  cursor: pointer;
+  color: #ec5d57;
+}
+

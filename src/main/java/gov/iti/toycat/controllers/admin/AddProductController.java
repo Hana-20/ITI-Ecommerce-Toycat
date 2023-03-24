@@ -63,13 +63,11 @@ public class AddProductController extends HttpServlet {
 
         String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
         String filePath = UPLOAD_DIR + File.separator + uniqueID + fileName;
-        System.out.println("filePath: " + filePath);
         try (InputStream fileContent = filePart.getInputStream()) {
             Files.copy(fileContent, Paths.get(getServletContext().getRealPath("/") + filePath));
         }
 
         String imageUrl = request.getContextPath() + "/" + filePath;
-        System.out.println("imgeUrl: " + imageUrl);
         // String imageUrl = request.getContextPath() + "/" + filePath;
 
         ProductDTO product = new ProductDTO(null, description, imageUrl, name, quantity, price, category);
