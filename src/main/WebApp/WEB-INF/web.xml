@@ -9,11 +9,6 @@
         <servlet-name>Products</servlet-name>
         <url-pattern>/AllProducts</url-pattern>
     </servlet-mapping>
-
-    <servlet-mapping>
-        <servlet-name>admin-add-product</servlet-name>
-        <url-pattern>/admin/products/add</url-pattern>
-    </servlet-mapping>
     <servlet>
         <servlet-name>logIn</servlet-name>
         <servlet-class>gov.iti.toycat.controllers.LoginController</servlet-class>
