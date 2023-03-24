@@ -9,6 +9,79 @@
 }
 
 /* START OF TOP HEADER DECOR */
+
+
+/* Search added by me */
+
+.search-icon::before {
+    content: url(data:image/svg+xml;base64,PHN2ZyBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA1MTUuNTU4IDUxNS41NTgiIHZpZXdCb3g9IjAgMCA1MTUuNTU4IDUxNS41NTgiIGZpbGw9IiNmZmYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTM3OC4zNDQgMzMyLjc4YzI1LjM3LTM0LjY0NSA0MC41NDUtNzcuMiA0MC41NDUtMTIzLjMzMyAwLTExNS40ODQtOTMuOTYxLTIwOS40NDUtMjA5LjQ0NS0yMDkuNDQ1cy0yMDkuNDQ0IDkzLjk2MS0yMDkuNDQ0IDIwOS40NDUgOTMuOTYxIDIwOS40NDUgMjA5LjQ0NSAyMDkuNDQ1YzQ2LjEzMyAwIDg4LjY5Mi0xNS4xNzcgMTIzLjMzNy00MC41NDdsMTM3LjIxMiAxMzcuMjEyIDQ1LjU2NC00NS41NjRjMC0uMDAxLTEzNy4yMTQtMTM3LjIxMy0xMzcuMjE0LTEzNy4yMTN6bS0xNjguODk5IDIxLjY2N2MtNzkuOTU4IDAtMTQ1LTY1LjA0Mi0xNDUtMTQ1czY1LjA0Mi0xNDUgMTQ1LTE0NSAxNDUgNjUuMDQyIDE0NSAxNDUtNjUuMDQzIDE0NS0xNDUgMTQ1eiIvPjwvc3ZnPg==);
+    width: 100%;
+    height: auto;
+}
+/* main {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+} */
+.search-boxa {
+    display: inline-flex;
+    padding: 2px;
+    border: 2px solid slategray;
+    outline: none;
+    border-radius: 30px;
+    margin-right: 20px;
+}
+.search-boxa:focus-within { /* IE11 WILL IGNORE BECAUSE IT IS NOT SUPPORTED */
+    border-color: slategray;
+}
+.search-boxa input {
+    outline: none;
+    border: none;
+    width: 0;
+    background-color: transparent;
+    color: black;
+    font-size: 16px;
+    padding: 0;
+    transition: width .4s cubic-bezier(0.18, 0.89, 0.32, 1.33);
+}
+.search-boxa input::placeholder {
+    color: lightgray;
+}
+.search-boxa:hover input,
+.search-boxa input:focus,
+.search-boxa input:valid {
+    margin-left: 5px;
+    /* margin-right: 5px ; */
+    width: 180px;
+}
+.search-boxa button {
+    outline: none;
+    border: none;
+    cursor: pointer;
+    background-color: #FD6E00;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    -webkit-appearance: none;
+}
+.search-boxa:focus-within button { /* can't combine selectors here because IE11 will whine */
+    background-color: #FD6E00;
+}
+.search-boxa input:focus + button {
+    background-color: #FD6E00;
+}
+.search-boxa input:valid + button {
+    background-color: #FD6E00;
+}
+
+
+
+/* end of search */
+
+
+
 .top-header {
     display: flex;
     justify-content: space-around;
@@ -1550,6 +1623,10 @@
 .latest-prods .container-fluid .prod-card .stars-group img {
     width: auto;
     height: 1.1em;
+}
+
+.prod-card img{
+    height: 240px;
 }
 
 .card-title {
@@ -4045,6 +4122,8 @@ footer .bottom-footer .row .col .social-holder img {
     font-weight: normal;
     border: 1px solid black;
 }
+
+
 
 .main-container .right-main-container .select-container .button-group button:hover {
     color: #FD6E00;

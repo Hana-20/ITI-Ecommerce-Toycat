@@ -129,7 +129,7 @@ document.querySelectorAll(".prod-card").forEach(img => {
 
 // Code for products listings page through JSON 
 
-let productsListUrl = 'https://my-json-server.typicode.com/adithkrishnan98/swagofindia/db';
+let productsListUrl = 'http://localhost:9090/toycat/admin/products';
 let productsList;
 let htmlToReturn = "",
   htmlToReturn2 = "",
@@ -137,12 +137,16 @@ let htmlToReturn = "",
   lowStar = 0,
   i = 0
 
+
+
+
 async function showProducts(Url) {
-  fetch('https://my-json-server.typicode.com/adithkrishnan98/swagofindia/db')
+  fetch(Url)//'https://my-json-server.typicode.com/adithkrishnan98/swagofindia/db')
     .then(response => response.json())
     .then(json => {
       productsList = json;
-      productsList.products.forEach((product) => {
+      console.log(productsList);
+      productsList.forEach((product) => {
         htmlToReturn =
           `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12">
             <div class="prod-card mb-4" id='${product.id}'>
@@ -151,22 +155,22 @@ async function showProducts(Url) {
                 <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
                 <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
               </div>
-              <img class="card-img-top" src="Images/${product.imageName}.png" alt="Card image cap">
+              <img class="card-img-top" src="${product.image}" alt="Card image cap">
               <div class="card-body d-flex flex-column align-items-center">
                 <h5 class="card-title">${product.name}</h5>
-                <p class="card-text mb-0"><strong>Rs.${product.priceAfterDiscount}</strong> <del>Rs.${product.price}</del><span class="offer">(60%Off)</span></p>
+                <p class="card-text mb-0"><strong>Rs.${product.price}</strong> <del>Rs.${product.price}</del><span class="offer">(60%Off)</span></p>
                 <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">`
-        lowStar = 5 - Math.floor(product.ratings);
-        for (i = 1; i <= product.ratings; i++) {
-          reviews += `
-                  <img class="stars" src="Images/star.png" alt="star-rating" role="icon" aria-label='star rating'>`;
-        }
-        for (i = 1; i <= lowStar; i++) {
-          reviews += `<img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon" aria-label='star rating'>`;
-        }
-        lowStar = 0;
-        htmlToReturn += reviews + product.ratings + "/5";
-        reviews = " ";
+        // lowStar = 5 - Math.floor(product.ratings);
+        // for (i = 1; i <= product.ratings; i++) {
+        //   reviews += `
+        //           <img class="stars" src="Images/star.png" alt="star-rating" role="icon" aria-label='star rating'>`;
+        // }
+        // for (i = 1; i <= lowStar; i++) {
+        //   reviews += `<img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon" aria-label='star rating'>`;
+        // }
+        // lowStar = 0;
+        // htmlToReturn += reviews + product.ratings + "/5";
+        // reviews = " ";
         htmlToReturn += `
                 </div>
               </div>
@@ -182,28 +186,28 @@ async function showProducts(Url) {
                   <a href="product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
                   <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
                 </div>
-                <img class="card-img-top" src="Images/${product.imageName}.png" alt="Card image cap">
+                <img class="card-img-top" src="${product.image}" alt="Card image cap">
                 <div class="card-body d-flex flex-column align-items-center">
                   <h5 class="card-title">${product.name}</h5>
-                  <p class="card-text mb-0"><strong>Rs.${product.priceAfterDiscount}</strong> <del>Rs.${product.price}</del><span class="offer">(60%Off)</span></p>
+                  <p class="card-text mb-0"><strong>Rs.${product.price}</strong> <del>Rs.${product.price}</del><span class="offer">(60%Off)</span></p>
                   <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">`
-        lowStar = 5 - Math.floor(product.ratings);
-        for (i = 1; i <= product.ratings; i++) {
-          reviews += `
-                    <img class="stars" src="Images/star.png" alt="star-rating" role="icon" aria-label='star rating'>`;
-        }
-        for (i = 1; i <= lowStar; i++) {
-          reviews += `<img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon" aria-label='star rating'>`;
-        }
-        lowStar = 0;
-        htmlToReturn2 += reviews + product.ratings + "/5";
-        reviews = " ";
-        htmlToReturn2 += `
-                  </div>
-                </div>
-              </div>
-            </div>`;
-        document.getElementById('productListArea2').innerHTML += htmlToReturn2;
+        // lowStar = 5 - Math.floor(product.ratings);
+        // for (i = 1; i <= product.ratings; i++) {
+        //   reviews += `
+        //             <img class="stars" src="Images/star.png" alt="star-rating" role="icon" aria-label='star rating'>`;
+        // }
+        // for (i = 1; i <= lowStar; i++) {
+        //   reviews += `<img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon" aria-label='star rating'>`;
+        // }
+        // lowStar = 0;
+        // htmlToReturn2 += reviews + product.ratings + "/5";
+        // reviews = " ";
+        // htmlToReturn2 += `
+        //           </div>
+        //         </div>
+        //       </div>
+        //     </div>`;
+        // document.getElementById('productListArea2').innerHTML += htmlToReturn2;
       });
       // Code to show icons upon hover of products
       document.querySelectorAll(".prod-card").forEach(card => {
@@ -266,11 +270,178 @@ async function showProducts(Url) {
       })
     })
 };
-showProducts(productsListUrl);
+//showProducts(productsListUrl);
+
+//-----------------------
+
+//show search result for product list page
+const queryStringa = window.location.search;
+const urlParams = new URLSearchParams(queryStringa);
+const myParam = urlParams.get('q');
+console.log(myParam);
+
+
+
+let productsListSearchUrl = 'http://localhost:9090/toycat/admin/products?q='+myParam;
+
+function showSearchResult(){
+
+  fetch(productsListSearchUrl)//'https://my-json-server.typicode.com/adithkrishnan98/swagofindia/db')
+    .then(response => response.json())
+    .then(json => {
+      productsList = json;
+      console.log(productsList);
+      productsList.forEach((product) => {
+        htmlToReturn =
+          `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12">
+            <div class="prod-card mb-4" id='${product.id}'>
+              <div class="icons d-flex justify-content-center" id="card_icons">
+                <a class="heart"><img class='img1' src="Images/heart-icon-trans.png" alt="inner heart icon"></a>
+                <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
+                <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+              </div>
+              <img class="card-img-top" src="${product.image}" alt="Card image cap">
+              <div class="card-body d-flex flex-column align-items-center">
+                <h5 class="card-title">${product.name}</h5>
+                <p class="card-text mb-0"><strong>Rs.${product.price}</strong> <del>Rs.${product.price}</del><span class="offer">(60%Off)</span></p>
+                <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">`
+        // lowStar = 5 - Math.floor(product.ratings);
+        // for (i = 1; i <= product.ratings; i++) {
+        //   reviews += `
+        //           <img class="stars" src="Images/star.png" alt="star-rating" role="icon" aria-label='star rating'>`;
+        // }
+        // for (i = 1; i <= lowStar; i++) {
+        //   reviews += `<img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon" aria-label='star rating'>`;
+        // }
+        // lowStar = 0;
+        // htmlToReturn += reviews + product.ratings + "/5";
+        // reviews = " ";
+        htmlToReturn += `
+                </div>
+              </div>
+            </div>
+          </div>`;
+        document.getElementById('productListArea').innerHTML += htmlToReturn;
+
+        htmlToReturn2 =
+          `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12">
+              <div class="prod-card mb-4" id="card_id">
+                <div class="icons d-flex justify-content-center" id="card_icons">
+                  <a class="heart"><img class='img1' src="Images/heart-icon-trans.png" alt="inner heart icon"></a>
+                  <a href="product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
+                  <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+                </div>
+                <img class="card-img-top" src="${product.image}" alt="Card image cap">
+                <div class="card-body d-flex flex-column align-items-center">
+                  <h5 class="card-title">${product.name}</h5>
+                  <p class="card-text mb-0"><strong>Rs.${product.price}</strong> <del>Rs.${product.price}</del><span class="offer">(60%Off)</span></p>
+                  <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">`
+        // lowStar = 5 - Math.floor(product.ratings);
+        // for (i = 1; i <= product.ratings; i++) {
+        //   reviews += `
+        //             <img class="stars" src="Images/star.png" alt="star-rating" role="icon" aria-label='star rating'>`;
+        // }
+        // for (i = 1; i <= lowStar; i++) {
+        //   reviews += `<img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon" aria-label='star rating'>`;
+        // }
+        // lowStar = 0;
+        // htmlToReturn2 += reviews + product.ratings + "/5";
+        // reviews = " ";
+        // htmlToReturn2 += `
+        //           </div>
+        //         </div>
+        //       </div>
+        //     </div>`;
+        // document.getElementById('productListArea2').innerHTML += htmlToReturn2;
+      });
+      // Code to show icons upon hover of products
+      document.querySelectorAll(".prod-card").forEach(card => {
+        card.children[0].style.visibility = 'hidden';
+      })
+
+      document.querySelectorAll(".prod-card").forEach(card => {
+        card.addEventListener('mouseover', func => {
+          card.children[1].style.opacity = 0.2;
+          card.children[0].style.visibility = 'visible';
+        })
+      })
+
+      document.querySelectorAll(".prod-card").forEach(card => {
+        card.addEventListener('mouseout', func => {
+          card.children[1].style.opacity = 1;
+          card.children[0].style.visibility = 'hidden';
+        })
+      })
+
+      // Code to make individual icons change color on hover
+      // a) Heart icon
+      document.querySelectorAll(".prod-card").forEach(img => {
+        let img_1 = img.childNodes[1].childNodes[1].childNodes[0]
+        img_1.addEventListener('mouseover', func2 => {
+          img_1.src = 'Images/heart-icon.png';
+        })
+      });
+      document.querySelectorAll(".prod-card").forEach(img => {
+        let img_1 = img.childNodes[1].childNodes[1].childNodes[0]
+        img_1.addEventListener('mouseout', func2 => {
+          img_1.src = 'Images/heart-icon-trans.png';
+        })
+      });
+      // b) Eye icon
+      document.querySelectorAll(".prod-card").forEach(img => {
+        let img_2 = img.childNodes[1].childNodes[3].childNodes[0]
+        img_2.addEventListener('mouseover', func3 => {
+          img_2.src = 'Images/eye-icon.png';
+        })
+      });
+      document.querySelectorAll(".prod-card").forEach(img => {
+        let img_2 = img.childNodes[1].childNodes[3].childNodes[0]
+        img_2.addEventListener('mouseout', func3 => {
+          img_2.src = 'Images/eye-icon-trans.png';
+        })
+      });
+      // b) Cart icon
+      document.querySelectorAll(".prod-card").forEach(img => {
+        let img_3 = img.childNodes[1].childNodes[5].childNodes[0]
+        img_3.addEventListener('mouseover', func4 => {
+          img_3.src = 'Images/shopping-icon.png';
+        })
+      });
+      document.querySelectorAll(".prod-card").forEach(img => {
+        let img_3 = img.childNodes[1].childNodes[5].childNodes[0]
+        img_3.addEventListener('mouseout', func4 => {
+          img_3.src = 'Images/shopping-icon-trans.png';
+        })
+      })
+    })
+
+
+}
+
+
+if(myParam== null){
+  showProducts(productsListUrl);
+}else{
+  showSearchResult();
+}
+
 
 // ---------------------------------------------------------------------------------------------------------
 
 
+// search bar animation added by me
+
+// const searchBar = document.querySelector('.search-bar');
+// const searchInput = searchBar.querySelector('input[type="text"]');
+// const searchButton = searchBar.querySelector('button[type="submit"]');
+
+// searchButton.addEventListener('click', function(event) {
+//   event.preventDefault();
+//   searchBar.classList.toggle('active');
+//   searchInput.focus();
+// });
+
+// 
 
 // ---------------------------------------------------------------------------------------------------------
 // cart page logic
