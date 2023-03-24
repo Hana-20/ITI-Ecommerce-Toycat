@@ -8,15 +8,15 @@ import gov.iti.toycat.models.entities.Product;
 import gov.iti.toycat.models.mappers.ProductMapper;
 import gov.iti.toycat.repositories.ProductRepository;
 
-public class ProductService {
+public class SearchService {
 
     ProductRepository productRepository;
 
-    public ProductService() {
+    public SearchService() {
         this.productRepository = new ProductRepository();
     }
 
-    public List<ProductDTO> getAllProducts() {
+    private List<ProductDTO> getAllProducts() {
         List<ProductDTO> productsDto = new ArrayList<ProductDTO>();
         List<Product> products = productRepository.findAll();
         System.out.println("productRepository.findAll() " +  products );
@@ -27,20 +27,13 @@ public class ProductService {
         return productsDto;
     }
 
-    public List<ProductDTO> searchForProduct(String queryTerm){
-
-        List<ProductDTO> productsDto = new ArrayList<ProductDTO>();
-
-        List<Product> products = productRepository.searchProducts(queryTerm);
-        for(Product product: products){
-            productsDto.add(ProductMapper.toDto(product));
+    public List<ProductDTO> searchForProducts(String queryString){
+        List<ProductDTO> searchResult = new ArrayList<>();
+        for (ProductDTO productDTO : getAllProducts()) {
+            if(productDTO.getName().equals(queryString))
+            searchResult.add(productDTO);
         }
-        return productsDto;
+        return searchResult;
     }
-
-    public ProductDTO addProduct(ProductDTO productDto){
-        Product product = ProductMapper.toEntity(productDto);
-        productRepository.insertProduct(product);
-        return(ProductMapper.toDto(product));
-    }
+    
 }

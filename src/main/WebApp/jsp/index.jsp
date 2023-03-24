@@ -99,13 +99,21 @@
                                 </c:when>
                                 
                                 <c:otherwise>
-                                    <form class=>
+                                    <form class="form-inline my-2 my-lg-0 d-flex flex-column align-items-stretch justify-content-start">
                                         <button class="btn btn-orange my-2 my-sm-0" id="signin" type="button"
                                                 data-toggle="modal" data-target="#exampleModalCenter" class="sign"
                                                 aria-labelledby='sign-in-btn'>SIGN IN</button>
                                     </form>
                                 </c:otherwise>
                             </c:choose>
+                            <div>
+                                <form action="https://www.bing.com/search" class="search-boxa">
+                                    <input type="text" name="q" autocomplete="off" autocapitalize="off" placeholder="enter search" required />
+                                    <button type="submit"><i class="search-icon"></i></button>
+                                </form>
+                            </div>
+    
+                    
                         </div>
                     </div>
                 </nav>
@@ -284,7 +292,7 @@
                     <img src="Images/cat1.png" alt="womens wear" role="img" aria-label="categories image1">
                     <div class="text-box text-box1" role="textbox" aria-label='textbox3'>
                         <h2>WOMENS</h2>
-                        <button onclick="location.href='Product-list.html';">SHOP NOW</button>
+                        <button onclick="location.href='AllProducts';">SHOP NOW</button>
                     </div>
                 </div>
                 <div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
@@ -552,6 +560,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="col col-lg-4 col-md-6 col-sm-12">
                             <div class="prod-card mb-4" id="product5">
                                 <div class="icons d-flex justify-content-center" id="card_icons">
@@ -1086,7 +1095,7 @@
             </div>
         </div>
         <div class="view-more-btn" aria-label='view more button holder'>
-            <a href="Product-list.html"><button aria-labelledby="view more">VIEW MORE +</button></a>
+            <a href="AllProducts"><button aria-labelledby="view more">VIEW MORE +</button></a>
         </div>
     </section>
 
