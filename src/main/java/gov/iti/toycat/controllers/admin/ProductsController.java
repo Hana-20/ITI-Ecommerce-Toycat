@@ -3,8 +3,6 @@ package gov.iti.toycat.controllers.admin;
 import java.io.IOException;
 import java.util.List;
 
-import org.eclipse.tags.shaded.org.apache.xalan.xsltc.compiler.sym;
-
 import com.google.gson.Gson;
 
 import gov.iti.toycat.models.dtos.ProductDTO;
@@ -25,20 +23,6 @@ public class ProductsController extends HttpServlet {
         List<ProductDTO> productsList = productService.getAllProducts();
         request.setAttribute("productsList", productsList);
         request.getRequestDispatcher("/admin/jsp/admin-products.jsp").forward(request, response);
-
-        // if (request.getParameter("q")!=null) {
-        //     System.out.println("q param = "+request.getParameter("q"));
-        //     List<ProductDTO> productsList = productService.searchForProduct(request.getParameter("q"));
-        //     response.setContentType("application/json");
-        //     String jsonProductList = new Gson().toJson(productsList);
-        //     response.getWriter().write(jsonProductList);
-
-        // } else {
-        //     List<ProductDTO> productsList = productService.getAllProducts();
-        //     response.setContentType("application/json");
-        //     String jsonProductList = new Gson().toJson(productsList);
-        //     response.getWriter().write(jsonProductList);
-        // }
     }
 
     @Override

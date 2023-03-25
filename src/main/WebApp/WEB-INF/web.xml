@@ -1,13 +1,42 @@
 <web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" version="5.0" >
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" version="5.0">
 
+
+    <servlet>
+        <servlet-name>Search</servlet-name>
+        <servlet-class>gov.iti.toycat.controllers.SearchProductController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Search</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Allproducts</servlet-name>
+        <servlet-class>gov.iti.toycat.controllers.AllProductsController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Allproducts</servlet-name>
+        <url-pattern>/allproducts</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Category</servlet-name>
+        <servlet-class>gov.iti.toycat.controllers.CategoryController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Category</servlet-name>
+        <url-pattern>/category</url-pattern>
+    </servlet-mapping>
     <servlet>
         <servlet-name>Products</servlet-name>
         <servlet-class>gov.iti.toycat.controllers.ProductListController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Products</servlet-name>
-        <url-pattern>/AllProducts</url-pattern>
+        <url-pattern>/products</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>logIn</servlet-name>
@@ -41,7 +70,7 @@
         <servlet-name>Home</servlet-name>
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
-      <servlet>
+    <servlet>
         <servlet-name>Logout</servlet-name>
         <servlet-class>gov.iti.toycat.controllers.LogoutController</servlet-class>
     </servlet>
