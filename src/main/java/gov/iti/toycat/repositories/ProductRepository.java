@@ -45,4 +45,9 @@ public class ProductRepository {
         entityManager.getTransaction().commit();
         return deletedCount;
     }
+
+    public Long getTotalProductsCount() {
+        Long count = entityManager.createQuery("SELECT COUNT(p) FROM Product p", Long.class).getSingleResult();
+        return count;
+    }
 }

@@ -64,4 +64,11 @@ public class UserRepository {
        return user;
 
     }
+
+    
+    public Long getTotalUsersCount() {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        Long count = entityManager.createQuery("SELECT COUNT(u) FROM User u", Long.class).getSingleResult();
+        return count;
+    }
 }
