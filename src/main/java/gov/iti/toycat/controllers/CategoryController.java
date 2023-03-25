@@ -17,19 +17,21 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 // @WebServlet("/search")
-public class SearchProductController extends HttpServlet {
+public class CategoryController extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("GET: /admin/products");
+        System.out.println("GET: /Category");
+      
         ProductService productService = new ProductService();
         
+        System.out.println("--------------------category : "+request.getParameterNames());
 
-        if (request.getParameter("q")!=null) {
+        if (request.getParameter("category")!=null) {
 
-            System.out.println("q param = "+request.getParameter("q"));
-        
-            List<ProductDTO> productsList = productService.searchForProduct(request.getParameter("q"));
+            System.out.println("category param = "+request.getParameter("category"));
+                          
+            List<ProductDTO> productsList = productService.listByCategory(request.getParameter("category"));
             response.setContentType("application/json");
             String jsonProductList = new Gson().toJson(productsList);
             response.getWriter().write(jsonProductList);

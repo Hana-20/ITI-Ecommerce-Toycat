@@ -43,13 +43,13 @@
                     <div class="container-fluid">
                         <a class="navbar-brand" href="index.html"><img id="logo_img" src="Images/logo.png" alt="logo" role="img"
                                 aria-label=" website logo"></a>
-                        <div class="input-group d-xl-none d-lg-none" id="search-box-container">
-                            <input type="search" id="search-box-hidden" class="form-control"
-                                placeholder="Search products and Brands" aria-label="search box"
-                                aria-describedby="basic-addon1">
-                            <span id="basic-addon1"><img src="Images/magglass.png" alt="search-icon" role="icon"
-                                    aria-labelledby="magnifying glass icon"></span>
-                        </div>
+                                <form action="/toycat/products" class="input-group d-xl-none d-lg-none" id="search-box-container">
+                                    <input name="q" type="search" id="search-box-hidden" class="form-control"
+                                        placeholder="Search products and Brands" aria-label="search box"
+                                        aria-describedby="basic-addon1">
+                                    <span id="basic-addon1"><img src="Images/magglass.png" alt="search-icon" role="icon"
+                                            aria-labelledby="magnifying glass icon"></span>
+                                    </form>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
                             aria-label="Toggle navigation">
@@ -61,11 +61,11 @@
                                     <a class="nav-link active" href="index.html">Home</a>
                                 </li>
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link drop-btn" href="Product-list.html">Categories</a>
+                                    <a class="nav-link drop-btn" href="products">Categories</a>
                                         <div class="dropdown-content mt-2">
-                                            <a href="Product-list.html">Men</a>
-                                            <a href="Product-list.html">Women</a>
-                                            <a href="Product-list.html">Ethnic</a>
+                                            <a href="products">Men</a>
+                                            <a href="products">Women</a>
+                                            <a href="products">Ethnic</a>
                                         </div>
                                 </li>
                                 <li class="nav-item dropdown2">
@@ -89,8 +89,8 @@
                                 </li>
                             </ul>
                             <div>
-                                <form action="https://www.bing.com/search" class="search-boxa">
-                                    <input type="text" name="q" autocomplete="off" autocapitalize="off" placeholder="enter search" required />
+                                <form action="/toycat/products" class="search-boxa" method="get">
+                                    <input type="search" name="q" autocomplete="off" autocapitalize="off" placeholder="enter search" required />
                                     <button type="submit"><i class="search-icon"></i></button>
                                 </form>
                             </div>
@@ -239,7 +239,7 @@
                         <p>60% Discount</p>
                         <h2>Coolest<br>Toys</h2>
                         <p>Best Toys 2023!</p>
-                        <button onclick="location.href='Product-list.html';">SHOP NOW</button>
+                        <button onclick="location.href='products';">SHOP NOW</button>
                     </div>
                 </div>
             </div>
@@ -258,22 +258,22 @@
                 <div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <img src="Images/cat1.png" alt="womens wear" role="img" aria-label="categories image1">
                     <div class="text-box text-box1" role="textbox" aria-label='textbox3'>
-                        <h2>WOMENS</h2>
-                        <button onclick="location.href='AllProducts';">SHOP NOW</button>
+                        <h2>Action Figures</h2>
+                        <button onclick="location.href='products?category=Action Figures';">SHOP NOW</button>
                     </div>
                 </div>
                 <div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <img src="Images/cat2.png" alt="ethnic wear" role="img" aria-label="categories image2">
                     <div class="text-box text-box2" role="textbox" aria-label='textbox2'>
-                        <h2>ETHNIC WEAR</h2>
-                        <button onclick="location.href='Product-list.html';">SHOP NOW</button>
+                        <h2>Dolls and Accessories</h2>
+                        <button onclick="location.href='products?category=Dolls and Accessories';">SHOP NOW</button>
                     </div>
                 </div>
                 <div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-lg-0 mt-md-4 mt-sm-4 mt-xs-0">
                     <img src="Images/cat3.png" alt="mens" role="img" aria-label="categories image3">
                     <div class="text-box text-box3" role="textbox" aria-label='textbox3'>
-                        <h2>MENS</h2>
-                        <button onclick="location.href='Product-list.html';">SHOP NOW</button>
+                        <h2>Building Toys</h2>
+                        <button onclick="location.href='products?category=Building Toys';">SHOP NOW</button>
                     </div>
                 </div>
             </div>

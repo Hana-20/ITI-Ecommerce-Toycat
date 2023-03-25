@@ -47,13 +47,13 @@
                     <div class="container-fluid">
                         <a class="navbar-brand" href="index.html"><img id="logo_img" src="Images/logo.png" alt="logo"
                                 role="img" aria-label=" website logo"></a>
-                        <div class="input-group d-xl-none d-lg-none" id="search-box-container">
-                            <input type="search" id="search-box-hidden" class="form-control"
+                        <form action="/toycat/products" class="input-group d-xl-none d-lg-none" id="search-box-container">
+                            <input name="q" type="search" id="search-box-hidden" class="form-control"
                                 placeholder="Search products and Brands" aria-label="search box"
                                 aria-describedby="basic-addon1">
                             <span id="basic-addon1"><img src="Images/magglass.png" alt="search-icon" role="icon"
                                     aria-labelledby="magnifying glass icon"></span>
-                        </div>
+                            </form>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
                             aria-label="Toggle navigation">
@@ -91,29 +91,30 @@
                                     <a class="nav-link" href="Cart-page.html">Cart</a>
                                     <span class="badge" id="cart-badge">0</span>
                                 </li>
-                                    
+
                             </ul>
-                           <!--  -->
- 
-                           <div>
-                            <form action="/toycat/AllProducts" class="search-boxa" method="get">
-                                <input type="search" name="q" autocomplete="off" autocapitalize="off" placeholder="enter search" required />
-                                <button type="submit"><i class="search-icon"></i></button>
+                            <!--  -->
+
+                            <div>
+                                <form action="/toycat/products" class="search-boxa" method="get">
+                                    <input type="search" name="q" autocomplete="off" autocapitalize="off"
+                                        placeholder="enter search" required />
+                                    <button type="submit"><i class="search-icon"></i></button>
+                                </form>
+                            </div>
+
+                            <!-- seahc -->
+
+
+
+                            <form
+                                class="form-inline my-2 my-lg-0 d-flex flex-column align-items-stretch justify-content-start">
+                                <button class="btn btn-orange my-2 my-sm-0" id="signin" type="button"
+                                    data-toggle="modal" data-target="#exampleModalCenter"
+                                    aria-labelledby='sign-in-btn'>SIGN IN</button>
                             </form>
                         </div>
-
-                              <!-- seahc -->
-                   
-
-                           
-                                        <form
-                                            class="form-inline my-2 my-lg-0 d-flex flex-column align-items-stretch justify-content-start">
-                                            <button class="btn btn-orange my-2 my-sm-0" id="signin" type="button"
-                                                data-toggle="modal" data-target="#exampleModalCenter"
-                                                aria-labelledby='sign-in-btn'>SIGN IN</button>
-                                        </form>
-                            </div>
-                        </div>
+                    </div>
                 </nav>
             </div>
             <!-- LOGIN MODAL -->
@@ -233,7 +234,7 @@
     <!-- End of Latest Products -->
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a class='text-dark' href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a class='text-dark' href="index.jsp">Home</a></li>
             <li class="breadcrumb-item font-weight-bold active" aria-current="page">All Products</li>
         </ol>
     </nav>
@@ -243,39 +244,16 @@
             <h5>FILTERS</h5>
             <div class="categories mt-4">
                 <h6>CATEGORIES</h6>
-                <input type="checkbox" name="Anouk" id="clothing"><label for='clothing'>Kurtas (2821)</label><br>
-                <input type="checkbox" name="Anouk" id="clothing"><label for='clothing'>Sherwani (1921)</label>
+            <form action="/toycat/products">
+                <input type="checkbox" name="Action Figures" id="Action_Figures"><label for='clothing'>Action Figures</label><br>
+                <input type="checkbox" name="Dolls and Accessories" id="Dolls_and_Accessories"><label for='clothing'>Dolls and Accessories</label><br>
+                <input type="checkbox" name="Building Toys" id="Building_Toys"><label for='clothing'>Building Toys</label><br>
+                <input type="checkbox" name="Anouk" id="Outdoor_Toys"><label for='clothing'>Outdoor Toys</label><br>
+                <input type="checkbox" name="Anouk" id="Board_Games_and_Puzzles"><label for='clothing'>Board Games and Puzzles</label><br>
+                <input type="submit" value="apply">
+            </form>
             </div>
-            <div class="brand mt-4">
-                <h6>BRAND</h6>
-                <input type="checkbox" name="Anouk" id="clothing"><label for='clothing'>Anouk (8921)</label><br>
-                <input type="checkbox" name="Anouk" id="clothing"><label for='clothing'>Sangria (9071)</label><br>
-                <input type="checkbox" name="Anouk" id="clothing"><label for='clothing'>W (1599)</label><br>
-                <input type="checkbox" name="Anouk" id="clothing"><label for='clothing'>Biba (1440)</label><br>
-                <input type="checkbox" name="Anouk" id="clothing"><label for='clothing'>West (2345)</label><br>
-                <input type="checkbox" name="Anouk" id="clothing"><label for='clothing'>Aries (23443)</label><br>
-                <input type="checkbox" name="Anouk" id="clothing"><label for='clothing'>Kushal (23421)</label><br>
-                <input type="checkbox" name="Anouk" id="clothing"><label for='clothing'>Lorem (5674)</label><br>
-                <input type="checkbox" name="Anouk" id="clothing"><label for='clothing'>Ipsum (9087)</label>
-            </div>
-            <div class="price mt-4">
-                <h6>PRICE</h6>
-                <input type="checkbox" name="Anouk" id="clothing"><label for='clothing'>Rs.500 to Rs.5000</label><br>
-                <input type="checkbox" name="Anouk" id="clothing"><label for='clothing'>Rs.5000 to Rs.15000</label><br>
-                <input type="checkbox" name="Anouk" id="clothing"><label for='clothing'>Rs.15000 to Rs.30000</label><br>
-            </div>
-            <div class="discount mt-4">
-                <h6>DISCOUNT RANGE</h6>
-                <input type="radio" name="Anouk" id="clothing"><label for='clothing'>Anouk (8921)</label><br>
-                <input type="radio" name="Anouk" id="clothing"><label for='clothing'>Sangria (9071)</label><br>
-                <input type="radio" name="Anouk" id="clothing"><label for='clothing'>W (1599)</label><br>
-                <input type="radio" name="Anouk" id="clothing"><label for='clothing'>Biba (1440)</label><br>
-                <input type="radio" name="Anouk" id="clothing"><label for='clothing'>West (2345)</label><br>
-                <input type="radio" name="Anouk" id="clothing"><label for='clothing'>Aries (23443)</label><br>
-                <input type="radio" name="Anouk" id="clothing"><label for='clothing'>Kushal (23421)</label><br>
-                <input type="radio" name="Anouk" id="clothing"><label for='clothing'>Lorem (5674)</label><br>
-                <input type="radio" name="Anouk" id="clothing"><label for='clothing'>Ipsum (9087)</label><br>
-            </div>
+           
         </aside>
         <main class='right-main-container'>
             <div
@@ -363,10 +341,10 @@
                     <a href="#" role='link'>Contact Us</a>
                     <a href="FAQ.html" role='link'>FAQ</a>
                 </div>
-        
+
             </div>
         </div>
-        
+
     </footer>
     <!-- End of Footer -->
     <script src="Javascript/index.js"></script>

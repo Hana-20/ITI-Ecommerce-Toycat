@@ -38,6 +38,19 @@ public class ProductService {
         return productsDto;
     }
 
+
+    public List<ProductDTO> listByCategory(String categroty){
+
+        List<ProductDTO> productsDto = new ArrayList<ProductDTO>();
+
+        List<Product> products = productRepository.searchByCategory(categroty);
+        for(Product product: products){
+            productsDto.add(ProductMapper.toDto(product));
+        }
+        return productsDto;
+    }
+
+
     public ProductDTO addProduct(ProductDTO productDto){
         Product product = ProductMapper.toEntity(productDto);
         productRepository.insertProduct(product);
