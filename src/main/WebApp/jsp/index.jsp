@@ -15,25 +15,30 @@
 
 <body>
     <header class='mb-5'>
-        <!-- Start of Top Bar -->
-        <!-- <div class="top-header" role='top header' id="back-to-top">
-        
+         <!-- Start of Top Bar -->
+        <!-- <div class="top-header" role='top header' id="back-to-top"> -->
+
+        <!-- <div class="search-box" role='search' id="search-box">
+                <input type="search" name="searchbox" role="form" id="searchbox"
+                    placeholder="Search Products and Brands" aria-labelledby="search-box">
+                <img src="Images/magglass.png" alt="search-icon" role='icon' aria-label='magnifying glass icon'>
+            </div>
             <div class="information-tab" role="info container">
                 <img src="Images/call.png" id='call-icon' alt="call-icon" role='icon' aria-label='Phone icon'>
                 <a id='ph-number' href="" role='link'>+91 9838203708</a>
                 <a href="Seller-page.html" role='link'>Sell on Company</a>
                 <a href="#" role='link'>Download App</a>
                 <img src="Images/langicon.png" id="flag-icon" alt="lang-icon" role='icon' aria-label='language icon'> -->
-                <!-- <form action="#" aria-label='form'> -->
-                    <div name="lang-select" id="lang-select" aria-labelledby="select box"> 
-                        <!-- <option value="India" role="option" aria-labelledby="Option1">India</option>
-                        <option value="UK" role="option" aria-labelledby="Option1">UK</option>
-                        <option value="Canada" role="option" aria-labelledby="Option2">Canada</option>
-                        <option value="Germany" role="option" aria-labelledby="Option3">Germany</option> -->
-                        </div>
-                <!-- </form> -->
+        <!-- <form action="#" aria-label='form'> -->
+            <div name="lang-select" id="lang-select" aria-labelledby="select box">
+                <!-- <option value="India" role="option" aria-labelledby="Option1">India</option>
+                            <option value="UK" role="option" aria-labelledby="Option1">UK</option>
+                            <option value="Canada" role="option" aria-labelledby="Option2">Canada</option>
+                            <option value="Germany" role="option" aria-labelledby="Option3">Germany</option> -->
+            </div>
+            <!-- </form> -->
             <!-- </div> -->
-        </div>
+            <!-- </div> -->
         <!-- End of Top Bar -->
 
         <!-- Start of Bottom Header -->
@@ -1014,7 +1019,7 @@
             </div>
         </div>
         <div class="view-more-btn" aria-label='view more button holder'>
-            <a href="AllProducts"><button aria-labelledby="view more">VIEW MORE +</button></a>
+            <a href="products"><button aria-labelledby="view more">VIEW MORE +</button></a>
         </div>
     </section>
 
