@@ -16,9 +16,14 @@
 
 <body>
     <header class='mb-5'>
-        <!-- Start of Top Bar -->
-        <!-- <div class="top-header" role='top header' id="back-to-top">
-        
+         <!-- Start of Top Bar -->
+        <!-- <div class="top-header" role='top header' id="back-to-top"> -->
+
+        <!-- <div class="search-box" role='search' id="search-box">
+                <input type="search" name="searchbox" role="form" id="searchbox"
+                    placeholder="Search Products and Brands" aria-labelledby="search-box">
+                <img src="Images/magglass.png" alt="search-icon" role='icon' aria-label='magnifying glass icon'>
+            </div>
             <div class="information-tab" role="info container">
                 <img src="Images/call.png" id='call-icon' alt="call-icon" role='icon' aria-label='Phone icon'>
                 <a id='ph-number' href="" role='link'>+91 9838203708</a>
@@ -26,15 +31,15 @@
                 <a href="#" role='link'>Download App</a>
                 <img src="Images/langicon.png" id="flag-icon" alt="lang-icon" role='icon' aria-label='language icon'> -->
         <!-- <form action="#" aria-label='form'> -->
-        <div name="lang-select" id="lang-select" aria-labelledby="select box">
-            <!-- <option value="India" role="option" aria-labelledby="Option1">India</option>
-                        <option value="UK" role="option" aria-labelledby="Option1">UK</option>
-                        <option value="Canada" role="option" aria-labelledby="Option2">Canada</option>
-                        <option value="Germany" role="option" aria-labelledby="Option3">Germany</option> -->
-        </div>
-        <!-- </form> -->
-        <!-- </div> -->
-        </div>
+            <div name="lang-select" id="lang-select" aria-labelledby="select box">
+                <!-- <option value="India" role="option" aria-labelledby="Option1">India</option>
+                            <option value="UK" role="option" aria-labelledby="Option1">UK</option>
+                            <option value="Canada" role="option" aria-labelledby="Option2">Canada</option>
+                            <option value="Germany" role="option" aria-labelledby="Option3">Germany</option> -->
+            </div>
+            <!-- </form> -->
+            <!-- </div> -->
+            <!-- </div> -->
         <!-- End of Top Bar -->
 
         <!-- Start of Bottom Header -->
@@ -288,22 +293,22 @@
                 <div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <img src="Images/cat1.png" alt="womens wear" role="img" aria-label="categories image1">
                     <div class="text-box text-box1" role="textbox" aria-label='textbox3'>
-                        <h2>WOMENS</h2>
-                        <button onclick="location.href='AllProducts';">SHOP NOW</button>
+                        <h2>Action Figures</h2>
+                        <button onclick="location.href='products?category=Action Figures';">SHOP NOW</button>
                     </div>
                 </div>
                 <div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <img src="Images/cat2.png" alt="ethnic wear" role="img" aria-label="categories image2">
                     <div class="text-box text-box2" role="textbox" aria-label='textbox2'>
-                        <h2>ETHNIC WEAR</h2>
-                        <button onclick="location.href='Product-list.html';">SHOP NOW</button>
+                        <h2>Dolls and Accessories</h2>
+                        <button onclick="location.href='products?category=Dolls and Accessories';">SHOP NOW</button>
                     </div>
                 </div>
                 <div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-lg-0 mt-md-4 mt-sm-4 mt-xs-0">
                     <img src="Images/cat3.png" alt="mens" role="img" aria-label="categories image3">
                     <div class="text-box text-box3" role="textbox" aria-label='textbox3'>
-                        <h2>MENS</h2>
-                        <button onclick="location.href='Product-list.html';">SHOP NOW</button>
+                        <h2>Building Toys</h2>
+                        <button onclick="location.href='products?category=Building Toys';">SHOP NOW</button>
                     </div>
                 </div>
             </div>
@@ -1092,7 +1097,7 @@
             </div>
         </div>
         <div class="view-more-btn" aria-label='view more button holder'>
-            <a href="AllProducts"><button aria-labelledby="view more">VIEW MORE +</button></a>
+            <a href="products"><button aria-labelledby="view more">VIEW MORE +</button></a>
         </div>
     </section>
 

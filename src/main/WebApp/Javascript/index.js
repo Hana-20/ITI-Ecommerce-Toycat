@@ -23,48 +23,48 @@ function changeFunc() {
 
 //-----------------categories checkboxes logic
 
-const checkbox1 = document.querySelector('#Action_Figures');
-const checkbox2 = document.querySelector('#Dolls_and_Accessories');
-const checkbox3 = document.querySelector('#Building_Toys');
-const checkbox5 = document.querySelector('#Outdoor_Toys');
-const checkbox6 = document.querySelector('#Board_Games_and_Puzzles');
+// const checkbox1 = document.querySelector('#Action_Figures');
+// const checkbox2 = document.querySelector('#Dolls_and_Accessories');
+// const checkbox3 = document.querySelector('#Building_Toys');
+// const checkbox5 = document.querySelector('#Outdoor_Toys');
+// const checkbox6 = document.querySelector('#Board_Games_and_Puzzles');
 
-checkbox1.addEventListener('change', (event) => {
-  if (event.target.checked) {
-    // Perform action for checkbox 1 when it is checked
-    console.log('Checkbox 1 is checked');
-  }
-});
+// checkbox1.addEventListener('change', (event) => {
+//   if (event.target.checked) {
+//     // Perform action for checkbox 1 when it is checked
+//     console.log('Checkbox 1 is checked');
+//   }
+// });
 
-checkbox2.addEventListener('change', (event) => {
-  if (event.target.checked) {
-    // Perform action for checkbox 2 when it is checked
-    console.log('Checkbox 2 is checked');
-  }
-});
+// checkbox2.addEventListener('change', (event) => {
+//   if (event.target.checked) {
+//     // Perform action for checkbox 2 when it is checked
+//     console.log('Checkbox 2 is checked');
+//   }
+// });
 
-checkbox3.addEventListener('change', (event) => {
-  if (event.target.checked) {
-    // Perform action for checkbox 3 when it is checked
-    console.log('Checkbox 3 is checked');
-  }
+// checkbox3.addEventListener('change', (event) => {
+//   if (event.target.checked) {
+//     // Perform action for checkbox 3 when it is checked
+//     console.log('Checkbox 3 is checked');
+//   }
   
-  // Check if any checkbox is checked
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-  let isChecked = false;
+//   // Check if any checkbox is checked
+//   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+//   let isChecked = false;
   
-  checkboxes.forEach((checkbox) => {
-    if (checkbox.checked) {
-      isChecked = true;
-    }
-  });
+//   checkboxes.forEach((checkbox) => {
+//     if (checkbox.checked) {
+//       isChecked = true;
+//     }
+//   });
   
-  if (isChecked) {
-    console.log('At least one checkbox is checked');
-  } else {
-    console.log('No checkboxes are checked');
-  }
-});
+//   if (isChecked) {
+//     console.log('At least one checkbox is checked');
+//   } else {
+//     console.log('No checkboxes are checked');
+//   }
+// });
 
 
 
@@ -249,15 +249,15 @@ async function showProducts(Url) {
         // for (i = 1; i <= lowStar; i++) {
         //   reviews += `<img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon" aria-label='star rating'>`;
         // }
-        // lowStar = 0;
+        // lowStar = 0; 
         // htmlToReturn2 += reviews + product.ratings + "/5";
         // reviews = " ";
-        // htmlToReturn2 += `
-        //           </div>
-        //         </div>
-        //       </div>
-        //     </div>`;
-        // document.getElementById('productListArea2').innerHTML += htmlToReturn2;
+        htmlToReturn2 += `
+                  </div>
+                </div>
+              </div>
+            </div>`;
+        document.getElementById('productListArea2').innerHTML += htmlToReturn2;
       });
       // Code to show icons upon hover of products
       document.querySelectorAll(".prod-card").forEach(card => {
@@ -397,12 +397,12 @@ function showSearchResult(){
         // lowStar = 0;
         // htmlToReturn2 += reviews + product.ratings + "/5";
         // reviews = " ";
-        // htmlToReturn2 += `
-        //           </div>
-        //         </div>
-        //       </div>
-        //     </div>`;
-        // document.getElementById('productListArea2').innerHTML += htmlToReturn2;
+        htmlToReturn2 += `
+                  </div>
+                </div>
+              </div>
+            </div>`;
+        document.getElementById('productListArea2').innerHTML += htmlToReturn2;
       });
       // Code to show icons upon hover of products
       document.querySelectorAll(".prod-card").forEach(card => {
@@ -614,19 +614,18 @@ function showCategoryResult(){
 
 
 //------------------------
+const url = new URL(window.location.href)
 
 
-if(myParam== null){
-  console.log("default");
-  showProducts(productsListUrl);
-}
-else if(myParam=='q'){
-  console.log("search ");
+
+if(url.searchParams.has('q')){ 
+   console.log("search ");
   showSearchResult();
-}
-else if(myParams=="category"){
-  console.log("category");
-  showCategoryResult();
+}else if(url.searchParams.has('category')){
+   showCategoryResult();
+}else{
+  console.log("all prods");
+  showProducts();
 }
 
 
