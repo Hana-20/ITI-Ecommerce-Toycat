@@ -7,13 +7,16 @@ import gov.iti.toycat.models.dtos.ProductDTO;
 import gov.iti.toycat.models.entities.Product;
 import gov.iti.toycat.models.mappers.ProductMapper;
 import gov.iti.toycat.repositories.ProductRepository;
+import gov.iti.toycat.repositories.UserRepository;
 
-public class ProductService {
+public class DashboardService {
 
     ProductRepository productRepository;
+    UserRepository userRepository;
 
-    public ProductService() {
+    public DashboardService() {
         this.productRepository = new ProductRepository();
+        this.userRepository = new UserRepository();
     }
 
     public List<ProductDTO> getAllProducts() {
@@ -27,31 +30,18 @@ public class ProductService {
         return productsDto;
     }
 
-    public List<ProductDTO> searchForProduct(String queryTerm){
+    public List<ProductDTO> searchForProduct(String queryTerm) {
 
         List<ProductDTO> productsDto = new ArrayList<ProductDTO>();
 
         List<Product> products = productRepository.searchProducts(queryTerm);
-        for(Product product: products){
+        for (Product product : products) {
             productsDto.add(ProductMapper.toDto(product));
         }
         return productsDto;
     }
 
-
-    public List<ProductDTO> listByCategory(String categroty){
-
-        List<ProductDTO> productsDto = new ArrayList<ProductDTO>();
-
-        List<Product> products = productRepository.searchByCategory(categroty);
-        for(Product product: products){
-            productsDto.add(ProductMapper.toDto(product));
-        }
-        return productsDto;
-    }
-
-
-    public ProductDTO addProduct(ProductDTO productDto){
+    public ProductDTO addProduct(ProductDTO productDto) {
         Product product = ProductMapper.toEntity(productDto);
         productRepository.insertProduct(product);
         return (ProductMapper.toDto(product));
@@ -59,5 +49,13 @@ public class ProductService {
 
     public boolean deleteProductWithId(String id) {
         return productRepository.deleteProduct(Integer.parseInt(id)) > 0;
+    }
+
+    public Long getProductsCount() {
+        return productRepository.getTotalProductsCount();
+    }
+
+    public Long getUsersCount() {
+        return userRepository.getTotalUsersCount();
     }
 }
