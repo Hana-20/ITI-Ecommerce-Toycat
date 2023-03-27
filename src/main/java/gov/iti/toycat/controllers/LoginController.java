@@ -3,7 +3,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import gov.iti.toycat.models.dtos.User.LoginDTO;
+import gov.iti.toycat.models.dtos.User.UserDTO;
 import gov.iti.toycat.models.entities.User;
+import gov.iti.toycat.models.mappers.UserMapper;
 import gov.iti.toycat.services.UserServices;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -39,7 +41,7 @@ public class LoginController extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // do preparing
-        var user = (User) request.getSession(false).getAttribute("user");
+        var user = (UserDTO) request.getSession(false).getAttribute("user");
         if (user != null) {
             response.sendRedirect("home");
            
@@ -48,17 +50,17 @@ public class LoginController extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException { 
         PrintWriter out=response.getWriter();
-         var sessionUser = (User) request.getSession().getAttribute("user");
+         var sessionUser = (UserDTO) request.getSession().getAttribute("user");
         if (sessionUser  != null) {
             response.sendRedirect("home");
            
         }
         else{
         LoginDTO user=new LoginDTO(request.getParameter("loginEmail"),request.getParameter("loginPassword"));
-       User isUthrized=new UserServices().login(user);
+        User isUthrized=new UserServices().login(user);
         if(isUthrized!=null){
         HttpSession session = request.getSession(true);
-        session.setAttribute("user",isUthrized);
+        session.setAttribute("user",UserMapper.toDto(isUthrized));
         response.sendRedirect("home");
         }
        else { 

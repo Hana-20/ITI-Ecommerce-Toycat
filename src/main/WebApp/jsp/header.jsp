@@ -86,7 +86,7 @@
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <c:if test="${sessionScope.user.role.toString()  eq '1'}">
-                                                    <a class="dropdown-item" href="${pageContext.request.contextPath}/admin/jsp/admin-index.jsp">admin </a> 
+                                                    <a class="dropdown-item" href="${pageContext.request.contextPath}/admin">admin </a> 
                                                      </c:if>
                                                      
                                                 <a class="dropdown-item" href="${pageContext.request.contextPath}/profile">profile &nbsp;&nbsp;  <i class="fa fa-user"></i></a> 

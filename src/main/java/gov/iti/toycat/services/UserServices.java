@@ -26,6 +26,10 @@ public class UserServices {
             return loggedUser;
         
     }
+    public void Update(User user){
+        UserRepository userRepository=new UserRepository();
+        userRepository.updateUserData(user);
+    }
 }
 
 

@@ -3,7 +3,7 @@
 <body>
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a class="text-dark" href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a class="text-dark" href="home">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Edit Profile</li>
         </ol>
     </nav>
@@ -48,28 +48,28 @@
             <main class='flex-container grid-column-2'>
                 <h3 class="font-weight-bold">EDIT PROFILE</h3>
                 <hr>
-                <form class='edit-profile-form'>
+                <form class='edit-profile-form' action="editProfile" method="post">
                     <div class="mb-3">
-                        <label for="profileInputFullname" class="form-label">Full Name</label>
-                        <input placeholder="Enter your full name" type="text" class="form-control" id="profileInputFullname" name="username">
+                        <label for="profileInputFullname" class="form-label">Name</label>
+                        <input placeholder="Enter your name" type="text" class="form-control" id="profileInputFullname" name="username" value="${sessionScope.user.username}">
                     </div>
                     <div class="mb-3">
                         <label for="profileInputCreditLimit" placeholder="Enter your credit  limit" class="form-label">Credit Limit</label>
                         <input type="number" 
-                            class="form-control" id="profileInputCreditLimit" placeholder="Enter Credit Limit" aria-label="contactnumber" name="creditLimit">
+                            class="form-control" id="profileInputCreditLimit" placeholder="Enter Credit Limit" aria-label="contactnumber" name="creditLimit" value="${sessionScope.user.creditLimit}">
                     </div>
                     <div class="mb-3">
                         <label for="profileInputEmail1" class="form-label">Email</label>
                         <input type="email" class="form-control" placeholder="Enter your email "
-                            id="profileInputEmail1" aria-label="Email" name="email">
+                            id="profileInputEmail1" aria-label="Email" name="email" value="${sessionScope.user.email}">
                     </div>
                     <div class="mb-3">
                         <label for="profileInputBirthday" class="form-label">Birthday (dd/mm/yyyy)</label>
-                        <input type="date" class="form-control" placeholder="Enter your birthday " id="profileInputBirthday" aria-label="Birthday" name="birthday">
+                        <input type="date" class="form-control" placeholder="Enter your birthday " id="profileInputBirthday" aria-label="Birthday" name="birthday" value="${sessionScope.user.birthday}">
                     </div>
                     <div class="mb-3">
                         <label for="profileInputAddress" class="form-label">Address</label>
-                        <input placeholder="Enter your current location" type="text" class="form-control" id="profileInputLocation"aria-label="Address" name="address">  
+                        <input placeholder="Enter your current location" type="text" class="form-control" id="profileInputLocation"aria-label="Address" name="address" value="${sessionScope.user.address}">  
                     </div>
                     <div class="mb-3">
                         <label for="profileInputCurrentPassword" class="form-label">Current Password</label>
@@ -81,7 +81,7 @@
                         <input placeholder="Enter your new password" type="password" class="form-control" id="profileInputNewPassword" aria-label="NewPassword" name="password">  
                     </div>
                     <div class="button-group d-flex flex-column mt-3" id="btn-group">
-                    <button class="btn" id="save-btn" type="button">SAVE
+                    <button class="btn" id="save-btn" type="submit">SAVE
                         DETAILS</button>
                     </div>
                 </div>
