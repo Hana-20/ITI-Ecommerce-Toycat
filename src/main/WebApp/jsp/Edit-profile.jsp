@@ -9,46 +9,11 @@
     </nav>
     <section class="edit-profile">
         <div class="mega-container">
-            <aside
-            class='grid-column-1 container d-flex flex-lg-column align-items-lg-start justify-content-lg-start flex-md-column align-items-md-start float-lg-left'>
-            <div class="profile mb-4 d-flex flex-column justify-content-center align-items-start">
-                <h6 class="font-weight-bold my-account-heading">MY ACCOUNT</h6>
-                <img src="Images/profile-head.png" alt="Profile picture">
-                <p class='mb-0 mt-2'>Mark Matthews</p>
-                <p>mark.matthews@xyz.com</p>
-            </div>
-            <div class="orders mb-4">
-                <h6 class="font-weight-bold">ORDERS</h6>
-                <div class="list-group border-0">
-                    <a href="my-order.html" class="list-items">My Order</a>
-                    <a href="Track-order.html" class="list-items">Track Order</a>
-                    <a href="Return-order.html" class="list-items">Return Order</a>
-                    <a href="Track-order.html" class="list-items">Cancelled Order</a>
-                </div>
-            </div>
-            <div class="account mb-4">
-                <h6 class="font-weight-bold">ACCOUNT</h6>
-                <div class="list-group">
-                    <a href="My-profile.html" class="list-items list-item-active font-weight-bold">Profile</a>
-                    <a href="My-profile.html" class="list-items">Saved Addresses</a>
-                    <a href="My-profile.html" class="list-items">Saved Cards</a>
-                    <a href="My-profile.html" class="list-items">Change Password</a>
-                </div>
-            </div>
-            <div class="payment mb-4">
-                <h6 class="font-weight-bold">PAYMENT</h6>
-                <div class="list-group">
-                    <a href="#" class="list-items">PhonePe</a>
-                    <a href="#" class="list-items">Gift Card</a>
-                    <a href="#" class="list-items">Credit Card</a>
-                    <a href="#" class="list-items">Debit Card</a>
-                </div>
-            </div>
-            </aside>
+            <jsp:include page="aside.jsp" />
             <main class='flex-container grid-column-2'>
                 <h3 class="font-weight-bold">EDIT PROFILE</h3>
                 <hr>
-                <form class='edit-profile-form' action="editProfile" method="post">
+                <form class='edit-profile-form' action="editProfile" method="post" id="updatProfileForm" class="needs-validation" novalidate>
                     <div class="mb-3">
                         <label for="profileInputFullname" class="form-label">Name</label>
                         <input placeholder="Enter your name" type="text" class="form-control" id="profileInputFullname" name="username" value="${sessionScope.user.username}">
@@ -58,10 +23,11 @@
                         <input type="number" 
                             class="form-control" id="profileInputCreditLimit" placeholder="Enter Credit Limit" aria-label="contactnumber" name="creditLimit" value="${sessionScope.user.creditLimit}">
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 form-group">
                         <label for="profileInputEmail1" class="form-label">Email</label>
                         <input type="email" class="form-control" placeholder="Enter your email "
-                            id="profileInputEmail1" aria-label="Email" name="email" value="${sessionScope.user.email}">
+                            id="email" aria-label="Email" name="email" value="${sessionScope.user.email}">
+                            <div class="invalid-feedback" id="updateProfileValidationEmail"></div>
                     </div>
                     <div class="mb-3">
                         <label for="profileInputBirthday" class="form-label">Birthday (dd/mm/yyyy)</label>
@@ -71,14 +37,17 @@
                         <label for="profileInputAddress" class="form-label">Address</label>
                         <input placeholder="Enter your current location" type="text" class="form-control" id="profileInputLocation"aria-label="Address" name="address" value="${sessionScope.user.address}">  
                     </div>
-                    <div class="mb-3">
-                        <label for="profileInputCurrentPassword" class="form-label">Current Password</label>
-                        <input placeholder="Enter your current password" type="password" class="form-control" id="profileInputCurrentPassword"aria-label="currentPassword" 
-                        name="currentPassword">  
+                    <div class="mb-3 form-group">
+                        <label for="profileInputCurrentPassword" class="form-label">Current Password<span
+                            class="required">*</span></label>
+                        <input placeholder="Enter your current password" type="password" class="form-control" id="currentPassword"aria-label="currentPassword" 
+                        name="currentPassword" required> 
+                        <div class="invalid-feedback" id="currentPasswordValidation"></div> 
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 form-group">
                         <label for="profileInputNewPassword" class="form-label">New Password</label>
-                        <input placeholder="Enter your new password" type="password" class="form-control" id="profileInputNewPassword" aria-label="NewPassword" name="password">  
+                        <input placeholder="Enter your new password" type="password" class="form-control" id="updateProfilePassword" aria-label="NewPassword" name="password">  
+                        <div class="invalid-feedback" id="newPasswordValidation"></div> 
                     </div>
                     <div class="button-group d-flex flex-column mt-3" id="btn-group">
                     <button class="btn" id="save-btn" type="submit">SAVE
@@ -208,10 +177,12 @@
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
     <script src="Javascript/index.js"></script>
+    <script src="Javascript/UpdateProfile.js"></script>
     <script src="Javascript/jQuery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
     </script>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 
 </html>

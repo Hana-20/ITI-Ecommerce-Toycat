@@ -28,3 +28,17 @@
 .btn:focus{
 	box-shadow:none!important;
 }
+   @media screen and (max-width:1000px){
+    .dropdown {
+         display :flex; 
+         justify-content:center !important;
+       }
+     }
+     
+    
+    @media screen and (max-width: 1000px) {
+     .dropdown .dropdown-menu {
+    left:50% !important;
+    transform:translateX(-50%) !important;
+       }
+     }

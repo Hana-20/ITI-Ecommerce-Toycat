@@ -11,7 +11,7 @@ import jakarta.persistence.Embeddable;
 
 /**
  *
- * @author hanaa
+ * @author hana
  */
 @Embeddable
 public class OrderProductPK implements Serializable {
