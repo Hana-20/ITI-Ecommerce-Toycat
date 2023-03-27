@@ -7,6 +7,8 @@ package gov.iti.toycat.models.entities;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Collection;
+import java.util.Set;
+
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -19,6 +21,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 /**
@@ -39,11 +42,11 @@ public class Cart implements Serializable {
     @Basic(optional = false)
     @Column(name = "total_price")
     private BigDecimal totalPrice;
+    @OneToOne
     @JoinColumn(name = "user_email", referencedColumnName = "email")
-    @ManyToOne(optional = false)
     private User userEmail;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
-    private Collection<CartProduct> cartProductCollection;
+    private Set<CartProduct> cartProductCollection;
 
     public Cart() {
     }
@@ -85,15 +88,20 @@ public class Cart implements Serializable {
         return cartProductCollection;
     }
 
-    public void setCartProductCollection(Collection<CartProduct> cartProductCollection) {
-        this.cartProductCollection = cartProductCollection;
-    }
-
+   
     @Override
     public int hashCode() {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);
         return hash;
+    }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    public void setCartProductCollection(Set<CartProduct> cartProductCollection) {
+        this.cartProductCollection = cartProductCollection;
     }
 
     @Override

@@ -7,12 +7,15 @@ package gov.iti.toycat.models.entities;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Set;
+
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -50,10 +53,10 @@ public class User implements Serializable {
     @Basic(optional = false)
     @Column(name = "username")
     private String username;
+    @OneToOne(mappedBy="userEmail")
+    private Cart cart;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userEmail")
-    private Collection<Cart> cartCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userEmail")
-    private Collection<Order> orderCollection;
+    private Set<Order> orderCollection;
 
     public User() {
     }
@@ -133,19 +136,25 @@ public class User implements Serializable {
         this.username = username;
     }
 
-    public Collection<Cart> getCartCollection() {
-        return cartCollection;
+  
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
     }
 
-    public void setCartCollection(Collection<Cart> cartCollection) {
-        this.cartCollection = cartCollection;
+    public Cart getCart() {
+        return cart;
     }
 
-    public Collection<Order> getorderCollection() {
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
+
+    public Set<Order> getOrderCollection() {
         return orderCollection;
     }
 
-    public void setorderCollection(Collection<Order> orderCollection) {
+    public void setOrderCollection(Set<Order> orderCollection) {
         this.orderCollection = orderCollection;
     }
 

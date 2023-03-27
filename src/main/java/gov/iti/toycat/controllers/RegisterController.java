@@ -1,5 +1,10 @@
 package gov.iti.toycat.controllers;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.lang.reflect.InvocationTargetException;
+import java.math.BigDecimal;
+
+
 
 import gov.iti.toycat.models.entities.User;
 import gov.iti.toycat.services.UserServices;
@@ -64,7 +69,8 @@ try {
     System.out.println(sDate1+"\t"+date1); 
     User user=new User(request.getParameter("email"), request.getParameter("name"), request.getParameter("password"),creditLimit ,date1 , request.getParameter("address") ,'0'); 
     UserServices service =new UserServices();
-    service.register(user);    
+    service.register(user);  
+    response.sendRedirect("home");  
     
 }
 }

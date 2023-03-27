@@ -71,7 +71,7 @@
 
                                 </ul>
                                 <div>
-                                    <form action="https://www.bing.com/search" class="search-boxa">
+                                    <form action="/toycat/products" class="search-boxa" method="get">
                                         <input type="text" name="q" autocomplete="off" autocapitalize="off"
                                             placeholder="enter search" required />
                                         <button type="submit"><i class="search-icon"></i></button>

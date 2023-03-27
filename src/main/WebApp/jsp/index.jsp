@@ -446,90 +446,380 @@
                                 </div>
                             </div>
 
-    <section class="categories-section" aria-label='Categories section'>
-        <div class="container-fluid w-75 p-0" id="categories">
-            <h1>SHOP BY CATEGORIES</h1>
-            <div class="row">
-                <div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <img src="Images/cat1.png" alt="womens wear" role="img" aria-label="categories image1">
-                    <div class="text-box text-box1" role="textbox" aria-label='textbox3'>
-                        <h2>Action Figures</h2>
-                        <button onclick="location.href='products?category=Action Figures';">SHOP NOW</button>
-                    </div>
-                </div>
-                <div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <img src="Images/cat2.png" alt="ethnic wear" role="img" aria-label="categories image2">
-                    <div class="text-box text-box2" role="textbox" aria-label='textbox2'>
-                        <h2>Dolls and Accessories</h2>
-                        <button onclick="location.href='products?category=Dolls and Accessories';">SHOP NOW</button>
-                    </div>
-                </div>
-                <div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-lg-0 mt-md-4 mt-sm-4 mt-xs-0">
-                    <img src="Images/cat3.png" alt="mens" role="img" aria-label="categories image3">
-                    <div class="text-box text-box3" role="textbox" aria-label='textbox3'>
-                        <h2>Building Toys</h2>
-                        <button onclick="location.href='products?category=Building Toys';">SHOP NOW</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Start of Latest Products -->
-    <section class='latest-prods' aria-label='latest products section'>
-        <div class="latest-prod-title-bar" aria-label='latest products section title bar'>
-            <h2 class="text-center">LATEST PRODUCTS</h2>
-            <ul class="desc-tabs nav nav-tabs" id="myProductsTab" role="tablist">
-                <li class="nav-item">
-                    <a href="#pd-list-1" id="tab1" class='nav-link active' aria-controls="product list 1"
-                        aria-selected='true' role="tab" tabindex=1 data-toggle='tab'>All</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#pd-list-2" id="tab2" class='nav-link' aria-controls="create-account" aria-selected='false'
-                        role="tab" tabindex=0 data-toggle='tab'>Featured</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#pd-list-3" id="tab3" class='nav-link' aria-controls="create-account" aria-selected='false'
-                        role="tab" tabindex=0 data-toggle='tab'>Latest</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#pd-list-4" id="tab4" class='nav-link' aria-controls="create-account" aria-selected='false'
-                        role="tab" tabindex=0 data-toggle='tab'>Best Rated</a>
-                </li>
-            </ul>
-        </div>
-        <div class="desc-tabs-content tab-content" id="myProductsTabContent">
-            <div class="tab-pane active" id="pd-list-1" role="tabpanel" aria-labelledby="tab1" aria-hidden='false'>
-                <div class="container-fluid mt-5">
-                    <div class="row">
-                        <div class="p-col-1 col col-lg-4 col-md-6 col-sm-12">
-                            <div class="prod-card mb-4" id="product1">
-                                <div class="icons d-flex justify-content-center" id="card_icons">
-                                    <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
-                                            alt="inner heart icon"></a>
-                                    <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
-                                            alt="inner eye icon"></a>
-                                    <a class="shopping"><img src="Images/shopping-icon-trans.png"
-                                            alt="inner shopping icon"></a>
+                            <div class="col col-lg-4 col-md-6 col-sm-12">
+                                <div class="prod-card mb-4" id="product5">
+                                    <div class="icons d-flex justify-content-center" id="card_icons">
+                                        <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
+                                                alt="inner heart icon"></a>
+                                        <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                                alt="inner eye icon"></a>
+                                        <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                                alt="inner shopping icon"></a>
+                                    </div>
+                                    <img class="card-img-top" src="Images/product5.png" alt="Card image cap">
+                                    <span class='new_tag'>NEW</span>
+                                    <div class="card-body d-flex flex-column align-items-center">
+                                        <h5 class="card-title">Dummy Text Lorel</h5>
+                                        <p class="card-text mb-0"><strong>Rs 400</strong> <del>Rs 1000</del> <span
+                                                class="offer">(60%Off)</span></p>
+                                        <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                        </div>
+                                    </div>
                                 </div>
-                                <img class="card-img-top" src="Images/product1.png" alt="Card image cap">
-                                <span class='new_tag'>NEW</span>
-                                <div class="card-body d-flex flex-column align-items-center">
-                                    <h5 class="card-title">Dummy Text Lorel</h5>
-                                    <p class="card-text mb-0"><strong>Rs 480</strong> <del>Rs 1200</del> <span
-                                            class="offer">(60%Off)</span></p>
-                                    <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
-                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
-                                            aria-label='star rating'>
-                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
-                                            aria-label='star rating'>
-                                        <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
-                                            aria-label='star rating'>
-                                        <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
-                                            aria-label='star rating'>
-                                        <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
-                                            aria-label='star rating'>
+                            </div>
+                            <div class="col col-lg-4 col-md-6 col-sm-12">
+                                <div class="prod-card mb-4" id="product5">
+                                    <div class="icons d-flex justify-content-center" id="card_icons">
+                                        <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
+                                                alt="inner heart icon"></a>
+                                        <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                                alt="inner eye icon"></a>
+                                        <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                                alt="inner shopping icon"></a>
+                                    </div>
+                                    <img class="card-img-top" src="Images/product5.png" alt="Card image cap">
+                                    <div class="card-body d-flex flex-column align-items-center">
+                                        <h5 class="card-title">Dummy Text Lorel</h5>
+                                        <p class="card-text mb-0"><strong>Rs 400</strong> <del>Rs 1000</del> <span
+                                                class="offer">(60%Off)</span></p>
+                                        <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-lg-4 col-md-6 col-sm-12">
+                                <div class="prod-card mb-4" id="product5">
+                                    <div class="icons d-flex justify-content-center" id="card_icons">
+                                        <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
+                                                alt="inner heart icon"></a>
+                                        <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                                alt="inner eye icon"></a>
+                                        <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                                alt="inner shopping icon"></a>
+                                    </div>
+                                    <img class="card-img-top" src="Images/product5.png" alt="Card image cap">
+                                    <div class="card-body d-flex flex-column align-items-center">
+                                        <h5 class="card-title">Dummy Text Lorel</h5>
+                                        <p class="card-text mb-0"><strong>Rs 400</strong> <del>Rs 1000</del> <span
+                                                class="offer">(60%Off)</span></p>
+                                        <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-lg-4 col-md-6 col-sm-12">
+                                <div class="prod-card mb-4" id="product5">
+                                    <div class="icons d-flex justify-content-center" id="card_icons">
+                                        <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
+                                                alt="inner heart icon"></a>
+                                        <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                                alt="inner eye icon"></a>
+                                        <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                                alt="inner shopping icon"></a>
+                                    </div>
+                                    <img class="card-img-top" src="Images/product5.png" alt="Card image cap">
+                                    <span class='new_tag'>NEW</span>
+                                    <div class="card-body d-flex flex-column align-items-center">
+                                        <h5 class="card-title">Dummy Text Lorel</h5>
+                                        <p class="card-text mb-0"><strong>Rs 400</strong> <del>Rs 1000</del> <span
+                                                class="offer">(60%Off)</span></p>
+                                        <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-lg-4 col-md-6 col-sm-12">
+                                <div class="prod-card mb-4" id="product5">
+                                    <div class="icons d-flex justify-content-center" id="card_icons">
+                                        <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
+                                                alt="inner heart icon"></a>
+                                        <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                                alt="inner eye icon"></a>
+                                        <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                                alt="inner shopping icon"></a>
+                                    </div>
+                                    <img class="card-img-top" src="Images/product5.png" alt="Card image cap">
+                                    <span class='new_tag'>NEW</span>
+                                    <div class="card-body d-flex flex-column align-items-center">
+                                        <h5 class="card-title">Dummy Text Lorel</h5>
+                                        <p class="card-text mb-0"><strong>Rs 400</strong> <del>Rs 1000</del> <span
+                                                class="offer">(60%Off)</span></p>
+                                        <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="pd-list-3" role="tabpanel" aria-labelledby="tab3" aria-hidden='false'>
+                    <div class="container-fluid mt-5">
+                        <div class="row">
+                            <div class="col col-lg-4 col-md-6 col-sm-12">
+                                <div class="prod-card mb-4" id="product4">
+                                    <div class="icons d-flex justify-content-center" id="card_icons">
+                                        <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
+                                                alt="inner heart icon"></a>
+                                        <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                                alt="inner eye icon"></a>
+                                        <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                                alt="inner shopping icon"></a>
+                                    </div>
+                                    <img class="card-img-top" src="Images/product4.png" alt="Card image cap">
+                                    <span class='new_tag'>NEW</span>
+                                    <div class="card-body d-flex flex-column align-items-center">
+                                        <h5 class="card-title">Dummy Text Lorel</h5>
+                                        <p class="card-text mb-0"><strong>Rs 748</strong> <del>Rs 1870</del> <span
+                                                class="offer">(60%Off)</span></p>
+                                        <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-lg-4 col-md-6 col-sm-12">
+                                <div class="prod-card mb-4" id="product4">
+                                    <div class="icons d-flex justify-content-center" id="card_icons">
+                                        <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
+                                                alt="inner heart icon"></a>
+                                        <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                                alt="inner eye icon"></a>
+                                        <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                                alt="inner shopping icon"></a>
+                                    </div>
+                                    <img class="card-img-top" src="Images/product4.png" alt="Card image cap">
+                                    <div class="card-body d-flex flex-column align-items-center">
+                                        <h5 class="card-title">Dummy Text Lorel</h5>
+                                        <p class="card-text mb-0"><strong>Rs 748</strong> <del>Rs 1870</del> <span
+                                                class="offer">(60%Off)</span></p>
+                                        <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-lg-4 col-md-6 col-sm-12">
+                                <div class="prod-card mb-4" id="product4">
+                                    <div class="icons d-flex justify-content-center" id="card_icons">
+                                        <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
+                                                alt="inner heart icon"></a>
+                                        <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                                alt="inner eye icon"></a>
+                                        <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                                alt="inner shopping icon"></a>
+                                    </div>
+                                    <img class="card-img-top" src="Images/product4.png" alt="Card image cap">
+                                    <div class="card-body d-flex flex-column align-items-center">
+                                        <h5 class="card-title">Dummy Text Lorel</h5>
+                                        <p class="card-text mb-0"><strong>Rs 748</strong> <del>Rs 1870</del> <span
+                                                class="offer">(60%Off)</span></p>
+                                        <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-lg-4 col-md-6 col-sm-12">
+                                <div class="prod-card mb-4" id="product4">
+                                    <div class="icons d-flex justify-content-center" id="card_icons">
+                                        <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
+                                                alt="inner heart icon"></a>
+                                        <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                                alt="inner eye icon"></a>
+                                        <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                                alt="inner shopping icon"></a>
+                                    </div>
+                                    <img class="card-img-top" src="Images/product4.png" alt="Card image cap">
+                                    <div class="card-body d-flex flex-column align-items-center">
+                                        <h5 class="card-title">Dummy Text Lorel</h5>
+                                        <p class="card-text mb-0"><strong>Rs 748</strong> <del>Rs 1870</del> <span
+                                                class="offer">(60%Off)</span></p>
+                                        <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-lg-4 col-md-6 col-sm-12">
+                                <div class="prod-card mb-4" id="product4">
+                                    <div class="icons d-flex justify-content-center" id="card_icons">
+                                        <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
+                                                alt="inner heart icon"></a>
+                                        <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                                alt="inner eye icon"></a>
+                                        <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                                alt="inner shopping icon"></a>
+                                    </div>
+                                    <img class="card-img-top" src="Images/product4.png" alt="Card image cap">
+                                    <span class='new_tag'>NEW</span>
+                                    <div class="card-body d-flex flex-column align-items-center">
+                                        <h5 class="card-title">Dummy Text Lorel</h5>
+                                        <p class="card-text mb-0"><strong>Rs 748</strong> <del>Rs 1870</del> <span
+                                                class="offer">(60%Off)</span></p>
+                                        <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col col-lg-4 col-md-6 col-sm-12">
+                                <div class="prod-card mb-4" id="product4">
+                                    <div class="icons d-flex justify-content-center" id="card_icons">
+                                        <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
+                                                alt="inner heart icon"></a>
+                                        <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                                alt="inner eye icon"></a>
+                                        <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                                alt="inner shopping icon"></a>
+                                    </div>
+                                    <img class="card-img-top" src="Images/product4.png" alt="Card image cap">
+                                    <div class="card-body d-flex flex-column align-items-center">
+                                        <h5 class="card-title">Dummy Text Lorel</h5>
+                                        <p class="card-text mb-0"><strong>Rs 748</strong> <del>Rs 1870</del> <span
+                                                class="offer">(60%Off)</span></p>
+                                        <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane" id="pd-list-4" role="tabpanel" aria-labelledby="tab4" aria-hidden='false'>
+                    <div class="container-fluid mt-5">
+                        <div class="row">
+                            <div class="col col-lg-4 col-md-6 col-sm-12">
+                                <div class="prod-card mb-4" id="product6">
+                                    <div class="icons d-flex justify-content-center" id="card_icons">
+                                        <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
+                                                alt="inner heart icon"></a>
+                                        <a href="Product-view.html"><img src="Images/eye-icon-trans.png"
+                                                alt="inner eye icon"></a>
+                                        <a class="shopping"><img src="Images/shopping-icon-trans.png"
+                                                alt="inner shopping icon"></a>
+                                    </div>
+                                    <img class="card-img-top" src="Images/product6.png" alt="Card image cap">
+                                    <div class="card-body d-flex flex-column align-items-center">
+                                        <h5 class="card-title">Dummy Text Lorel</h5>
+                                        <p class="card-text mb-0"><strong>Rs 1200</strong> <del>Rs 3000</del> <span
+                                                class="offer">(60%Off)</span></p>
+                                        <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                            <img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon"
+                                                aria-label='star rating'>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -690,7 +980,7 @@
                 </div>
             </div>
             <div class="view-more-btn" aria-label='view more button holder'>
-                <a href="AllProducts"><button aria-labelledby="view more">VIEW MORE +</button></a>
+                <a href="products"><button aria-labelledby="view more">VIEW MORE +</button></a>
             </div>
         </section>
 
@@ -767,9 +1057,7 @@
                 </div>
             </div>
         </div>
-        <div class="view-more-btn" aria-label='view more button holder'>
-            <a href="products"><button aria-labelledby="view more">VIEW MORE +</button></a>
-        </div>
+        
     </section>
 
         </footer>

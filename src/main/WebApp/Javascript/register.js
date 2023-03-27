@@ -1,4 +1,5 @@
-var firstOne=false;
+(function() {
+  var firstOne=false;
 var form = document.getElementById("registration-form");
 var passwordInput = document.getElementById("password");
 var emailInput = document.getElementById("email");
@@ -143,4 +144,4 @@ form.addEventListener("submit", function (event) {
   
 });
 
-
+})();
