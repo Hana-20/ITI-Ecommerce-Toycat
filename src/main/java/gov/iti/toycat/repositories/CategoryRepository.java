@@ -3,10 +3,9 @@ package gov.iti.toycat.repositories;
 import java.util.List;
 
 import gov.iti.toycat.models.entities.Category;
-import gov.iti.toycat.models.entities.Product;
 import gov.iti.toycat.repositories.connection.ConnectionManager;
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.criteria.CriteriaQuery;
+
 
 public class CategoryRepository {
 

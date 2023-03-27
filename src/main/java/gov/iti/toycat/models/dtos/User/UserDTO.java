@@ -1,6 +1,6 @@
 package gov.iti.toycat.models.dtos.User;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class UserDTO {
     private String email;

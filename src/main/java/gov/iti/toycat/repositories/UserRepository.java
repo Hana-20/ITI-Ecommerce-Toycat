@@ -50,8 +50,6 @@ public class UserRepository {
         // Execute the query
         TypedQuery<User> query = entityManager.createQuery(criteriaQuery);
         List<User> result = query.getResultList();
-       // System.out.println(result.get(0));
-        // Check if the login was successful
         if (!result.isEmpty()) {
             user = result.get(0);
             // Login successful, do something with the user
@@ -70,5 +68,11 @@ public class UserRepository {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         Long count = entityManager.createQuery("SELECT COUNT(u) FROM User u", Long.class).getSingleResult();
         return count;
+    }
+    public void updateUserData(User user ){
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.merge(user);
+        entityManager.getTransaction().commit();
     }
 }

@@ -1,22 +1,17 @@
 package gov.iti.toycat.controllers.admin;
 
-import java.io.BufferedReader;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Enumeration;
 import java.util.UUID;
 
-import com.google.gson.Gson;
 
 import gov.iti.toycat.models.dtos.CategoryDTO;
 import gov.iti.toycat.models.dtos.ProductDTO;
-import gov.iti.toycat.models.entities.Category;
-import gov.iti.toycat.repositories.CategoryRepository;
-import gov.iti.toycat.repositories.ProductRepository;
 import gov.iti.toycat.services.CategoryService;
 import gov.iti.toycat.services.ProductService;
 import jakarta.servlet.ServletException;
