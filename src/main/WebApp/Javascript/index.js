@@ -252,12 +252,12 @@ async function showProducts(Url) {
         // lowStar = 0; 
         // htmlToReturn2 += reviews + product.ratings + "/5";
         // reviews = " ";
-        htmlToReturn2 += `
-                  </div>
-                </div>
-              </div>
-            </div>`;
-        document.getElementById('productListArea2').innerHTML += htmlToReturn2;
+        // htmlToReturn2 += `
+        //           </div>
+        //         </div>
+        //       </div>
+        //     </div>`;
+        // document.getElementById('productListArea2').innerHTML += htmlToReturn2;
       });
       // Code to show icons upon hover of products
       document.querySelectorAll(".prod-card").forEach(card => {
@@ -373,19 +373,19 @@ function showSearchResult(){
           </div>`;
         document.getElementById('productListArea').innerHTML += htmlToReturn;
 
-        htmlToReturn2 =
-          `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12">
-              <div class="prod-card mb-4" id="card_id">
-                <div class="icons d-flex justify-content-center" id="card_icons">
-                  <a class="heart"><img class='img1' src="Images/heart-icon-trans.png" alt="inner heart icon"></a>
-                  <a href="product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                  <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
-                </div>
-                <img class="card-img-top" src="${product.image}" alt="Card image cap">
-                <div class="card-body d-flex flex-column align-items-center">
-                  <h5 class="card-title">${product.name}</h5>
-                  <p class="card-text mb-0"><strong>Rs.${product.price}</strong> <del>Rs.${product.price}</del><span class="offer">(60%Off)</span></p>
-                  <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">`
+        // htmlToReturn2 =
+        //   `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12">
+        //       <div class="prod-card mb-4" id="card_id">
+        //         <div class="icons d-flex justify-content-center" id="card_icons">
+        //           <a class="heart"><img class='img1' src="Images/heart-icon-trans.png" alt="inner heart icon"></a>
+        //           <a href="product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
+        //           <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+        //         </div>
+        //         <img class="card-img-top" src="${product.image}" alt="Card image cap">
+        //         <div class="card-body d-flex flex-column align-items-center">
+        //           <h5 class="card-title">${product.name}</h5>
+        //           <p class="card-text mb-0"><strong>Rs.${product.price}</strong> <del>Rs.${product.price}</del><span class="offer">(60%Off)</span></p>
+        //           <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">`
         // lowStar = 5 - Math.floor(product.ratings);
         // for (i = 1; i <= product.ratings; i++) {
         //   reviews += `
@@ -397,12 +397,12 @@ function showSearchResult(){
         // lowStar = 0;
         // htmlToReturn2 += reviews + product.ratings + "/5";
         // reviews = " ";
-        htmlToReturn2 += `
-                  </div>
-                </div>
-              </div>
-            </div>`;
-        document.getElementById('productListArea2').innerHTML += htmlToReturn2;
+        // htmlToReturn2 += `
+        //           </div>
+        //         </div>
+        //       </div>
+        //     </div>`;
+        // document.getElementById('productListArea2').innerHTML += htmlToReturn2;
       });
       // Code to show icons upon hover of products
       document.querySelectorAll(".prod-card").forEach(card => {
@@ -625,7 +625,7 @@ if(url.searchParams.has('q')){
    showCategoryResult();
 }else{
   console.log("all prods");
-  showProducts();
+  showProducts(productsListUrl);
 }
 
 
@@ -918,8 +918,7 @@ xmlhttp.onreadystatechange = function() {
         }
   }
 };
-xmlhttp.open("GET", "products.json", true);
-xmlhttp.send();
+
 
 
 // ----------------------------------------------------------------------------------------------------------------------------
@@ -1090,8 +1089,6 @@ xmlhttp2.onreadystatechange = function() {
     }
   }
 };
-xmlhttp2.open("GET", "products.json", true);
-xmlhttp2.send();
 
 
 

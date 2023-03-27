@@ -271,7 +271,7 @@
             <div class="container-fluid">
                 <div class="row" id="productListArea">
                 </div>
-                <p class="offer text-center mt-3 mb-5">Showing 18 - 25 out of 76 items</p>
+                <!-- <p class="offer text-center mt-3 mb-5">Showing 18 - 25 out of 76 items</p> -->
                 <div class="row" id="productListArea2">
                 </div>
             </div>
