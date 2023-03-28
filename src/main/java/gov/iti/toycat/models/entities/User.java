@@ -5,15 +5,20 @@
 package gov.iti.toycat.models.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -29,6 +34,7 @@ import jakarta.persistence.TemporalType;
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     @Id
     @Basic(optional = false)
     @Column(name = "email")
@@ -53,12 +59,21 @@ public class User implements Serializable {
     @Basic(optional = false)
     @Column(name = "username")
     private String username;
-    @OneToOne(mappedBy="userEmail")
-    private Cart cart;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userEmail")
-    private Set<Order> orderCollection;
+    // @OneToOne(mappedBy="userEmail")
+    // @OneToOne()
+    // @JoinColumn(name = "cart_id",referencedColumnName = "id")
+    // private Cart cart;
+
+    
+    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
+    private List<CartItem> cart = new ArrayList<>();
+
+    // @OneToMany(cascade = CascadeType.ALL, mappedBy = "userEmail")
+    // private Set<Order> orderCollection;
+    
 
     public User() {
+        // this.cart = new Cart();
     }
 
     public User(String email) {
@@ -79,6 +94,8 @@ public class User implements Serializable {
         this.role = role;
         this.username = username;
     }
+
+
 
     public String getEmail() {
         return email;
@@ -142,21 +159,21 @@ public class User implements Serializable {
         return serialVersionUID;
     }
 
-    public Cart getCart() {
-        return cart;
-    }
+    // public Cart getCart() {
+    //     return cart;
+    // }
 
-    public void setCart(Cart cart) {
-        this.cart = cart;
-    }
+    // public void setCart(Cart cart) {
+    //     this.cart = cart;
+    // }
 
-    public Set<Order> getOrderCollection() {
-        return orderCollection;
-    }
+    // public Set<Order> getOrderCollection() {
+    //     return orderCollection;
+    // }
 
-    public void setOrderCollection(Set<Order> orderCollection) {
-        this.orderCollection = orderCollection;
-    }
+    // public void setOrderCollection(Set<Order> orderCollection) {
+    //     this.orderCollection = orderCollection;
+    // }
 
     @Override
     public int hashCode() {
@@ -182,5 +199,17 @@ public class User implements Serializable {
     public String toString() {
         return "gov.iti.toycat.models.entities.Users[ email=" + email + " ]";
     }
+
+    public List<CartItem> getCart() {
+        return cart;
+    }
+
+    public void setCart(List<CartItem> cart) {
+        this.cart = cart;
+    }
+
+    
+
+    
     
 }

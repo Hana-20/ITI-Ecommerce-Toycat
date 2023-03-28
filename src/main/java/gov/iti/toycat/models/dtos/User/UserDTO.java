@@ -3,6 +3,7 @@ package gov.iti.toycat.models.dtos.User;
 import java.util.Date;
 
 public class UserDTO {
+
     private String email;
     private String address;
     private Date birthday;
@@ -83,4 +84,6 @@ public class UserDTO {
         this.username = username;
     }
 
+
+    
 }

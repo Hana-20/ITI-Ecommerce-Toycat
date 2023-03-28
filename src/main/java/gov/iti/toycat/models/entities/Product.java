@@ -55,10 +55,10 @@ public class Product implements Serializable {
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Category categoryId;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "products")
-    private Collection<CartProduct> cartProductCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "products")
-    private Collection<OrderProduct> orderProductCollection;
+    // @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
+    // private Collection<CartItem> cartProductCollection;
+    // @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
+    // private Collection<OrderProduct> orderProductCollection;
 
     public Product() {
     }
@@ -131,21 +131,21 @@ public class Product implements Serializable {
         this.categoryId = categoryId;
     }
 
-    public Collection<CartProduct> getCartProductCollection() {
-        return cartProductCollection;
-    }
+    // public Collection<CartItem> getCartProductCollection() {
+    //     return cartProductCollection;
+    // }
 
-    public void setCartProductCollection(Collection<CartProduct> cartProductCollection) {
-        this.cartProductCollection = cartProductCollection;
-    }
+    // public void setCartProductCollection(Collection<CartItem> cartProductCollection) {
+    //     this.cartProductCollection = cartProductCollection;
+    // }
 
-    public Collection<OrderProduct> getOrderProductCollection() {
-        return orderProductCollection;
-    }
+    // public Collection<OrderProduct> getOrderProductCollection() {
+    //     return orderProductCollection;
+    // }
 
-    public void setOrderProductCollection(Collection<OrderProduct> orderProductCollection) {
-        this.orderProductCollection = orderProductCollection;
-    }
+    // public void setOrderProductCollection(Collection<OrderProduct> orderProductCollection) {
+    //     this.orderProductCollection = orderProductCollection;
+    // }
 
     @Override
     public int hashCode() {
