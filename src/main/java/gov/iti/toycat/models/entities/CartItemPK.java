@@ -14,29 +14,34 @@ import jakarta.persistence.Embeddable;
  * @author hanaa
  */
 @Embeddable
-public class CartProductPK implements Serializable {
+public class CartItemPK implements Serializable {
+
+    // @Basic(optional = false)
+    // @Column(name = "cart_id")
+    // private int cartId;
 
     @Basic(optional = false)
-    @Column(name = "cart_id")
-    private int cartId;
+    @Column(name = "user_id", nullable = false)
+    private int userId;
+
     @Basic(optional = false)
-    @Column(name = "product_id")
+    @Column(name = "product_id", nullable = false)
     private int productId;
 
-    public CartProductPK() {
+    public CartItemPK() {
     }
 
-    public CartProductPK(int cartId, int productId) {
-        this.cartId = cartId;
+    public CartItemPK(int userId, int productId) {
+        this.userId = userId;
         this.productId = productId;
     }
 
-    public int getCartId() {
-        return cartId;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setCartId(int cartId) {
-        this.cartId = cartId;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public int getProductId() {
@@ -50,7 +55,7 @@ public class CartProductPK implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (int) cartId;
+        hash += (int) userId;
         hash += (int) productId;
         return hash;
     }
@@ -58,11 +63,11 @@ public class CartProductPK implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof CartProductPK)) {
+        if (!(object instanceof CartItemPK)) {
             return false;
         }
-        CartProductPK other = (CartProductPK) object;
-        if (this.cartId != other.cartId) {
+        CartItemPK other = (CartItemPK) object;
+        if (this.userId != other.userId) {
             return false;
         }
         if (this.productId != other.productId) {
@@ -71,9 +76,8 @@ public class CartProductPK implements Serializable {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "gov.iti.toycat.models.entities.CartProductPK[ cartId=" + cartId + ", productId=" + productId + " ]";
-    }
+ 
+
+ 
     
 }

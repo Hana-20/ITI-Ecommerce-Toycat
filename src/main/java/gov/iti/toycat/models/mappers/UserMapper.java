@@ -6,6 +6,7 @@ import gov.iti.toycat.models.entities.User;
 public class UserMapper {
     public static UserDTO toDto(User user) {
         UserDTO  dto = new UserDTO();
+        dto.setId(user.getId());
         dto.setCreditLimit(user.getCreditLimit());
         dto.setAddress(user.getAddress());
         dto.setUsername(user.getUsername());
@@ -18,6 +19,7 @@ public class UserMapper {
 
     public static User toEntity(UserDTO userDTO) {
         User user=new User();
+        user.setId(userDTO.getId());
         user.setCreditLimit(userDTO.getCreditLimit());
         user.setAddress(userDTO.getAddress());
         user.setUsername(userDTO.getUsername());

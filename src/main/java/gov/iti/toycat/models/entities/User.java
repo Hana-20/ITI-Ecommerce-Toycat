@@ -5,15 +5,18 @@
 package gov.iti.toycat.models.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -30,6 +33,10 @@ public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
     @Basic(optional = false)
     @Column(name = "email")
     private String email;
@@ -53,12 +60,21 @@ public class User implements Serializable {
     @Basic(optional = false)
     @Column(name = "username")
     private String username;
-    @OneToOne(mappedBy="userEmail")
-    private Cart cart;
+    // @OneToOne(mappedBy="userEmail")
+    // @OneToOne()
+    // @JoinColumn(name = "cart_id",referencedColumnName = "id")
+    // private Cart cart;
+
+    
+    @OneToMany(mappedBy = "user")
+    private List<CartItem> cart;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userEmail")
     private Set<Order> orderCollection;
+    
 
     public User() {
+        // this.cart = new Cart();
     }
 
     public User(String email) {
@@ -78,6 +94,14 @@ public class User implements Serializable {
         this.password = password;
         this.role = role;
         this.username = username;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -142,13 +166,13 @@ public class User implements Serializable {
         return serialVersionUID;
     }
 
-    public Cart getCart() {
-        return cart;
-    }
+    // public Cart getCart() {
+    //     return cart;
+    // }
 
-    public void setCart(Cart cart) {
-        this.cart = cart;
-    }
+    // public void setCart(Cart cart) {
+    //     this.cart = cart;
+    // }
 
     public Set<Order> getOrderCollection() {
         return orderCollection;
@@ -182,5 +206,17 @@ public class User implements Serializable {
     public String toString() {
         return "gov.iti.toycat.models.entities.Users[ email=" + email + " ]";
     }
+
+    public List<CartItem> getCart() {
+        return cart;
+    }
+
+    public void setCart(List<CartItem> cart) {
+        this.cart = cart;
+    }
+
+    
+
+    
     
 }

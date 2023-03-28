@@ -64,7 +64,7 @@
                                     </li>
 
                                     <li class="nav-item notification">
-                                        <a class="nav-link" href="Cart-page.html" id="cart-btn">Cart</a>
+                                        <a class="nav-link" href="${pageContext.request.contextPath}/cart" id="cart-btn">Cart</a>
                                         <span class="badge" id="cart-badge">0</span>
                                     </li>
                                     <li>
