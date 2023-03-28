@@ -159,21 +159,7 @@ public class User implements Serializable {
         return serialVersionUID;
     }
 
-    // public Cart getCart() {
-    //     return cart;
-    // }
-
-    // public void setCart(Cart cart) {
-    //     this.cart = cart;
-    // }
-
-    // public Set<Order> getOrderCollection() {
-    //     return orderCollection;
-    // }
-
-    // public void setOrderCollection(Set<Order> orderCollection) {
-    //     this.orderCollection = orderCollection;
-    // }
+    
 
     @Override
     public int hashCode() {
@@ -197,19 +183,12 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "gov.iti.toycat.models.entities.Users[ email=" + email + " ]";
+        return "User [email=" + email + ", address=" + address + ", birthday=" + birthday + ", creditLimit="
+                + creditLimit + ", password=" + password + ", role=" + role + ", username=" + username + ", cart="
+                + cart + "]";
     }
 
-    public List<CartItem> getCart() {
-        return cart;
-    }
-
-    public void setCart(List<CartItem> cart) {
-        this.cart = cart;
-    }
-
-    
-
-    
+ 
+ 
     
 }

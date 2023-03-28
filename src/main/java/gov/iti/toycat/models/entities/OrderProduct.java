@@ -23,18 +23,18 @@
 // @Table(name = "order_product")
 // public class OrderProduct implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    @EmbeddedId
-    protected OrderProductPK orderProductPK;
-    @Basic(optional = false)
-    @Column(name = "quantity")
-    private int quantity;
-    @JoinColumn(name = "order_id", referencedColumnName = "id", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
-    private Order order;
-    @JoinColumn(name = "product_id", referencedColumnName = "id", insertable = false, updatable = false)
-    @ManyToOne(optional = false)
-    private Product product;
+//     private static final long serialVersionUID = 1L;
+//     @EmbeddedId
+//     protected OrderProductPK orderProductPK;
+//     @Basic(optional = false)
+//     @Column(name = "quantity")
+//     private int quantity;
+//     @JoinColumn(name = "order_id", referencedColumnName = "id", insertable = false, updatable = false)
+//     @ManyToOne(optional = false)
+//     private Order order;
+//     @JoinColumn(name = "product_id", referencedColumnName = "id", insertable = false, updatable = false)
+//     @ManyToOne(optional = false)
+//     private Product product;
 
 //     public OrderProduct() {
 //     }
@@ -68,21 +68,21 @@
 //         this.quantity = quantity;
 //     }
 
-    public Order getorder() {
-        return order;
-    }
+//     public Order getorder() {
+//         return order;
+//     }
 
-    public void setorder(Order order) {
-        this.order = order;
-    }
+//     public void setorder(Order order) {
+//         this.order = order;
+//     }
 
-    public Product getProduct() {
-        return product;
-    }
+//     public Product getProduct() {
+//         return product;
+//     }
 
-    public void setProduct(Product product) {
-        this.product = product;
-    }
+//     public void setProduct(Product product) {
+//         this.product = product;
+//     }
 
 //     @Override
 //     public int hashCode() {
