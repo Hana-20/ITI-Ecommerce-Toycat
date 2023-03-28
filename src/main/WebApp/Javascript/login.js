@@ -6,7 +6,9 @@ var errorMessage = document.querySelector('.error-message');
 loginForm.addEventListener("submit", function (event) {
     event.preventDefault();
     event.stopPropagation();
-    $.post('login', { loginEmail: emailInputLogin.value ,loginPassword:loginPassword.value}, function (data) {
+    // console.log(emailInputLogin.value);
+    // console.log(loginInput.value);
+    $.post('login', { loginEmail: emailInputLogin.value ,loginPassword:loginInput.value}, function (data) {
         console.log(data);
         if (data === "invalid login") { 
             errorMessage.innerHTML = 'Invalid email or password';

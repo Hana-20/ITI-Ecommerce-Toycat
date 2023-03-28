@@ -45,7 +45,7 @@ public class Order implements Serializable {
     @JoinColumn(name = "user_email", referencedColumnName = "email")
     @ManyToOne(optional = false)
     private User userEmail;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "order")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "orders")
     private Collection<OrderProduct> orderProductCollection;
 
     public Order() {

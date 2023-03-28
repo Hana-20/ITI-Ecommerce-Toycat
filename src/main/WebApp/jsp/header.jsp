@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Swag of India - Home</title>
+        <title>Toycat</title>
         <link rel="icon" type="image/png" href="Images/carts.png">
         <link rel="stylesheet" href="style/style.css">
         <link rel="stylesheet" href="style/styleSheet.css">
@@ -23,7 +23,7 @@
                 <div class="sticky-bar-wrapper bg-white" id="sticky-section">
                     <nav class="navbar navbar-expand-lg navbar-light bg-white" id="bottom-header-navbar">
                         <div class="container-fluid">
-                            <a class="navbar-brand" href="index.html"><img id="logo_img" src="Images/logo.png"
+                            <a class="navbar-brand" href="home"><img id="logo_img" src="Images/logo.png"
                                     alt="logo" role="img" aria-label=" website logo"></a>
                             <div class="input-group d-xl-none d-lg-none" id="search-box-container">
                                 <input type="search" id="search-box-hidden" class="form-control"
@@ -40,7 +40,7 @@
                             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                                 <ul class="navbar-nav mr-auto mt-2 ml-xl-5 ml-lg-5 ml-md-0 mt-lg-0 text-center">
                                     <li class="nav-item">
-                                        <a class="nav-link active" href="index.html">Home</a>
+                                        <a class="nav-link active" href="home">Home</a>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a class="nav-link drop-btn" href="Product-list.html">Categories</a>

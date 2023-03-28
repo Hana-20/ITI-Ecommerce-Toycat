@@ -31,10 +31,10 @@ public class OrderProduct implements Serializable {
     private int quantity;
     @JoinColumn(name = "order_id", referencedColumnName = "id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
-    private Order order;
+    private Order orders;
     @JoinColumn(name = "product_id", referencedColumnName = "id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
-    private Product product;
+    private Product products;
 
     public OrderProduct() {
     }
@@ -69,19 +69,19 @@ public class OrderProduct implements Serializable {
     }
 
     public Order getorder() {
-        return order;
+        return orders;
     }
 
     public void setorder(Order order) {
-        this.order = order;
+        this.orders = order;
     }
 
     public Product getProduct() {
-        return product;
+        return products;
     }
 
     public void setProduct(Product product) {
-        this.product = product;
+        this.products = product;
     }
 
     @Override

@@ -69,6 +69,14 @@ public class UserRepository {
         Long count = entityManager.createQuery("SELECT COUNT(u) FROM User u", Long.class).getSingleResult();
         return count;
     }
+    public List<User> getAllUsers(){
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<User> cq = cb.createQuery(User.class);
+        Root<User> root = cq.from(User.class);
+        cq.select(root);
+        return  entityManager.createQuery(cq).getResultList();
+    }
     public void updateUserData(User user ){
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();

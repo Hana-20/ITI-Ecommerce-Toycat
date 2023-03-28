@@ -49,6 +49,7 @@ public class LoginController extends HttpServlet {
     }
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException { 
+        System.out.println("in login");
         PrintWriter out=response.getWriter();
          var sessionUser = (UserDTO) request.getSession().getAttribute("user");
         if (sessionUser  != null) {

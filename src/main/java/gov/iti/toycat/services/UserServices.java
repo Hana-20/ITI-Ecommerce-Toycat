@@ -1,7 +1,12 @@
 package gov.iti.toycat.services;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import gov.iti.toycat.models.dtos.User.LoginDTO;
+import gov.iti.toycat.models.dtos.User.UserDTO;
 import gov.iti.toycat.models.entities.User;
+import gov.iti.toycat.models.mappers.UserMapper;
 import gov.iti.toycat.repositories.UserRepository;
 
 
@@ -30,6 +35,13 @@ public class UserServices {
         UserRepository userRepository=new UserRepository();
         userRepository.updateUserData(user);
     }
+    public List<UserDTO> listAllUsers(){
+        List <User>users=new UserRepository().getAllUsers();
+        List<UserDTO> userDtoList = users.stream()
+        .map(user -> new UserMapper().toDto(user))
+        .collect(Collectors.toList());
+        return userDtoList ;
+    } 
 }
 
 

@@ -45,7 +45,7 @@ public class Cart implements Serializable {
     @OneToOne
     @JoinColumn(name = "user_email", referencedColumnName = "email")
     private User userEmail;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cart")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "carts")
     private Set<CartProduct> cartProductCollection;
 
     public Cart() {

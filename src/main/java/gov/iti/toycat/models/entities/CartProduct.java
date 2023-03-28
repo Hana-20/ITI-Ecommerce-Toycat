@@ -32,10 +32,10 @@ public class CartProduct implements Serializable {
     private int quantity;
     @JoinColumn(name = "cart_id", referencedColumnName = "id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
-    private Cart cart;
+    private Cart carts;
     @JoinColumn(name = "product_id", referencedColumnName = "id", insertable = false, updatable = false)
     @ManyToOne(optional = false)
-    private Product product;
+    private Product products;
 
     public CartProduct() {
     }
@@ -70,19 +70,19 @@ public class CartProduct implements Serializable {
     }
 
     public Cart getCart() {
-        return cart;
+        return carts;
     }
 
     public void setCart(Cart cart) {
-        this.cart = cart;
+        this.carts = cart;
     }
 
     public Product getProduct() {
-        return product;
+        return products;
     }
 
     public void setProduct(Product product) {
-        this.product = product;
+        this.products = product;
     }
 
     @Override

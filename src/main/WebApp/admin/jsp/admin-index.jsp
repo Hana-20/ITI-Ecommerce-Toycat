@@ -64,14 +64,14 @@
       </li><!-- End Products Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
+        <a class="nav-link collapsed" href="users">
           <i class="bi bi-person"></i>
           <span>Customers</span>
         </a>
       </li><!-- End Customers Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
+        <a class="nav-link collapsed" href="users">
           <i class="bi bi-cash"></i>
           <span>Orders</span>
         </a>
