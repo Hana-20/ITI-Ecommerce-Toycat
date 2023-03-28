@@ -13,6 +13,7 @@ import jakarta.persistence.Basic;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -66,11 +67,11 @@ public class User implements Serializable {
     // private Cart cart;
 
     
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
     private List<CartItem> cart;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userEmail")
-    private Set<Order> orderCollection;
+    // @OneToMany(cascade = CascadeType.ALL, mappedBy = "userEmail")
+    // private Set<Order> orderCollection;
     
 
     public User() {
@@ -174,13 +175,13 @@ public class User implements Serializable {
     //     this.cart = cart;
     // }
 
-    public Set<Order> getOrderCollection() {
-        return orderCollection;
-    }
+    // public Set<Order> getOrderCollection() {
+    //     return orderCollection;
+    // }
 
-    public void setOrderCollection(Set<Order> orderCollection) {
-        this.orderCollection = orderCollection;
-    }
+    // public void setOrderCollection(Set<Order> orderCollection) {
+    //     this.orderCollection = orderCollection;
+    // }
 
     @Override
     public int hashCode() {

@@ -57,8 +57,8 @@ public class Product implements Serializable {
     private Category categoryId;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     private Collection<CartItem> cartProductCollection;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
-    private Collection<OrderProduct> orderProductCollection;
+    // @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
+    // private Collection<OrderProduct> orderProductCollection;
 
     public Product() {
     }
@@ -139,13 +139,13 @@ public class Product implements Serializable {
         this.cartProductCollection = cartProductCollection;
     }
 
-    public Collection<OrderProduct> getOrderProductCollection() {
-        return orderProductCollection;
-    }
+    // public Collection<OrderProduct> getOrderProductCollection() {
+    //     return orderProductCollection;
+    // }
 
-    public void setOrderProductCollection(Collection<OrderProduct> orderProductCollection) {
-        this.orderProductCollection = orderProductCollection;
-    }
+    // public void setOrderProductCollection(Collection<OrderProduct> orderProductCollection) {
+    //     this.orderProductCollection = orderProductCollection;
+    // }
 
     @Override
     public int hashCode() {
