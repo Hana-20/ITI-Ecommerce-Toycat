@@ -5,6 +5,7 @@
 package gov.iti.toycat.models.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -33,11 +34,8 @@ import jakarta.persistence.TemporalType;
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
-    private Integer id;
     @Basic(optional = false)
     @Column(name = "email")
     private String email;
@@ -68,7 +66,7 @@ public class User implements Serializable {
 
     
     @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
-    private List<CartItem> cart;
+    private List<CartItem> cart = new ArrayList<>();
 
     // @OneToMany(cascade = CascadeType.ALL, mappedBy = "userEmail")
     // private Set<Order> orderCollection;
@@ -97,13 +95,7 @@ public class User implements Serializable {
         this.username = username;
     }
 
-    public Integer getId() {
-        return id;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getEmail() {
         return email;

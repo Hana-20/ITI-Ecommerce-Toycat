@@ -32,8 +32,8 @@ version="3.0">
             <property name="jakarta.persistence.jdbc.user" value="toycat" />
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
             <property name="jakarta.persistence.jdbc.password" value="toycat" />
-            <!-- <property name="jakarta.persistence.schema-generation.database.action" value="create"/> -->
-            <property name="jakarta.persistence.schema-generation.create-source" value="metadata"/>
+            <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
+            <!-- <property name="jakarta.persistence.schema-generation.create-source" value="metadata"/> -->
             <!-- <property name="jakarta.persistence.schema-generation.database.action" value="update"/> -->
             <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create" /> 
             <!--<property name="jakarta.persistence.schema-generation.create-database-schemas" value="false"/>-->

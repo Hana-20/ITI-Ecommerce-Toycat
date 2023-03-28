@@ -21,8 +21,8 @@ public class CartItemPK implements Serializable {
     // private int cartId;
 
     @Basic(optional = false)
-    @Column(name = "user_id", nullable = false)
-    private int userId;
+    @Column(name = "user_email", nullable = false)
+    private String userEmail;
 
     @Basic(optional = false)
     @Column(name = "product_id", nullable = false)
@@ -31,18 +31,19 @@ public class CartItemPK implements Serializable {
     public CartItemPK() {
     }
 
-    public CartItemPK(int userId, int productId) {
-        this.userId = userId;
+    public CartItemPK(String userEmail, int productId) {
+        this.userEmail = userEmail;
         this.productId = productId;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
+
 
     public int getProductId() {
         return productId;
@@ -55,7 +56,7 @@ public class CartItemPK implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (int) userId;
+        hash += (userEmail != null ? userEmail.hashCode() : 0);
         hash += (int) productId;
         return hash;
     }
@@ -67,7 +68,7 @@ public class CartItemPK implements Serializable {
             return false;
         }
         CartItemPK other = (CartItemPK) object;
-        if (this.userId != other.userId) {
+        if (this.userEmail != other.userEmail) {
             return false;
         }
         if (this.productId != other.productId) {
@@ -76,6 +77,7 @@ public class CartItemPK implements Serializable {
         return true;
     }
 
+  
  
 
  

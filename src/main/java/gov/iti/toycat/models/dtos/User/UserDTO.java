@@ -3,7 +3,7 @@ package gov.iti.toycat.models.dtos.User;
 import java.util.Date;
 
 public class UserDTO {
-    private int id;
+
     private String email;
     private String address;
     private Date birthday;
@@ -84,15 +84,6 @@ public class UserDTO {
         this.username = username;
     }
 
-    public int getId() {
-        return id;
-    }
-
-
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     
 }

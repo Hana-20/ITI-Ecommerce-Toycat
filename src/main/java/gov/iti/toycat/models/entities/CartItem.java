@@ -43,71 +43,68 @@ public class CartItem implements Serializable {
     private Product product;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "user_id", referencedColumnName = "id",insertable=false, updatable=false)
+    @JoinColumn(name = "user_email", referencedColumnName = "email",insertable=false, updatable=false)
     // @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     public CartItem() {
     }
 
+
+
     public CartItem(CartItemPK cartProductId) {
         this.cartProductId = cartProductId;
     }
 
-    public CartItem(CartItemPK cartProductId, int quantity) {
-        this.cartProductId = cartProductId;
-        this.quantity = quantity;
-    }
 
-    public CartItem(int cartId, int productId) {
-        this.cartProductId = new CartItemPK(cartId, productId);
-    }
-
-    public CartItem(Product product, User user) {
-        this.product = product;
-        this.user = user;
-    }
 
     public CartItemPK getCartProductId() {
         return cartProductId;
     }
 
-    public void setCartProductId(CartItemPK cartProductPK) {
-        this.cartProductId = cartProductPK;
+
+
+    public void setCartProductId(CartItemPK cartProductId) {
+        this.cartProductId = cartProductId;
     }
+
+
 
     public int getQuantity() {
         return quantity;
     }
 
+
+
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-    // public Cart getCart() {
-    //     return cart;
-    // }
 
-    // public void setCart(Cart cart) {
-    //     this.cart = cart;
-    // }
 
-    
     public Product getProduct() {
         return product;
     }
+
+
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+
 
     public User getUser() {
         return user;
     }
 
+
+
     public void setUser(User user) {
         this.user = user;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
-    }
+
 
     @Override
     public int hashCode() {
@@ -129,11 +126,12 @@ public class CartItem implements Serializable {
         return true;
     }
 
-    @Override
-    public String toString() {
-        return "CartItem [cartProductId=" + cartProductId + ", quantity=" + quantity + ", product="
-                + product + "]";
+
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
     }
+
 
  
     

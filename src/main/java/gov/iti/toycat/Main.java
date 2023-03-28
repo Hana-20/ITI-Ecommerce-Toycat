@@ -44,22 +44,34 @@ public class Main {
         entityManager.getTransaction().commit();
 
 
-        entityManager.getTransaction().begin();
+        // entityManager.getTransaction().begin();
 
-        CartItem cartItem = new CartItem();
-        CartItemPK cid = new CartItemPK(user.getId(), product.getId());
-        cartItem.setCartProductId(cid);
-        cartItem.setUser(user);
-        cartItem.setProduct(product);
-        cartItem.setQuantity(1);
-        entityManager.persist(cartItem);
+        // CartItem cartItem = new CartItem();
+        // CartItemPK cid = new CartItemPK(user.getId(), product.getId());
+        
+        // cartItem.setCartProductId(cid);
+        // cartItem.setUser(user);
+        // cartItem.setProduct(product);
+        // cartItem.setQuantity(1);
+        
+        // // user.getCart().add(cartItem);
+        // // entityManager.persist(user);
+        // entityManager.persist(cartItem);
+        // entityManager.getTransaction().commit();
+
+        entityManager.getTransaction().begin();
+        User u = entityManager.find(User.class, "dd@dd.com");
+        // CartItem ci = new CartItem(new CartItemPK(user.getId(), product.getId()));
+        CartItem ci = new CartItem(new CartItemPK(user.getEmail(), product.getId()));
+        ci.setQuantity(3);
+
+        u.getCart().add(ci);
+        // entityManager.persist(entityManager.merge(u));
+        // entityManager.persist(u);
+        entityManager.persist(ci);
         entityManager.getTransaction().commit();
-
-
-        entityManager.getTransaction().begin();
-        User u = entityManager.find(User.class, 1);
+        // entityManager.close();
         System.out.println(u.getCart());
-        entityManager.getTransaction().commit();
 
 
         // Cart cart = new Cart();
@@ -132,6 +144,8 @@ public class Main {
         // newProduct = productService.addProduct(newProduct);
         // System.out.println("\n\n\n ====== \n\n\nDONE, NEW PRODUCT DTO : " +
         // newProduct);
+
+        
 
     }
 }
