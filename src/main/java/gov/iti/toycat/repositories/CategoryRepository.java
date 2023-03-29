@@ -25,5 +25,13 @@ public class CategoryRepository {
         Category category = entityManager.find(Category.class, id);
         return category;
     }
+    public void insertCategory(String name){
+        Category category =new Category();
+        category.setName(name);
+        entityManager.getTransaction().begin();
+        entityManager.persist(category);
+        entityManager.getTransaction().commit();
+
+    }
 
 }

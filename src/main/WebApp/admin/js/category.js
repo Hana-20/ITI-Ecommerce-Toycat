@@ -5,11 +5,10 @@
       categoryTable.innerHTML='';
       $.each(categories, function(index, category) {
              categoryTable.innerHTML+=`
-      <tr>
+       <tr id="${category.id}">
         <td>${category.id}</td>
         <td>${category.name}</td>
-      </tr>
-    `
+      </tr>`
       });
       });
       }

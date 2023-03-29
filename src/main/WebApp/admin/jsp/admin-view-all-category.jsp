@@ -52,14 +52,14 @@
             <ul class="sidebar-nav" id="sidebar-nav">
 
                 <li class="nav-item">
-                    <a class="nav-link " href="${pageContext.request.contextPath}/admin/">
+                    <a class="nav-link " href="${pageContext.request.contextPath}/admin">
                         <i class="bi bi-grid"></i>
                         <span>Dashboard</span>
                     </a>
                 </li><!-- End Dashboard Nav -->
 
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#">
+                    <a class="nav-link collapsed" href="${pageContext.request.contextPath}/admin/products">
                         <i class="bi bi-bag"></i>
                         <span>Products</span>
                     </a>
@@ -111,19 +111,19 @@
 
                         <div class="card-body">
                             <h5 class="card-title">Category List <span>|<a
-                                        href="${pageContext.request.contextPath}/admin/products/add"> Add
+                                        href="${pageContext.request.contextPath}/admin/addCategory"> Add
                                         Category</a></span></h5>
 
                                         <table class="table table-borderless datatable" >
                                             <thead >
-                                                <tr>
+                                                <tr >
                                                     <th scope="col">ID</th>
                                                     <th scope="col">Name</th>
                                                 </tr>
                                             </thead>
                                             <tbody id="category-table">
                                                 <c:forEach var="category" items="${sessionScope.categories}">
-                                                  <tr>
+                                                  <tr id="${categoty.id}">
                                                     <td>${category.id}</td>
                                                     <td>${category.name}</td>
                                                   </tr>

@@ -52,7 +52,7 @@
             <ul class="sidebar-nav" id="sidebar-nav">
 
                 <li class="nav-item">
-                    <a class="nav-link " href="${pageContext.request.contextPath}/admin/">
+                    <a class="nav-link collapsed" href="${pageContext.request.contextPath}/admin/products">
                         <i class="bi bi-grid"></i>
                         <span>Dashboard</span>
                     </a>
