@@ -50,7 +50,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="${pageContext.request.contextPath}/admin/">
+        <a class="nav-link " href="${pageContext.request.contextPath}/admin">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -79,14 +79,14 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
+        <a class="nav-link collapsed" href="#">
           <i class="bi bi-cash"></i>
           <span>Orders</span>
         </a>
       </li><!-- End Orders Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
+        <a class="nav-link collapsed" href="#">
           <i class="bi bi-box-arrow-in-right"></i>
           <span>Logout</span>
         </a>

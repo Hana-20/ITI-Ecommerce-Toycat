@@ -30,5 +30,8 @@ public class CategoryService {
     public CategoryDTO getCategoryWithId(String id) {
         return CategoryMapper.toDto(categoryRepository.findCategoryWithId(id));
     }
+    public void addCategory(String name){
+        new CategoryRepository().insertCategory(name);
+    }
 
 }

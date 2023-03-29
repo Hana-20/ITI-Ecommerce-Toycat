@@ -98,8 +98,8 @@
       <h1>Products</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/admin/products">Products</a></li>
-          <li class="breadcrumb-item active">Add Product</li>
+          <li class="breadcrumb-item"><a href="${pageContext.request.contextPath}/admin/categories">Categories</a></li>
+          <li class="breadcrumb-item active">Add Category</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -110,78 +110,26 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Add a new Product</h5>
+              <h5 class="card-title">Add a new category</h5>
 
 
               <!-- Add Product Form -->
-              <form class="needs-validation" novalidate id="add-product-form"  method="post" enctype="multipart/form-data">
+              <form class="needs-validation" novalidate id="add-category-form"  method="post" action="addCategory" enctype="multipart/form-data">
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Name</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control" name="name" required>
+                    <input type="text" class="form-control" name="categoryName" required>
                     <div class="invalid-feedback">
                       This field is required.
                     </div>
                   </div>
 
                 </div>
-
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Category</label>
-                  <div class="col-sm-10">
-                    <select  name="category" class="form-select" id="category-select" aria-label="Default select example" required>
-         
-                    </select>
-
-                  </div>
-                </div>
-
-                <div class="row mb-3">
-                  <label for="inputPassword" class="col-sm-2 col-form-label">Description</label>
-                  <div class="col-sm-10">
-                    <textarea  name="description" class="form-control" style="height: 100px"></textarea>
-                  </div>
-                </div>
-
-
-
-                <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-2 col-form-label">Price</label>
-                  <div class="col-sm-10">
-                    <input type="number" class="form-control" name="price" required>
-                    <div class="invalid-feedback">
-                      This field is required.
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-2 col-form-label">Quantity</label>
-                  <div class="col-sm-10">
-                    <input type="number" class="form-control" name="quantity" required>
-                    <div class="invalid-feedback">
-                      This field is required.
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-2 col-form-label">Image</label>
-                  <div class="col-sm-10">
-                    <input class="form-control" type="file" id="formFile" name="image" required accept="image/*">
-                    <div class="invalid-feedback">
-                      This field is required.
-                    </div>
-                  </div>
-                </div>
-
-
-
 
                 <div class="row mb-3 justify-content-center text-center">
 
                   <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Add Product</button>
+                    <button type="submit" class="btn btn-primary">Add Category</button>
                   </div>
                 </div>
 
