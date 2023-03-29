@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+import gov.iti.toycat.models.dtos.CartItemDTO;
 import gov.iti.toycat.models.dtos.CategoryDTO;
 import gov.iti.toycat.models.dtos.ProductDTO;
 import gov.iti.toycat.models.entities.CartItem;
@@ -13,7 +14,9 @@ import gov.iti.toycat.models.entities.Category;
 // import gov.iti.toycat.models.entities.OrderProductPK;
 import gov.iti.toycat.models.entities.Product;
 import gov.iti.toycat.models.entities.User;
+import gov.iti.toycat.repositories.CartRepository;
 import gov.iti.toycat.repositories.connection.ConnectionManager;
+import gov.iti.toycat.services.CartService;
 import gov.iti.toycat.services.ProductService;
 import gov.iti.toycat.services.UserServices;
 import jakarta.persistence.EntityManager;
@@ -22,26 +25,33 @@ import jakarta.persistence.Persistence;
 
 public class Main {
     public static void main(String[] args) {
-        ConnectionManager conncetionManger = ConnectionManager.getInstance();
-        EntityManagerFactory entityManagerFactory = conncetionManger.getEntityManagerFactory();
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        // List<CartItemDTO> cItems = new CartService().getCartforUserEmail("dd@dd.com");
+        CartItemDTO c1 =  new CartService().updateCartItemQuantity("example@gmail.com", 2,3);
+    //    new CartService().deleteCartItemFromUser("example@gmail.com", 3);
+        // CartItemDTO c2 = new CartService().addCartItemToUser("dd@dd.com", 1);
+        System.out.println(c1);
+        // System.out.println(c2);
+        // ConnectionManager conncetionManger = ConnectionManager.getInstance();
+        // EntityManagerFactory entityManagerFactory = conncetionManger.getEntityManagerFactory();
+        // EntityManager entityManager = entityManagerFactory.createEntityManager();
         
-        entityManager.getTransaction().begin();
-        Category category = new Category(1,"men");
-        entityManager.persist(category);
+        // entityManager.getTransaction().begin();
+        // Category category = new Category(1,"men");
+        // entityManager.persist(category);
      
 
 
-        Product product = new Product(1,"dasd","prooo",BigDecimal.valueOf(122),333);
-        product.setCategoryId(category);
-        entityManager.persist(entityManager.merge(product));
+        // Product product = new Product(1,"dasd","prooo",BigDecimal.valueOf(122),333);
+        // product.setCategoryId(category);
+        // entityManager.persist(entityManager.merge(product));
 
 
         
 
-        User user = new User("dd@dd.com","dd","asdf1234",1000.0,new Date(),"fsaf",'0');
-        entityManager.persist(user);
-        entityManager.getTransaction().commit();
+        // User user = new User("dd@dd.com","dd","asdf1234",1000.0,new Date(),"fsaf",'0');
+        // entityManager.persist(user);
+        // entityManager.getTransaction().commit();
 
 
         // entityManager.getTransaction().begin();
@@ -59,19 +69,19 @@ public class Main {
         // entityManager.persist(cartItem);
         // entityManager.getTransaction().commit();
 
-        entityManager.getTransaction().begin();
-        User u = entityManager.find(User.class, "dd@dd.com");
-        // CartItem ci = new CartItem(new CartItemPK(user.getId(), product.getId()));
-        CartItem ci = new CartItem(new CartItemPK(user.getEmail(), product.getId()));
-        ci.setQuantity(3);
+        // entityManager.getTransaction().begin();
+        // User u = entityManager.find(User.class, "dd@dd.com");
+        // // CartItem ci = new CartItem(new CartItemPK(user.getId(), product.getId()));
+        // CartItem ci = new CartItem(new CartItemPK(user.getEmail(), product.getId()));
+        // ci.setQuantity(3);
 
-        u.getCart().add(ci);
-        // entityManager.persist(entityManager.merge(u));
-        // entityManager.persist(u);
-        entityManager.persist(ci);
-        entityManager.getTransaction().commit();
-        // entityManager.close();
-        System.out.println(u.getCart());
+        // u.getCart().add(ci);
+        // // entityManager.persist(entityManager.merge(u));
+        // // entityManager.persist(u);
+        // entityManager.persist(ci);
+        // entityManager.getTransaction().commit();
+        // // entityManager.close();
+        // // System.out.println(u.getCart());
 
 
         // Cart cart = new Cart();

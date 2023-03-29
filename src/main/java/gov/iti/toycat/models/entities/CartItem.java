@@ -11,6 +11,7 @@ import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapsId;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
@@ -33,18 +34,15 @@ public class CartItem implements Serializable {
     @Column(name = "quantity")
     private int quantity;
 
-    // @ManyToOne(optional = false)
-    // @JoinColumn(name = "cart_id", referencedColumnName = "id",insertable=false, updatable=false)
-    // private Cart cart;
-
+  
+    // @MapsId("productId")
     @ManyToOne(optional = false)
     @JoinColumn(name = "product_id", referencedColumnName = "id",insertable=false, updatable=false)
-    // @JoinColumn(name = "product_id", nullable = false)
     private Product product;
-
+    
+    // @MapsId("userEmail")
     @ManyToOne(optional = false)
     @JoinColumn(name = "user_email", referencedColumnName = "email",insertable=false, updatable=false)
-    // @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     public CartItem() {
@@ -130,6 +128,14 @@ public class CartItem implements Serializable {
 
     public static long getSerialversionuid() {
         return serialVersionUID;
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "CartItem [cartProductId=" + cartProductId + ", quantity=" + quantity + ", product=" + product
+                + ", user=" + user + "]";
     }
 
 

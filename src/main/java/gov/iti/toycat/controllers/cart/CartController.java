@@ -1,4 +1,4 @@
-package gov.iti.toycat.controllers;
+package gov.iti.toycat.controllers.cart;
 
 import java.io.IOException;
 import jakarta.servlet.ServletException;
