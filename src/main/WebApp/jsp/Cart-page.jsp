@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Swag of India - Home</title>
+        <title>ToyCat - Cart</title>
         <link rel="icon" type="image/png" href="Images/carts.png">
         <link rel="stylesheet" href="style/style.css">
         <link rel="stylesheet" href="style/styleSheet.css">
@@ -53,10 +53,11 @@
                                             <a href="Product-list.html">Ethnic</a>
                                         </div>
                                     </li>
-                        
+
                                     <li class="nav-item notification">
-                                        <a class="nav-link" href="${pageContext.request.contextPath}/cart" id="cart-btn">Cart</a>
-                                        <span class="badge" id="cart-badge">0</span>
+                                        <a class="nav-link" href="${pageContext.request.contextPath}/cart"
+                                            id="cart-btn">Cart</a>
+                                        <!-- <span class="badge" id="cart-badge">0</span> -->
                                     </li>
                                     <li>
 
@@ -237,65 +238,83 @@
             <div class="container-fluid">
                 <div class="top-flex-container">
                     <h4 class="font-weight-bold mb-3">MY CART</h4>
-                    <div class="totalCost d-flex justify-content-xl-between">
+                    <!-- <div class="totalCost d-flex justify-content-xl-between">
                         <p class='key font-weight-bold mr-2'>Total</p>
                         :
                         <p class='value d-flex font-weight-bold ml-2'>Rs.<span id="totalCartValue">0</span></p>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="row">
                     <div class="column1 col ml-xl-0 ml-sm-2 mb-2 col-xl-8 col-lg-12 col-md-12 col-sm-12">
                         <!-- cart items -->
+                        <c:set var="totalPrice" value="0" />
                         <div class="cart-items-area" id="cart-items-area">
-                            <div class="cart-items-holder" id='${productsArray[i]}'>
-                                <div class='pdt-container' id='pdt-single'>
-                                    <img class='img-sweater' src="Images/${myProducts.products[j].imageName}.png" alt="Sweater Image">
-                                    <div class="pdt-text w-100">
-                                        <div class="text1">
-                                            <h6>product name</h6>
-                                            <p class="mb-0 text-secondary">Color : Multicolor</p>
-                                            <p class="mb-0 text-secondary">Seller : Indus Valley & Co</p>
-                                            <div class="forms mt-xl-3 mt-lg-3 mt-md-2 mt-sm-2 d-flex justify-content-start align-items-start">
-                                                <div class="form-group2">
-                                                    <label class='mr-2' for="exampleFormControlSelectQuantity"></label>
-                                                    <select class="form-control" id="exampleFormControlSelectQuantity${i}">
-                                                        <option>QTY : 1</option>
-                                                        <option>1</option>
-                                                        <option>2</option>
-                                                        <option>3</option>
-                                                        <option>4</option>
-                                                    </select>
+                            <c:forEach var="cartItem" items="${cart}">
+                                <c:set var="totalPrice" value="${totalPrice + cartItem.productDto.price*cartItem.quantity }" />
+                                <div class="cart-items-holder" id='cart-${cartItem.productDto.id}'>
+                                    <div class='pdt-container' id='pdt-single'>
+                                        <img class='img-sweater' src="${cartItem.productDto.image}" alt="Sweater Image">
+                                        <div class="pdt-text w-100">
+                                            <div class="text1">
+                                                <h6>${cartItem.productDto.name}</h6>
+                                                <div
+                                                    class="forms mt-xl-3 mt-lg-3 mt-md-2 mt-sm-2 d-flex justify-content-start align-items-start">
+                                                    <div class="form-group2">
+                                                        <label class='mr-2'
+                                                            for="exampleFormControlSelectQuantity"></label>
+                                                        <select class="form-control" value="${cartItem.quantity}"
+                                                            id="exampleFormControlSelectQuantity" name="quantity"
+                                                            onchange= "quantityChanged(event,'${cartItem.productDto.id}')"
+                                                            >
+
+                                                            <c:forEach begin="1" end="5" var="i">
+                                                                <option value="${i}"
+                                                                    ${cartItem.quantity == i ? 'selected' : '' }>
+                                                                    ${i}
+                                                                </option>
+                                                            </c:forEach>
+                                                            <!-- <option value="1">QTY : 1</option>
+                                                            <option value="2">QTY : 2</option>
+                                                            <option value="3">QTY : 3</option>
+                                                            <option value="4">QTY : 4</option>
+                                                            <option value="5">QTY : 5</option> -->
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="text2">
-                                            <p class='pricing mb-0'>Rs.<strong id='final-price${i}'>${myProducts.products[j].priceAfterDiscount}</strong> Rs.<del id='initial-price${i}'>${myProducts.products[j].price}</del><span
-                                                class="offer font-weight-bold ml-1">(60%Off)</span></p>
-                                                <small class="text-secondary">Delivery in 4 - 6 days</small>
+                                            <div class="text2">
+                                                <p class='pricing mb-0'>Price: <strong
+                                                        id='final-price'>${cartItem.productDto.price}</strong>
+
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="options">
+                                        <button class="ml-3 mr-3 text-dark font-weight-bold"
+                                            id='remove-cart-${cartItem.productDto.id}'
+                                            onclick="deleteCartItem('${cartItem.productDto.id}')"
+                                            >REMOVE</button></button>
+                                    </div>
                                 </div>
-                                <div class="options">
-                                    <button class="ml-3 mr-3 text-dark font-weight-bold" id='remove-btn${i}'>REMOVE</button></button>
-                                </div>
-                            </div>
-                            <br>
+                                <br>
+                            </c:forEach>
+
                         </div>
                     </div>
                     <div class="column2 col ml-xl-0 ml-sm-2 mb-2 col-xl-4 col-lg-12 col-md-12 col-sm-12">
                         <div class="billing-section">
-                            <h5 class="font-weight-bold">COUPONS</h5>
+                            <!-- <h5 class="font-weight-bold">COUPONS</h5>
                             <span class="font-weight-bold"><img class="mr-2" src="Images/tag-icon.png"
                                     alt="tag icon">Apply Coupons</span>
                             <button type="button" class="btn btn-default ml-3" aria-label='edit button'>Apply</button>
-                            <hr>
+                            <hr> -->
                             <h6>PRICE DETAILS</h6>
                             <br>
                             <div class="flex-item flex-item-1 d-flex justify-content-between">
-                                <p class='key'>Price Details</p>
-                                <p class='value'>Rs.<span id="originalPrice">0</span></p>
+                                <p class='key'>Total Price</p>
+                                <p class='value'><span id="total-price">${totalPrice}</span></p>
                             </div>
-                            <div class="flex-item flex-item-1 d-flex justify-content-between">
+                            <!-- <div class="flex-item flex-item-1 d-flex justify-content-between">
                                 <p class='key'>Bag Discount</p>
                                 <p class='value text-success'>Rs.<span id="bagDiscount">0</span></p>
                             </div>
@@ -310,7 +329,7 @@
                             <div class="flex-item flex-item-1 d-flex justify-content-between">
                                 <p class='key'>Delivery Charges</p>
                                 <p class='value text-success'><del class='text-dark mr-2'>Rs.99</del>Free</p>
-                            </div>
+                            </div> -->
                             <hr>
                             <button type="button" class="btn btn-orange w-100" aria-label='edit button'
                                 onclick="location.href='Checkout.html';">PROCEED TO CHECKOUT</button>
@@ -432,7 +451,19 @@
                 </div>
             </div>
         </footer>
+
+        <script>
+            let cartItems = [
+                <c:forEach var="item" items="${cart}">
+                    {id: ${item.productDto.id},
+                    name: '${item.productDto.name}',
+                    price: ${item.productDto.price},
+                    quantity: ${item.quantity}},
+                </c:forEach>
+            ];
+        </script>
         <script src="Javascript/index.js"></script>
+        <script src="Javascript/cart.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
             </script>

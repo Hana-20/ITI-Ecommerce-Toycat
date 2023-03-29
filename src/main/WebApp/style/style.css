@@ -7245,8 +7245,8 @@ footer .bottom-footer .row .col .social-holder img {
 }
 
 .cart-section .container-fluid .row .col .pdt-container>img {
-    width: auto;
-    height: 9em;
+    width: 9em;
+    height: auto;
     border: 1px solid lightgray;
 }
 
@@ -7288,6 +7288,7 @@ footer .bottom-footer .row .col .social-holder img {
     font-size: 0.8em;
     padding: 0;
     border-radius: 7px;
+    cursor: pointer;
 }
 
 .cart-section .container-fluid .row .col .billing-section>span {
