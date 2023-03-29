@@ -27,10 +27,12 @@ public class Main {
     public static void main(String[] args) {
 
         // List<CartItemDTO> cItems = new CartService().getCartforUserEmail("dd@dd.com");
-        CartItemDTO c1 =  new CartService().updateCartItemQuantity("example@gmail.com", 2,3);
+       new CartService().updateCartItemQuantity("example@gmail.com", 4,3);
+        new CartService().updateCartItemQuantity("example@gmail.com", 5,5);
+        new CartService().updateCartItemQuantity("example@gmail.com", 7,1);
     //    new CartService().deleteCartItemFromUser("example@gmail.com", 3);
         // CartItemDTO c2 = new CartService().addCartItemToUser("dd@dd.com", 1);
-        System.out.println(c1);
+        // System.out.println(c1);
         // System.out.println(c2);
         // ConnectionManager conncetionManger = ConnectionManager.getInstance();
         // EntityManagerFactory entityManagerFactory = conncetionManger.getEntityManagerFactory();

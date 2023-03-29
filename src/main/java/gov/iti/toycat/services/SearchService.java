@@ -19,7 +19,6 @@ public class SearchService {
     private List<ProductDTO> getAllProducts() {
         List<ProductDTO> productsDto = new ArrayList<ProductDTO>();
         List<Product> products = productRepository.findAll();
-        System.out.println("productRepository.findAll() " +  products );
         for (Product product : products) {
             productsDto.add(ProductMapper.toDto(product));
         }
