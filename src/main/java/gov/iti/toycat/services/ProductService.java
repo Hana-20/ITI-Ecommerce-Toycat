@@ -60,4 +60,9 @@ public class ProductService {
     public boolean deleteProductWithId(String id) {
         return productRepository.deleteProduct(Integer.parseInt(id)) > 0;
     }
+
+    public ProductDTO getProductWithId(String id) {
+
+        return ProductMapper.toDto(productRepository.getProduct(Integer.parseInt(id)));
+    }
 }

@@ -19,74 +19,24 @@ function changeFunc() {
   };
 }
 
-// -------------------------------------------------------------------------------------------------------------------------
-
-//-----------------categories checkboxes logic
-
-// const checkbox1 = document.querySelector('#Action_Figures');
-// const checkbox2 = document.querySelector('#Dolls_and_Accessories');
-// const checkbox3 = document.querySelector('#Building_Toys');
-// const checkbox5 = document.querySelector('#Outdoor_Toys');
-// const checkbox6 = document.querySelector('#Board_Games_and_Puzzles');
-
-// checkbox1.addEventListener('change', (event) => {
-//   if (event.target.checked) {
-//     // Perform action for checkbox 1 when it is checked
-//     console.log('Checkbox 1 is checked');
-//   }
-// });
-
-// checkbox2.addEventListener('change', (event) => {
-//   if (event.target.checked) {
-//     // Perform action for checkbox 2 when it is checked
-//     console.log('Checkbox 2 is checked');
-//   }
-// });
-
-// checkbox3.addEventListener('change', (event) => {
-//   if (event.target.checked) {
-//     // Perform action for checkbox 3 when it is checked
-//     console.log('Checkbox 3 is checked');
-//   }
-  
-//   // Check if any checkbox is checked
-//   const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-//   let isChecked = false;
-  
-//   checkboxes.forEach((checkbox) => {
-//     if (checkbox.checked) {
-//       isChecked = true;
-//     }
-//   });
-  
-//   if (isChecked) {
-//     console.log('At least one checkbox is checked');
-//   } else {
-//     console.log('No checkboxes are checked');
-//   }
-// });
-
-
-
-
 
 
 // Adding the sticky navbar
-window.onscroll = () => {
-  myFunction1(), show_scroller();
-};
-var navbar = document.getElementById("sticky-section");
-var sticky = navbar.offsetTop;
+// window.onscroll = () => {
+//   myFunction1(), show_scroller();
+// };
+// var navbar = document.getElementById("sticky-section");
+// var sticky = navbar.offsetTop;
 
-function myFunction1() {
-  if (window.pageYOffset > sticky) {
-    navbar.classList.add("sticky");
-    navbar.classList.add("sticky-shadow");
-  } else {
-    navbar.classList.remove("sticky");
-    navbar.classList.remove("sticky-shadow");
-  }
-}
+// function myFunction1() {
+//   if (window.pageYOffset > sticky) {
+//     navbar.classList.add("sticky");
+//     navbar.classList.add("sticky-shadow");
+//   } else {
+//     navbar.classList.remove("sticky");
+//     navbar.classList.remove("sticky-shadow");
+//   }
+// }
 
 // Scroll to Top 
 
@@ -202,7 +152,7 @@ async function showProducts(Url) {
             <div class="prod-card mb-4" id='${product.id}'>
               <div class="icons d-flex justify-content-center" id="card_icons">
                 <a class="heart"><img class='img1' src="Images/heart-icon-trans.png" alt="inner heart icon"></a>
-                <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
+                <a href="product?id=${product.id}"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
                 <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
               </div>
               <img class="card-img-top" src="${product.image}" alt="Card image cap">
@@ -228,12 +178,14 @@ async function showProducts(Url) {
           </div>`;
         document.getElementById('productListArea').innerHTML += htmlToReturn;
 
+        
+
         htmlToReturn2 =
           `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12">
               <div class="prod-card mb-4" id="card_id">
                 <div class="icons d-flex justify-content-center" id="card_icons">
                   <a class="heart"><img class='img1' src="Images/heart-icon-trans.png" alt="inner heart icon"></a>
-                  <a href="product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
+                  <a href="product?id=${product.id}"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
                   <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
                 </div>
                 <img class="card-img-top" src="${product.image}" alt="Card image cap">
@@ -334,139 +286,139 @@ const myParam = urlParams.get('q');
 
 let productsListSearchUrl = 'http://localhost:9090/toycat/search?q='+myParam;
 
-function showSearchResult(){
+// function showSearchResult(){
 
-  fetch(productsListSearchUrl)//'https://my-json-server.typicode.com/adithkrishnan98/swagofindia/db')
-    .then(response => response.json())
-    .then(json => {
-      productsList = json;
-      console.log(productsList);
-      productsList.forEach((product) => {
-        htmlToReturn =
-          `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12">
-            <div class="prod-card mb-4" id='${product.id}'>
-              <div class="icons d-flex justify-content-center" id="card_icons">
-                <a class="heart"><img class='img1' src="Images/heart-icon-trans.png" alt="inner heart icon"></a>
-                <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
-              </div>
-              <img class="card-img-top" src="${product.image}" alt="Card image cap">
-              <div class="card-body d-flex flex-column align-items-center">
-                <h5 class="card-title">${product.name}</h5>
-                <p class="card-text mb-0"><strong>Rs.${product.price}</strong> <del>Rs.${product.price}</del><span class="offer">(60%Off)</span></p>
-                <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">`
-        // lowStar = 5 - Math.floor(product.ratings);
-        // for (i = 1; i <= product.ratings; i++) {
-        //   reviews += `
-        //           <img class="stars" src="Images/star.png" alt="star-rating" role="icon" aria-label='star rating'>`;
-        // }
-        // for (i = 1; i <= lowStar; i++) {
-        //   reviews += `<img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon" aria-label='star rating'>`;
-        // }
-        // lowStar = 0;
-        // htmlToReturn += reviews + product.ratings + "/5";
-        // reviews = " ";
-        htmlToReturn += `
-                </div>
-              </div>
-            </div>
-          </div>`;
-        document.getElementById('productListArea').innerHTML += htmlToReturn;
+//   fetch(productsListSearchUrl)//'https://my-json-server.typicode.com/adithkrishnan98/swagofindia/db')
+//     .then(response => response.json())
+//     .then(json => {
+//       productsList = json;
+//       console.log(productsList);
+//       productsList.forEach((product) => {
+//         htmlToReturn =
+//           `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12">
+//             <div class="prod-card mb-4" id='${product.id}'>
+//               <div class="icons d-flex justify-content-center" id="card_icons">
+//                 <a class="heart"><img class='img1' src="Images/heart-icon-trans.png" alt="inner heart icon"></a>
+//                 <a href="product?id=${product.id}"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
+//                 <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+//               </div>
+//               <img class="card-img-top" src="${product.image}" alt="Card image cap">
+//               <div class="card-body d-flex flex-column align-items-center">
+//                 <h5 class="card-title">${product.name}</h5>
+//                 <p class="card-text mb-0"><strong>Rs.${product.price}</strong> <del>Rs.${product.price}</del><span class="offer">(60%Off)</span></p>
+//                 <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">`
+//         // lowStar = 5 - Math.floor(product.ratings);
+//         // for (i = 1; i <= product.ratings; i++) {
+//         //   reviews += `
+//         //           <img class="stars" src="Images/star.png" alt="star-rating" role="icon" aria-label='star rating'>`;
+//         // }
+//         // for (i = 1; i <= lowStar; i++) {
+//         //   reviews += `<img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon" aria-label='star rating'>`;
+//         // }
+//         // lowStar = 0;
+//         // htmlToReturn += reviews + product.ratings + "/5";
+//         // reviews = " ";
+//         htmlToReturn += `
+//                 </div>
+//               </div>
+//             </div>
+//           </div>`;
+//         document.getElementById('productListArea').innerHTML += htmlToReturn;
 
-        // htmlToReturn2 =
-        //   `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12">
-        //       <div class="prod-card mb-4" id="card_id">
-        //         <div class="icons d-flex justify-content-center" id="card_icons">
-        //           <a class="heart"><img class='img1' src="Images/heart-icon-trans.png" alt="inner heart icon"></a>
-        //           <a href="product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-        //           <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
-        //         </div>
-        //         <img class="card-img-top" src="${product.image}" alt="Card image cap">
-        //         <div class="card-body d-flex flex-column align-items-center">
-        //           <h5 class="card-title">${product.name}</h5>
-        //           <p class="card-text mb-0"><strong>Rs.${product.price}</strong> <del>Rs.${product.price}</del><span class="offer">(60%Off)</span></p>
-        //           <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">`
-        // lowStar = 5 - Math.floor(product.ratings);
-        // for (i = 1; i <= product.ratings; i++) {
-        //   reviews += `
-        //             <img class="stars" src="Images/star.png" alt="star-rating" role="icon" aria-label='star rating'>`;
-        // }
-        // for (i = 1; i <= lowStar; i++) {
-        //   reviews += `<img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon" aria-label='star rating'>`;
-        // }
-        // lowStar = 0;
-        // htmlToReturn2 += reviews + product.ratings + "/5";
-        // reviews = " ";
-        // htmlToReturn2 += `
-        //           </div>
-        //         </div>
-        //       </div>
-        //     </div>`;
-        // document.getElementById('productListArea2').innerHTML += htmlToReturn2;
-      });
-      // Code to show icons upon hover of products
-      document.querySelectorAll(".prod-card").forEach(card => {
-        card.children[0].style.visibility = 'hidden';
-      })
+//         // htmlToReturn2 =
+//         //   `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12">
+//         //       <div class="prod-card mb-4" id="card_id">
+//         //         <div class="icons d-flex justify-content-center" id="card_icons">
+//         //           <a class="heart"><img class='img1' src="Images/heart-icon-trans.png" alt="inner heart icon"></a>
+//         //           <a href="product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
+//         //           <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+//         //         </div>
+//         //         <img class="card-img-top" src="${product.image}" alt="Card image cap">
+//         //         <div class="card-body d-flex flex-column align-items-center">
+//         //           <h5 class="card-title">${product.name}</h5>
+//         //           <p class="card-text mb-0"><strong>Rs.${product.price}</strong> <del>Rs.${product.price}</del><span class="offer">(60%Off)</span></p>
+//         //           <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">`
+//         // lowStar = 5 - Math.floor(product.ratings);
+//         // for (i = 1; i <= product.ratings; i++) {
+//         //   reviews += `
+//         //             <img class="stars" src="Images/star.png" alt="star-rating" role="icon" aria-label='star rating'>`;
+//         // }
+//         // for (i = 1; i <= lowStar; i++) {
+//         //   reviews += `<img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon" aria-label='star rating'>`;
+//         // }
+//         // lowStar = 0;
+//         // htmlToReturn2 += reviews + product.ratings + "/5";
+//         // reviews = " ";
+//         // htmlToReturn2 += `
+//         //           </div>
+//         //         </div>
+//         //       </div>
+//         //     </div>`;
+//         // document.getElementById('productListArea2').innerHTML += htmlToReturn2;
+//       });
+//       // Code to show icons upon hover of products
+//       document.querySelectorAll(".prod-card").forEach(card => {
+//         card.children[0].style.visibility = 'hidden';
+//       })
 
-      document.querySelectorAll(".prod-card").forEach(card => {
-        card.addEventListener('mouseover', func => {
-          card.children[1].style.opacity = 0.2;
-          card.children[0].style.visibility = 'visible';
-        })
-      })
+//       document.querySelectorAll(".prod-card").forEach(card => {
+//         card.addEventListener('mouseover', func => {
+//           card.children[1].style.opacity = 0.2;
+//           card.children[0].style.visibility = 'visible';
+//         })
+//       })
 
-      document.querySelectorAll(".prod-card").forEach(card => {
-        card.addEventListener('mouseout', func => {
-          card.children[1].style.opacity = 1;
-          card.children[0].style.visibility = 'hidden';
-        })
-      })
+//       document.querySelectorAll(".prod-card").forEach(card => {
+//         card.addEventListener('mouseout', func => {
+//           card.children[1].style.opacity = 1;
+//           card.children[0].style.visibility = 'hidden';
+//         })
+//       })
 
-      // Code to make individual icons change color on hover
-      // a) Heart icon
-      document.querySelectorAll(".prod-card").forEach(img => {
-        let img_1 = img.childNodes[1].childNodes[1].childNodes[0]
-        img_1.addEventListener('mouseover', func2 => {
-          img_1.src = 'Images/heart-icon.png';
-        })
-      });
-      document.querySelectorAll(".prod-card").forEach(img => {
-        let img_1 = img.childNodes[1].childNodes[1].childNodes[0]
-        img_1.addEventListener('mouseout', func2 => {
-          img_1.src = 'Images/heart-icon-trans.png';
-        })
-      });
-      // b) Eye icon
-      document.querySelectorAll(".prod-card").forEach(img => {
-        let img_2 = img.childNodes[1].childNodes[3].childNodes[0]
-        img_2.addEventListener('mouseover', func3 => {
-          img_2.src = 'Images/eye-icon.png';
-        })
-      });
-      document.querySelectorAll(".prod-card").forEach(img => {
-        let img_2 = img.childNodes[1].childNodes[3].childNodes[0]
-        img_2.addEventListener('mouseout', func3 => {
-          img_2.src = 'Images/eye-icon-trans.png';
-        })
-      });
-      // b) Cart icon
-      document.querySelectorAll(".prod-card").forEach(img => {
-        let img_3 = img.childNodes[1].childNodes[5].childNodes[0]
-        img_3.addEventListener('mouseover', func4 => {
-          img_3.src = 'Images/shopping-icon.png';
-        })
-      });
-      document.querySelectorAll(".prod-card").forEach(img => {
-        let img_3 = img.childNodes[1].childNodes[5].childNodes[0]
-        img_3.addEventListener('mouseout', func4 => {
-          img_3.src = 'Images/shopping-icon-trans.png';
-        })
-      })
-    })
+//       // Code to make individual icons change color on hover
+//       // a) Heart icon
+//       document.querySelectorAll(".prod-card").forEach(img => {
+//         let img_1 = img.childNodes[1].childNodes[1].childNodes[0]
+//         img_1.addEventListener('mouseover', func2 => {
+//           img_1.src = 'Images/heart-icon.png';
+//         })
+//       });
+//       document.querySelectorAll(".prod-card").forEach(img => {
+//         let img_1 = img.childNodes[1].childNodes[1].childNodes[0]
+//         img_1.addEventListener('mouseout', func2 => {
+//           img_1.src = 'Images/heart-icon-trans.png';
+//         })
+//       });
+//       // b) Eye icon
+//       document.querySelectorAll(".prod-card").forEach(img => {
+//         let img_2 = img.childNodes[1].childNodes[3].childNodes[0]
+//         img_2.addEventListener('mouseover', func3 => {
+//           img_2.src = 'Images/eye-icon.png';
+//         })
+//       });
+//       document.querySelectorAll(".prod-card").forEach(img => {
+//         let img_2 = img.childNodes[1].childNodes[3].childNodes[0]
+//         img_2.addEventListener('mouseout', func3 => {
+//           img_2.src = 'Images/eye-icon-trans.png';
+//         })
+//       });
+//       // b) Cart icon
+//       document.querySelectorAll(".prod-card").forEach(img => {
+//         let img_3 = img.childNodes[1].childNodes[5].childNodes[0]
+//         img_3.addEventListener('mouseover', func4 => {
+//           img_3.src = 'Images/shopping-icon.png';
+//         })
+//       });
+//       document.querySelectorAll(".prod-card").forEach(img => {
+//         let img_3 = img.childNodes[1].childNodes[5].childNodes[0]
+//         img_3.addEventListener('mouseout', func4 => {
+//           img_3.src = 'Images/shopping-icon-trans.png';
+//         })
+//       })
+//     })
 
 
-}
+// }
 
 const categoyParam = window.location.search;
 const urlCatParams = new URLSearchParams(categoyParam);
@@ -476,140 +428,140 @@ console.log(myParams);
 
 let productsListCategoryUrl = 'http://localhost:9090/toycat/category?category='+myParams;
 
-function showCategoryResult(){
+// function showCategoryResult(){
 
 
-  fetch(productsListCategoryUrl)//'https://my-json-server.typicode.com/adithkrishnan98/swagofindia/db')
-    .then(response => response.json())
-    .then(json => {
-      productsList = json;
-      console.log(productsList);
-      productsList.forEach((product) => {
-        htmlToReturn =
-          `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12">
-            <div class="prod-card mb-4" id='${product.id}'>
-              <div class="icons d-flex justify-content-center" id="card_icons">
-                <a class="heart"><img class='img1' src="Images/heart-icon-trans.png" alt="inner heart icon"></a>
-                <a href="Product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
-              </div>
-              <img class="card-img-top" src="${product.image}" alt="Card image cap">
-              <div class="card-body d-flex flex-column align-items-center">
-                <h5 class="card-title">${product.name}</h5>
-                <p class="card-text mb-0"><strong>Rs.${product.price}</strong> <del>Rs.${product.price}</del><span class="offer">(60%Off)</span></p>
-                <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">`
-        // lowStar = 5 - Math.floor(product.ratings);
-        // for (i = 1; i <= product.ratings; i++) {
-        //   reviews += `
-        //           <img class="stars" src="Images/star.png" alt="star-rating" role="icon" aria-label='star rating'>`;
-        // }
-        // for (i = 1; i <= lowStar; i++) {
-        //   reviews += `<img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon" aria-label='star rating'>`;
-        // }
-        // lowStar = 0;
-        // htmlToReturn += reviews + product.ratings + "/5";
-        // reviews = " ";
-        htmlToReturn += `
-                </div>
-              </div>
-            </div>
-          </div>`;
-        document.getElementById('productListArea').innerHTML += htmlToReturn;
+//   fetch(productsListCategoryUrl)//'https://my-json-server.typicode.com/adithkrishnan98/swagofindia/db')
+//     .then(response => response.json())
+//     .then(json => {
+//       productsList = json;
+//       console.log(productsList);
+//       productsList.forEach((product) => {
+//         htmlToReturn =
+//           `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12">
+//             <div class="prod-card mb-4" id='${product.id}'>
+//               <div class="icons d-flex justify-content-center" id="card_icons">
+//                 <a class="heart"><img class='img1' src="Images/heart-icon-trans.png" alt="inner heart icon"></a>
+//                 <a href="product?id=${product.id}"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
+//                 <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+//               </div>
+//               <img class="card-img-top" src="${product.image}" alt="Card image cap">
+//               <div class="card-body d-flex flex-column align-items-center">
+//                 <h5 class="card-title">${product.name}</h5>
+//                 <p class="card-text mb-0"><strong>Rs.${product.price}</strong> <del>Rs.${product.price}</del><span class="offer">(60%Off)</span></p>
+//                 <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">`
+//         // lowStar = 5 - Math.floor(product.ratings);
+//         // for (i = 1; i <= product.ratings; i++) {
+//         //   reviews += `
+//         //           <img class="stars" src="Images/star.png" alt="star-rating" role="icon" aria-label='star rating'>`;
+//         // }
+//         // for (i = 1; i <= lowStar; i++) {
+//         //   reviews += `<img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon" aria-label='star rating'>`;
+//         // }
+//         // lowStar = 0;
+//         // htmlToReturn += reviews + product.ratings + "/5";
+//         // reviews = " ";
+//         htmlToReturn += `
+//                 </div>
+//               </div>
+//             </div>
+//           </div>`;
+//         document.getElementById('productListArea').innerHTML += htmlToReturn;
 
-        htmlToReturn2 =
-          `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12">
-              <div class="prod-card mb-4" id="card_id">
-                <div class="icons d-flex justify-content-center" id="card_icons">
-                  <a class="heart"><img class='img1' src="Images/heart-icon-trans.png" alt="inner heart icon"></a>
-                  <a href="product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                  <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
-                </div>
-                <img class="card-img-top" src="${product.image}" alt="Card image cap">
-                <div class="card-body d-flex flex-column align-items-center">
-                  <h5 class="card-title">${product.name}</h5>
-                  <p class="card-text mb-0"><strong>Rs.${product.price}</strong> <del>Rs.${product.price}</del><span class="offer">(60%Off)</span></p>
-                  <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">`
-        // lowStar = 5 - Math.floor(product.ratings);
-        // for (i = 1; i <= product.ratings; i++) {
-        //   reviews += `
-        //             <img class="stars" src="Images/star.png" alt="star-rating" role="icon" aria-label='star rating'>`;
-        // }
-        // for (i = 1; i <= lowStar; i++) {
-        //   reviews += `<img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon" aria-label='star rating'>`;
-        // }
-        // lowStar = 0;
-        // htmlToReturn2 += reviews + product.ratings + "/5";
-        // reviews = " ";
-        // htmlToReturn2 += `
-        //           </div>
-        //         </div>
-        //       </div>
-        //     </div>`;
-        // document.getElementById('productListArea2').innerHTML += htmlToReturn2;
-      });
-      // Code to show icons upon hover of products
-      document.querySelectorAll(".prod-card").forEach(card => {
-        card.children[0].style.visibility = 'hidden';
-      })
+//         htmlToReturn2 =
+//           `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12">
+//               <div class="prod-card mb-4" id="card_id">
+//                 <div class="icons d-flex justify-content-center" id="card_icons">
+//                   <a class="heart"><img class='img1' src="Images/heart-icon-trans.png" alt="inner heart icon"></a>
+//                   <a href="product-view.html"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
+//                   <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
+//                 </div>
+//                 <img class="card-img-top" src="${product.image}" alt="Card image cap">
+//                 <div class="card-body d-flex flex-column align-items-center">
+//                   <h5 class="card-title">${product.name}</h5>
+//                   <p class="card-text mb-0"><strong>Rs.${product.price}</strong> <del>Rs.${product.price}</del><span class="offer">(60%Off)</span></p>
+//                   <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">`
+//         // lowStar = 5 - Math.floor(product.ratings);
+//         // for (i = 1; i <= product.ratings; i++) {
+//         //   reviews += `
+//         //             <img class="stars" src="Images/star.png" alt="star-rating" role="icon" aria-label='star rating'>`;
+//         // }
+//         // for (i = 1; i <= lowStar; i++) {
+//         //   reviews += `<img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon" aria-label='star rating'>`;
+//         // }
+//         // lowStar = 0;
+//         // htmlToReturn2 += reviews + product.ratings + "/5";
+//         // reviews = " ";
+//         // htmlToReturn2 += `
+//         //           </div>
+//         //         </div>
+//         //       </div>
+//         //     </div>`;
+//         // document.getElementById('productListArea2').innerHTML += htmlToReturn2;
+//       });
+//       // Code to show icons upon hover of products
+//       document.querySelectorAll(".prod-card").forEach(card => {
+//         card.children[0].style.visibility = 'hidden';
+//       })
 
-      document.querySelectorAll(".prod-card").forEach(card => {
-        card.addEventListener('mouseover', func => {
-          card.children[1].style.opacity = 0.2;
-          card.children[0].style.visibility = 'visible';
-        })
-      })
+//       document.querySelectorAll(".prod-card").forEach(card => {
+//         card.addEventListener('mouseover', func => {
+//           card.children[1].style.opacity = 0.2;
+//           card.children[0].style.visibility = 'visible';
+//         })
+//       })
 
-      document.querySelectorAll(".prod-card").forEach(card => {
-        card.addEventListener('mouseout', func => {
-          card.children[1].style.opacity = 1;
-          card.children[0].style.visibility = 'hidden';
-        })
-      })
+//       document.querySelectorAll(".prod-card").forEach(card => {
+//         card.addEventListener('mouseout', func => {
+//           card.children[1].style.opacity = 1;
+//           card.children[0].style.visibility = 'hidden';
+//         })
+//       })
 
-      // Code to make individual icons change color on hover
-      // a) Heart icon
-      document.querySelectorAll(".prod-card").forEach(img => {
-        let img_1 = img.childNodes[1].childNodes[1].childNodes[0]
-        img_1.addEventListener('mouseover', func2 => {
-          img_1.src = 'Images/heart-icon.png';
-        })
-      });
-      document.querySelectorAll(".prod-card").forEach(img => {
-        let img_1 = img.childNodes[1].childNodes[1].childNodes[0]
-        img_1.addEventListener('mouseout', func2 => {
-          img_1.src = 'Images/heart-icon-trans.png';
-        })
-      });
-      // b) Eye icon
-      document.querySelectorAll(".prod-card").forEach(img => {
-        let img_2 = img.childNodes[1].childNodes[3].childNodes[0]
-        img_2.addEventListener('mouseover', func3 => {
-          img_2.src = 'Images/eye-icon.png';
-        })
-      });
-      document.querySelectorAll(".prod-card").forEach(img => {
-        let img_2 = img.childNodes[1].childNodes[3].childNodes[0]
-        img_2.addEventListener('mouseout', func3 => {
-          img_2.src = 'Images/eye-icon-trans.png';
-        })
-      });
-      // b) Cart icon
-      document.querySelectorAll(".prod-card").forEach(img => {
-        let img_3 = img.childNodes[1].childNodes[5].childNodes[0]
-        img_3.addEventListener('mouseover', func4 => {
-          img_3.src = 'Images/shopping-icon.png';
-        })
-      });
-      document.querySelectorAll(".prod-card").forEach(img => {
-        let img_3 = img.childNodes[1].childNodes[5].childNodes[0]
-        img_3.addEventListener('mouseout', func4 => {
-          img_3.src = 'Images/shopping-icon-trans.png';
-        })
-      })
-    })
+//       // Code to make individual icons change color on hover
+//       // a) Heart icon
+//       document.querySelectorAll(".prod-card").forEach(img => {
+//         let img_1 = img.childNodes[1].childNodes[1].childNodes[0]
+//         img_1.addEventListener('mouseover', func2 => {
+//           img_1.src = 'Images/heart-icon.png';
+//         })
+//       });
+//       document.querySelectorAll(".prod-card").forEach(img => {
+//         let img_1 = img.childNodes[1].childNodes[1].childNodes[0]
+//         img_1.addEventListener('mouseout', func2 => {
+//           img_1.src = 'Images/heart-icon-trans.png';
+//         })
+//       });
+//       // b) Eye icon
+//       document.querySelectorAll(".prod-card").forEach(img => {
+//         let img_2 = img.childNodes[1].childNodes[3].childNodes[0]
+//         img_2.addEventListener('mouseover', func3 => {
+//           img_2.src = 'Images/eye-icon.png';
+//         })
+//       });
+//       document.querySelectorAll(".prod-card").forEach(img => {
+//         let img_2 = img.childNodes[1].childNodes[3].childNodes[0]
+//         img_2.addEventListener('mouseout', func3 => {
+//           img_2.src = 'Images/eye-icon-trans.png';
+//         })
+//       });
+//       // b) Cart icon
+//       document.querySelectorAll(".prod-card").forEach(img => {
+//         let img_3 = img.childNodes[1].childNodes[5].childNodes[0]
+//         img_3.addEventListener('mouseover', func4 => {
+//           img_3.src = 'Images/shopping-icon.png';
+//         })
+//       });
+//       document.querySelectorAll(".prod-card").forEach(img => {
+//         let img_3 = img.childNodes[1].childNodes[5].childNodes[0]
+//         img_3.addEventListener('mouseout', func4 => {
+//           img_3.src = 'Images/shopping-icon-trans.png';
+//         })
+//       })
+//     })
 
 
-}
+// }
 
 
 
@@ -620,9 +572,9 @@ const url = new URL(window.location.href)
 
 if(url.searchParams.has('q')){ 
    console.log("search ");
-  showSearchResult();
+  showProducts(productsListSearchUrl);
 }else if(url.searchParams.has('category')){
-   showCategoryResult();
+   showProducts(productsListCategoryUrl);
 }else{
   console.log("all prods");
   showProducts(productsListUrl);
@@ -631,7 +583,46 @@ if(url.searchParams.has('q')){
 
 // ---------------------------------------------------------------------------------------------------------
 
+///////////------- Categories -------------------------------------------
 
+let categoriesUrl = 'http://localhost:9090/toycat/api/categories';
+
+function categoriesDisplay(curl){
+
+
+  fetch(curl)//'https://my-json-server.typicode.com/adithkrishnan98/swagofindia/db')
+    .then(response => response.json())
+    .then(json => {
+      categoriesList = json;
+      console.log(categoriesList);
+      categoriesList.forEach((category) => {
+        htmlToReturn =
+          `<a href="products?category=${category.name}">${category.name}</a>`;
+
+        htmlToReturn2 = `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
+        <img src="Images/image2.jpg" alt="${category.name}" role="img" aria-label="categories image1">
+        <div class="text-box text-box1" role="textbox" aria-label='textbox3'>
+            <h2>${category.name}</h2>
+            <button onclick="location.href='products?category=${category.name}';">SHOP NOW</button>
+        </div>
+    </div>`
+        document.getElementById('categoriessection').innerHTML += htmlToReturn;
+        
+        document.getElementById('category-slider').innerHTML += htmlToReturn2;
+      });
+     
+    })
+
+
+  
+
+}
+
+
+categoriesDisplay(categoriesUrl);
+
+
+///////////////////////////////========
 // search bar animation added by me
 
 // const searchBar = document.querySelector('.search-bar');
@@ -1219,4 +1210,5 @@ window.onload = function () {
 
 
 // --------------------------------------------------------------------------------------------------------------
+
 
