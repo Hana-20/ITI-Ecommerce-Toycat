@@ -80,6 +80,18 @@ public class CartItem implements Serializable {
 
 
 
+    public Product getProduct() {
+        return product;
+    }
+
+
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+
+
     public User getUser() {
         return user;
     }
