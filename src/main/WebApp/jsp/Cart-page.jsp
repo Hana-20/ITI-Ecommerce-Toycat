@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Swag of India - Home</title>
+        <title>ToyCat - Cart</title>
         <link rel="icon" type="image/png" href="Images/carts.png">
         <link rel="stylesheet" href="style/style.css">
         <link rel="stylesheet" href="style/styleSheet.css">
@@ -57,7 +57,7 @@
                                     <li class="nav-item notification">
                                         <a class="nav-link" href="${pageContext.request.contextPath}/cart"
                                             id="cart-btn">Cart</a>
-                                        <span class="badge" id="cart-badge">0</span>
+                                        <!-- <span class="badge" id="cart-badge">0</span> -->
                                     </li>
                                     <li>
 
@@ -263,7 +263,9 @@
                                                         <label class='mr-2'
                                                             for="exampleFormControlSelectQuantity"></label>
                                                         <select class="form-control" value="${cartItem.quantity}"
-                                                            id="exampleFormControlSelectQuantity" name="quantity">
+                                                            id="exampleFormControlSelectQuantity" name="quantity"
+                                                            onchange= "quantityChanged(event,'${cartItem.productDto.id}')"
+                                                            >
 
                                                             <c:forEach begin="1" end="5" var="i">
                                                                 <option value="${i}"
@@ -310,7 +312,7 @@
                             <br>
                             <div class="flex-item flex-item-1 d-flex justify-content-between">
                                 <p class='key'>Total Price</p>
-                                <p class='value'><span id="originalPrice">${totalPrice}</span></p>
+                                <p class='value'><span id="total-price">${totalPrice}</span></p>
                             </div>
                             <!-- <div class="flex-item flex-item-1 d-flex justify-content-between">
                                 <p class='key'>Bag Discount</p>
@@ -449,6 +451,17 @@
                 </div>
             </div>
         </footer>
+
+        <script>
+            let cartItems = [
+                <c:forEach var="item" items="${cart}">
+                    {id: ${item.productDto.id},
+                    name: '${item.productDto.name}',
+                    price: ${item.productDto.price},
+                    quantity: ${item.quantity}},
+                </c:forEach>
+            ];
+        </script>
         <script src="Javascript/index.js"></script>
         <script src="Javascript/cart.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
