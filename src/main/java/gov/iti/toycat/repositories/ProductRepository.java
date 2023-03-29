@@ -21,6 +21,11 @@ public class ProductRepository {
         return products;
     }
 
+    public Product getProduct(int id) {
+        Product product = (Product) entityManager.createQuery("select p from Product p WHERE p.id = :productId").setParameter("productId", id).getSingleResult();
+        return product;
+    }
+
     public Product insertProduct(Product product) {
         entityManager.getTransaction().begin();
         entityManager.persist(product);
@@ -63,46 +68,9 @@ public class ProductRepository {
 
         List<Product> products = new ArrayList<Product>();
 
-        // switch(categoryString){
-        // case "Action_Figures":
-        // products = entityManager.createQuery("SELECT p FROM Product p, Categroy c
-        // WHERE p.category_id=1", Product.class).getResultList();
-        // break;
-        // case "Dolls_and_Accessories":
-        // products = entityManager.createQuery("SELECT p FROM Product p, Categroy c
-        // WHERE p.category_id=2", Product.class).getResultList();
-        // break;
-        // case "Building_Toys":
-        // products = entityManager.createQuery("SELECT p FROM Product p, Categroy c
-        // WHERE p.category_id=3", Product.class).getResultList();
-        // break;
-
-        // default:
-
-        // // Print statement corresponding case
-        // System.out.println("no match");
-
-        // }
-
-        // products = entityManager.createQuery("SELECT p FROM Product p, Categroy c
-        // WHERE p.category_id=6", Product.class).getResultList();
-
         products = entityManager
                 .createQuery("SELECT p FROM Product p WHERE p.categoryId.name = :specificCategoryName", Product.class)
                 .setParameter("specificCategoryName", categoryString).getResultList();
-
-        // TypedQuery<Product> query = entityManager.createQuery("select p from Product
-        // p where p.name LIKE '%?1%'" , Product.class);
-        // List<Product> products = query.setParameter(1, queryString).getResultList();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println("ProductRepository: search products: " + products);
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
 
         return products;
 

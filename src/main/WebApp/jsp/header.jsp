@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Toycat</title>
-        <link rel="icon" type="image/png" href="Images/carts.png">
+        <title>ToyCat</title>
+        <link rel="icon" type="image/svg" href="Images/favicon.svg">
         <link rel="stylesheet" href="style/style.css">
         <link rel="stylesheet" href="style/styleSheet.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
@@ -25,13 +25,18 @@
                         <div class="container-fluid">
                             <a class="navbar-brand" href="home"><img id="logo_img" src="Images/logo.png"
                                     alt="logo" role="img" aria-label=" website logo"></a>
-                            <div class="input-group d-xl-none d-lg-none" id="search-box-container">
-                                <input type="search" id="search-box-hidden" class="form-control"
+                                    <form action="/toycat/products">
+
+                                    <div class="input-group d-xl-none d-lg-none" id="search-box-container">
+                                <input  name="q"  type="search" id="search-box-hidden" class="form-control"
                                     placeholder="Search products and Brands" aria-label="search box"
                                     aria-describedby="basic-addon1">
-                                <span id="basic-addon1"><img src="Images/magglass.png" alt="search-icon" role="icon"
+                                                          <span id="basic-addon1"><img src="Images/magglass.png" alt="search-icon" role="icon"
                                         aria-labelledby="magnifying glass icon"></span>
+      
                             </div>
+                        </form>
+
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
                                 aria-expanded="false" aria-label="Toggle navigation">
@@ -40,19 +45,19 @@
                             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                                 <ul class="navbar-nav mr-auto mt-2 ml-xl-5 ml-lg-5 ml-md-0 mt-lg-0 text-center">
                                     <li class="nav-item">
-                                        <a class="nav-link active" href="home">Home</a>
+                                        <a class="nav-link active" href="/toycat">Home</a>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link drop-btn" href="Product-list.html">Categories</a>
-                                        <div class="dropdown-content mt-2">
-                                            <a href="Product-list.html">Men</a>
+                                        <a class="nav-link drop-btn" href="/toycat/#categories">Categories</a>
+                                        <div id="categoriessection" class="dropdown-content ">
+                                            <!-- <a href="Product-list.html">Men</a>
                                             <a href="Product-list.html">Women</a>
-                                            <a href="Product-list.html">Ethnic</a>
+                                            <a href="Product-list.html">Ethnic</a> -->
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown2">
                                         <a class="nav-link drop-btn2" href="my-order.html">Orders</a>
-                                        <div class="dropdown-content2 mt-2">
+                                        <div class="dropdown-content2 ">
                                             <a href="my-order.html">My Orders</a>
                                             <a href="Track-order.html">Track Orders</a>
                                             <a href="Return-order.html">Return Orders</a>
@@ -67,7 +72,7 @@
                                         <a class="nav-link" href="${pageContext.request.contextPath}/cart" id="cart-btn">Cart</a>
                                         <span class="badge" id="cart-badge">0</span>
                                     </li>
-                                    <li>
+                                   
 
                                 </ul>
                                 <div>
