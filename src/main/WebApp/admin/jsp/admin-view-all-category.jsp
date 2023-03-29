@@ -101,7 +101,7 @@
         <main id="main" class="main">
 
             <div class="pagetitle">
-                <h1>Products</h1>
+                <h1>Categories</h1>
             </div><!-- End Page Title -->
 
             <section class="section dashboard">
@@ -109,55 +109,32 @@
                 <div class="col-12">
                     <div class="card recent-sales overflow-auto">
 
-
-
                         <div class="card-body">
-                            <h5 class="card-title">Products List <span>|<a
+                            <h5 class="card-title">Category List <span>|<a
                                         href="${pageContext.request.contextPath}/admin/products/add"> Add
-                                        Product</a></span></h5>
+                                        Category</a></span></h5>
 
-                            <table class="table table-borderless datatable">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Preview</th>
-                                        <th scope="col">Product</th>
-                                        <th scope="col">Quantity</th>
-                                        <th scope="col">Price</th>
-                                        <th scope="col">Category</th>
-                                        <th scope="col">Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <c:forEach var="product" items="${productsList}">
-                                        <tr id="${product.id}">
-                                            <td class="top-selling"><img src="${product.image}" alt=""></td>
-                                            <td>${product.name}</td>
-                                            <td>${product.quantity}</td>
-                                            <td>${product.price}</td>
-                                            <td>${product.categoryDto.name}</td>
-                                            <td class="d-flex justify-content-evenly">
-                                                <form method="POST"
-                                                    action="${pageContext.request.contextPath}/admin/products/delete?id=${product.id}">
-                                                    <button class="icon-delete-button" type="submit"><i
-                                                            class="bi bi-trash-fill"></i></button>
-                                                </form>
+                                        <table class="table table-borderless datatable" >
+                                            <thead >
+                                                <tr>
+                                                    <th scope="col">ID</th>
+                                                    <th scope="col">Name</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="category-table">
+                                                <c:forEach var="category" items="${sessionScope.categories}">
+                                                  <tr>
+                                                    <td>${category.id}</td>
+                                                    <td>${category.name}</td>
+                                                  </tr>
+                                                </c:forEach>
+                                              </tbody>
+                                        </table>
+                                    </div>
 
-
-                                                <a
-                                                    href="${pageContext.request.contextPath}/admin/products/edit?id=${product.id}"><i
-                                                        class="bi bi-pencil-square"></i></a>
-
-                                            </td>
-                                        </tr>
-                                    </c:forEach>
-                                </tbody>
-                            </table>
-
-                        </div>
-
-                    </div>
-                </div><!-- End Product List -->
-            </section>
+                                </div>
+                            </div><!-- End Product List -->
+                        </section>
 
         </main><!-- End #main -->
 
@@ -172,8 +149,9 @@
         <script src="${pageContext.request.contextPath}/admin/vendor/tinymce/tinymce.min.js"></script>
 
         <!-- Template Main JS File -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="${pageContext.request.contextPath}/admin/js/main.js"></script>
-
+        <script src="${pageContext.request.contextPath}/admin/js/category.js"></script>
     </body>
 
     </html>

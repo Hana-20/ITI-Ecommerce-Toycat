@@ -1,3 +1,4 @@
+<!-- End Sidebar-->
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +50,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="admin">
+        <a class="nav-link " href="${pageContext.request.contextPath}/admin/">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -64,14 +65,21 @@
       </li><!-- End Products Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users">
+        <a class="nav-link collapsed" href="${pageContext.request.contextPath}/admin/users">
           <i class="bi bi-person"></i>
           <span>Customers</span>
         </a>
       </li><!-- End Customers Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="users">
+        <a class="nav-link collapsed" href="${pageContext.request.contextPath}/admin/categories">
+          <i class="bi bi-bag"></i>
+          <span>Categories</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="index.html">
           <i class="bi bi-cash"></i>
           <span>Orders</span>
         </a>
@@ -88,9 +96,8 @@
 
     </ul>
 
-  </aside><!-- End Sidebar-->
-
-  <main id="main" class="main">
+  </aside>
+    <main id="main" class="main">
 
     <div class="pagetitle">
       <h1>Dashboard</h1>
@@ -174,6 +181,30 @@
               </div>
 
             </div><!-- End Customers Card -->
+
+
+              <!-- Categories Card -->
+              <div class="col-xxl-4 col-xl-12">
+
+                <div class="card info-card customers-card">
+  
+    
+                  <div class="card-body">
+                    <h5 class="card-title">Categories</h5>
+  
+                    <div class="d-flex align-items-center">
+                      <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                        <i class="bi bi-people"></i>
+                      </div>
+                      <div class="ps-3">
+                        <h6>${usersCount}</h6>
+                      </div>
+                    </div>
+  
+                  </div>
+                </div>
+  
+              </div><!-- End Categories Card -->
 
 
           </div>

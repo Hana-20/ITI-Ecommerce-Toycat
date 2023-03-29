@@ -1,3 +1,5 @@
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,9 +7,10 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <title>ToyCat</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
+
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -15,7 +18,6 @@
     href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
     rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
   <link href="${pageContext.request.contextPath}/admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="${pageContext.request.contextPath}/admin/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="${pageContext.request.contextPath}/admin/css/style.css" rel="stylesheet">
@@ -32,9 +34,8 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">NiceAdmin</span>
+      <a href="admin" class="logo d-flex align-items-center">
+        <span class="d-none d-lg-block">ToyCat</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -56,7 +57,7 @@
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="${pageContext.request.contextPath}/admin/products" >
+        <a class="nav-link collapsed" href="${pageContext.request.contextPath}/admin/products">
           <i class="bi bi-bag"></i>
           <span>Products</span>
         </a>
@@ -64,14 +65,19 @@
       </li><!-- End Products Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
+        <a class="nav-link collapsed" href="${pageContext.request.contextPath}/admin/users">
           <i class="bi bi-person"></i>
           <span>Customers</span>
         </a>
       </li><!-- End Customers Nav -->
-
       <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
+        <a class="nav-link collapsed" href="${pageContext.request.contextPath}/admin/categories">
+          <i class="bi bi-bag"></i>
+          <span>Categories</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="users">
           <i class="bi bi-cash"></i>
           <span>Orders</span>
         </a>
@@ -83,13 +89,9 @@
           <span>Logout</span>
         </a>
       </li>
-
-
-
     </ul>
 
-  </aside><!-- End Sidebar-->
-
+  </aside>
   <main id="main" class="main">
 
     <div class="pagetitle">
