@@ -133,10 +133,11 @@ let productsListUrl = 'http://localhost:9090/toycat/allproducts';
 let productsList;
 let htmlToReturn = "",
   htmlToReturn2 = "",
+  htmlToReturn3 = "",
   reviews = "",
   lowStar = 0,
-  i = 0
-
+  i = 0,
+  j = 0;
 
 
 
@@ -176,6 +177,17 @@ async function showProducts(Url) {
               </div>
             </div>
           </div>`;
+
+
+          
+        // if(j<6){
+        //   document.getElementById('area1').innerHTML += htmlToReturn;
+        //   document.getElementById('area2').innerHTML += htmlToReturn;
+        //   document.getElementById('area3').innerHTML += htmlToReturn;
+        //   document.getElementById('area4').innerHTML += htmlToReturn;
+        //   console.log("j= "+j);
+        //   j++;
+        // }
         document.getElementById('productListArea').innerHTML += htmlToReturn;
 
         

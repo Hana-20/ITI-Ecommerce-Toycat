@@ -326,8 +326,8 @@
         <div class="desc-tabs-content tab-content" id="myProductsTabContent">
             <div class="tab-pane active" id="pd-list-1" role="tabpanel" aria-labelledby="tab1" aria-hidden='false'>
                 <div class="container-fluid mt-5">
-                    <div class="row">
-                        <div class="p-col-1 col col-lg-4 col-md-6 col-sm-12">
+                    <div class="row" id="area1">
+                        <!-- <div class="p-col-1 col col-lg-4 col-md-6 col-sm-12">
                             <div class="prod-card mb-4" id="product1">
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
@@ -511,11 +511,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="tab-pane" id="pd-list-2" role="tabpanel" aria-labelledby="tab2" aria-hidden='false'>
                 <div class="container-fluid mt-5">
-                    <div class="row">
+                    <!-- <div class="row" id="area2">
                         <div class="col col-lg-4 col-md-6 col-sm-12">
                             <div class="prod-card mb-4" id="product5">
                                 <div class="icons d-flex justify-content-center" id="card_icons">
@@ -701,12 +701,12 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="tab-pane" id="pd-list-3" role="tabpanel" aria-labelledby="tab3" aria-hidden='false'>
                 <div class="container-fluid mt-5">
-                    <div class="row">
-                        <div class="col col-lg-4 col-md-6 col-sm-12">
+                    <div class="row" id="area3">
+                        <!-- <div class="col col-lg-4 col-md-6 col-sm-12">
                             <div class="prod-card mb-4" id="product4">
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
@@ -887,13 +887,13 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
             <div class="tab-pane" id="pd-list-4" role="tabpanel" aria-labelledby="tab4" aria-hidden='false'>
                 <div class="container-fluid mt-5">
-                    <div class="row" id="latestProductsArea">
+                    <div class="row" id="area4">
                         <!-- <div class="col col-lg-4 col-md-6 col-sm-12">
                             <div class="prod-card mb-4" id="product6">
                                 <div class="icons d-flex justify-content-center" id="card_icons">
