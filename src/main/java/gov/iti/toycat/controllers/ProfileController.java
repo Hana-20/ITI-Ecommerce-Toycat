@@ -3,6 +3,7 @@ package gov.iti.toycat.controllers;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import gov.iti.toycat.services.UserServices;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -17,6 +18,7 @@ public class ProfileController extends HttpServlet{
        if(request.getSession(false)==null){
         response.sendRedirect("Home");
        }
+       new UserServices().g
        RequestDispatcher rd=request.getRequestDispatcher("jsp/profile.jsp");
        rd.include(request, response);
     }
