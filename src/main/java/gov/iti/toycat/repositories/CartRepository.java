@@ -23,9 +23,20 @@ public class CartRepository {
 
     public List<CartItem> findAllforUser(String userEmail) {
         List<CartItem> cartItems = entityManager
-                .createQuery("select c from CartItem c where user.email = :email", CartItem.class)
+                .createQuery("select c from CartItem c where c.user.email = :email", CartItem.class)
                 .setParameter("email", userEmail).getResultList();
         return cartItems;
+    }
+
+    public int deleteCartItemsForUser(String userEmail) {
+
+        entityManager.getTransaction().begin();    
+        int rows = entityManager
+                .createQuery("delete from CartItem c where c.user.email = :email")
+                .setParameter("email", userEmail).executeUpdate();
+
+        entityManager.getTransaction().commit();
+        return rows;
     }
 
     public void update(CartItem cartItem) {

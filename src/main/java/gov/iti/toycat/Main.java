@@ -15,6 +15,7 @@ import gov.iti.toycat.models.entities.Category;
 import gov.iti.toycat.models.entities.Product;
 import gov.iti.toycat.models.entities.User;
 import gov.iti.toycat.repositories.CartRepository;
+import gov.iti.toycat.repositories.OrderRepository;
 import gov.iti.toycat.repositories.connection.ConnectionManager;
 import gov.iti.toycat.services.CartService;
 import gov.iti.toycat.services.ProductService;
@@ -26,10 +27,14 @@ import jakarta.persistence.Persistence;
 public class Main {
     public static void main(String[] args) {
 
+        OrderRepository orderRepository = new OrderRepository();
+        CartRepository cartRepository = new CartRepository();
+        // orderRepository.createOrderForUser("example@gmail.com");
+        cartRepository.deleteCartItemsForUser("example@gmail.com");
         // List<CartItemDTO> cItems = new CartService().getCartforUserEmail("dd@dd.com");
-       new CartService().updateCartItemQuantity("example@gmail.com", 4,3);
-        new CartService().updateCartItemQuantity("example@gmail.com", 5,5);
-        new CartService().updateCartItemQuantity("example@gmail.com", 7,1);
+    //    new CartService().updateCartItemQuantity("example@gmail.com", 4,3);
+    //     new CartService().updateCartItemQuantity("example@gmail.com", 5,5);
+    //     new CartService().updateCartItemQuantity("example@gmail.com", 7,1);
     //    new CartService().deleteCartItemFromUser("example@gmail.com", 3);
         // CartItemDTO c2 = new CartService().addCartItemToUser("dd@dd.com", 1);
         // System.out.println(c1);

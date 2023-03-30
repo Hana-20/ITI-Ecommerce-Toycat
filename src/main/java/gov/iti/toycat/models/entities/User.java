@@ -160,6 +160,7 @@ public class User implements Serializable {
     }
 
     
+    
 
     @Override
     public int hashCode() {
@@ -186,6 +187,14 @@ public class User implements Serializable {
         return "User [email=" + email + ", address=" + address + ", birthday=" + birthday + ", creditLimit="
                 + creditLimit + ", password=" + password + ", role=" + role + ", username=" + username + ", cart="
                 + cart + "]";
+    }
+
+    public List<CartItem> getCart() {
+        return cart;
+    }
+
+    public void setCart(List<CartItem> cart) {
+        this.cart = cart;
     }
 
  

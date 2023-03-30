@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ToyCat - Cart</title>
+        <title>ToyCat - Checkout</title>
         <link rel="icon" type="image/png" href="Images/carts.png">
         <link rel="stylesheet" href="style/style.css">
         <link rel="stylesheet" href="style/styleSheet.css">
@@ -229,15 +229,15 @@
 
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a class="text-dark" href="index.html">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                <li class="breadcrumb-item"><a class="text-dark" href="${pageContext.request.contextPath}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Checkout</li>
             </ol>
         </nav>
 
         <section class="cart-section">
             <div class="container-fluid">
                 <div class="top-flex-container">
-                    <h4 class="font-weight-bold mb-3">MY CART</h4>
+                    <h4 class="font-weight-bold mb-3">MY Order</h4>
                     <!-- <div class="totalCost d-flex justify-content-xl-between">
                         <p class='key font-weight-bold mr-2'>Total</p>
                         :
@@ -250,50 +250,26 @@
                         <c:set var="totalPrice" value="0" />
                         <div class="cart-items-area" id="cart-items-area">
                             <c:forEach var="cartItem" items="${cart}">
-                                <c:set var="totalPrice" value="${totalPrice + cartItem.productDto.price*cartItem.quantity }" />
+                                <c:set var="totalPrice"
+                                    value="${totalPrice + cartItem.productDto.price*cartItem.quantity }" />
                                 <div class="cart-items-holder" id='cart-${cartItem.productDto.id}'>
                                     <div class='pdt-container' id='pdt-single'>
                                         <img class='img-sweater' src="${cartItem.productDto.image}" alt="Sweater Image">
-                                        <div class="pdt-text w-100">
+                                        <div class="ml-4 w-100">
                                             <div class="text1">
                                                 <h6>${cartItem.productDto.name}</h6>
-                                                <div
-                                                    class="forms mt-xl-3 mt-lg-3 mt-md-2 mt-sm-2 d-flex justify-content-start align-items-start">
-                                                    <div class="form-group2">
-                                                        <label class='mr-2'
-                                                            for="exampleFormControlSelectQuantity"></label>
-                                                        <select class="form-control" value="${cartItem.quantity}"
-                                                            id="exampleFormControlSelectQuantity" name="quantity"
-                                                            onchange= "quantityChanged(event,'${cartItem.productDto.id}')"
-                                                            >
-
-                                                            <c:forEach begin="1" end="5" var="i">
-                                                                <option value="${i}"
-                                                                    ${cartItem.quantity == i ? 'selected' : '' }>
-                                                                    ${i}
-                                                                </option>
-                                                            </c:forEach>
-                                                            <!-- <option value="1">QTY : 1</option>
-                                                            <option value="2">QTY : 2</option>
-                                                            <option value="3">QTY : 3</option>
-                                                            <option value="4">QTY : 4</option>
-                                                            <option value="5">QTY : 5</option> -->
-                                                        </select>
-                                                    </div>
-                                                </div>
+                                               
                                             </div>
-                                            <div class="text2">
-                                                <p class='pricing mb-0'>Price: <strong
-                                                        id='final-price'>${cartItem.productDto.price}</strong>
+                                            <p class='pricing mb-0'>Quantity: <strong
+                                                id='final-price'>${cartItem.quantity}</strong>
 
-                                            </div>
+                                            <p class='pricing mb-0'>Item Price: <strong
+                                                    id='final-price'>${cartItem.productDto.price}</strong>
+
+                                            <p class='pricing mb-0'>Total: <strong
+                                                    id='final-price'>${cartItem.productDto.price *
+                                                    cartItem.quantity}</strong>
                                         </div>
-                                    </div>
-                                    <div class="options">
-                                        <button class="ml-3 mr-3 text-dark font-weight-bold"
-                                            id='remove-cart-${cartItem.productDto.id}'
-                                            onclick="deleteCartItem('${cartItem.productDto.id}')"
-                                            >REMOVE</button></button>
                                     </div>
                                 </div>
                                 <br>
@@ -308,7 +284,7 @@
                                     alt="tag icon">Apply Coupons</span>
                             <button type="button" class="btn btn-default ml-3" aria-label='edit button'>Apply</button>
                             <hr> -->
-                            <h6>PRICE DETAILS</h6>
+                            <h6>Summary</h6>
                             <br>
                             <div class="flex-item flex-item-1 d-flex justify-content-between">
                                 <p class='key'>Total Price</p>
@@ -331,8 +307,8 @@
                                 <p class='value text-success'><del class='text-dark mr-2'>Rs.99</del>Free</p>
                             </div> -->
                             <hr>
-                            <button type="button" class="btn btn-orange w-100" aria-label='edit button'
-                                onclick="location.href='${pageContext.request.contextPath}/checkout'">PROCEED TO CHECKOUT</button>
+                            <button type="button" class="btn btn-orange w-100" aria-label='edit button' onclick="confirmOrder()" >Confirm
+                                Order</button>
 
                         </div>
                     </div>
@@ -452,18 +428,10 @@
             </div>
         </footer>
 
-        <script>
-            let cartItems = [
-                <c:forEach var="item" items="${cart}">
-                    {id: ${item.productDto.id},
-                    name: '${item.productDto.name}',
-                    price: ${item.productDto.price},
-                    quantity: ${item.quantity}},
-                </c:forEach>
-            ];
-        </script>
+  
         <script src="Javascript/index.js"></script>
         <script src="Javascript/cart.js"></script>
+        <script src="Javascript/checkout.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
             </script>

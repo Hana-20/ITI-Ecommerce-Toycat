@@ -16,24 +16,22 @@ import jakarta.persistence.criteria.Root;
 public class UserRepository {
     ConnectionManager conncetionManger = ConnectionManager.getInstance();
     private EntityManagerFactory entityManagerFactory = conncetionManger.getEntityManagerFactory();
+    EntityManager entityManager = entityManagerFactory.createEntityManager();
 
     public boolean inserUser(User user) {
-        EntityManager entityManger = entityManagerFactory.createEntityManager();
-        entityManger.getTransaction().begin();
-        entityManger.persist(user);
-        entityManger.getTransaction().commit();
-        entityManger.close();
+        entityManager.getTransaction().begin();
+        entityManager.persist(user);
+        entityManager.getTransaction().commit();
         return true;
     }
 
     public User getUser(String email) {
-        EntityManager entityManger = entityManagerFactory.createEntityManager();
-        User user = entityManger.find(User.class, email.trim());
+        User user = entityManager.find(User.class, email.trim());
+
        return user;
 
     }
     public User getUserByEmailAndPassword(LoginDTO LoginUser) {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
         CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
         User user=null;
         // Create a criteria query for the User entity
@@ -65,12 +63,10 @@ public class UserRepository {
 
     
     public Long getTotalUsersCount() {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
         Long count = entityManager.createQuery("SELECT COUNT(u) FROM User u", Long.class).getSingleResult();
         return count;
     }
     public List<User> getAllUsers(){
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
         CriteriaBuilder cb = entityManager.getCriteriaBuilder();
         CriteriaQuery<User> cq = cb.createQuery(User.class);
         Root<User> root = cq.from(User.class);
@@ -78,9 +74,9 @@ public class UserRepository {
         return  entityManager.createQuery(cq).getResultList();
     }
     public void updateUserData(User user ){
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
         entityManager.merge(user);
+        entityManager.flush();
         entityManager.getTransaction().commit();
     }
 }
