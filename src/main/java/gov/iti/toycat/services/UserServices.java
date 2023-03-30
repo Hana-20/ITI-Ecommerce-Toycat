@@ -42,6 +42,9 @@ public class UserServices {
         .collect(Collectors.toList());
         return userDtoList ;
     } 
+    public UserDTO getUser(String email,String password){
+        return UserMapper.toDto(new UserRepository().getUserByEmailAndPassword( new LoginDTO(email,password)));
+    }
 }
 
 
