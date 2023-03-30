@@ -20,10 +20,15 @@ public class AdminController extends HttpServlet {
         DashboardService dashboardService = new DashboardService();
         Long productsCount = dashboardService.getProductsCount();
         Long usersCount = dashboardService.getUsersCount();
+        Long ordersCount =dashboardService.getOrdersCount();
+
+
         request.setAttribute("productsCount", productsCount.toString());
         request.setAttribute("usersCount", usersCount.toString());
+        request.setAttribute("ordersCount", ordersCount.toString());
+
         //TODO:Implement orders count
-        request.setAttribute("ordersCount", 32);
+        // request.setAttribute("ordersCount", 32);
         request.getRequestDispatcher("admin/jsp/admin-index.jsp").forward(request, response);
 
     }

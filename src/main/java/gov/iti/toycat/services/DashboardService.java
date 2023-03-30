@@ -6,6 +6,7 @@ import java.util.List;
 import gov.iti.toycat.models.dtos.ProductDTO;
 import gov.iti.toycat.models.entities.Product;
 import gov.iti.toycat.models.mappers.ProductMapper;
+import gov.iti.toycat.repositories.OrderRepository;
 import gov.iti.toycat.repositories.ProductRepository;
 import gov.iti.toycat.repositories.UserRepository;
 
@@ -56,5 +57,9 @@ public class DashboardService {
 
     public Long getUsersCount() {
         return userRepository.getTotalUsersCount();
+    }
+
+    public Long getOrdersCount() {
+        return new OrderRepository().getTotalCount() ;
     }
 }

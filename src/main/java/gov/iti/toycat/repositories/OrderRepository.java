@@ -48,7 +48,14 @@ public class OrderRepository {
             entityManager.persist(item);
         }
 
+   
+
         entityManager.getTransaction().commit();
         // entityManager.close();
+    }
+
+    public Long getTotalCount() {
+        Long count = entityManager.createQuery("SELECT COUNT(o) FROM Order o", Long.class).getSingleResult();
+        return count;
     }
 }

@@ -184,7 +184,7 @@
 
 
               <!-- Categories Card -->
-              <div class="col-xxl-4 col-xl-12">
+              <!-- <div class="col-xxl-4 col-xl-12">
 
                 <div class="card info-card customers-card">
   
@@ -204,7 +204,9 @@
                   </div>
                 </div>
   
-              </div><!-- End Categories Card -->
+              </div> -->
+              
+              <!-- End Categories Card -->
 
 
           </div>
