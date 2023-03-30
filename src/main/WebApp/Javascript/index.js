@@ -62,65 +62,7 @@ function scrollToTop() {
 // ---------------------------------------------------------------------------------------------------------------------------
 
 
-// Code to show icons upon hover of products in Homepage
-document.querySelectorAll(".prod-card").forEach(card => {
-  card.children[0].style.visibility = 'hidden';
-})
 
-document.querySelectorAll(".prod-card").forEach(card => {
-  card.addEventListener('mouseover', func => {
-    card.children[1].style.opacity = 0.2;
-    card.children[0].style.visibility = 'visible';
-  })
-})
-
-document.querySelectorAll(".prod-card").forEach(card => {
-  card.addEventListener('mouseout', func => {
-    card.children[1].style.opacity = 1;
-    card.children[0].style.visibility = 'hidden';
-  })
-})
-
-// Code to make individual icons change color on hover
-// a) Heart icon
-document.querySelectorAll(".prod-card").forEach(img => {
-  let img_1 = img.childNodes[1].childNodes[1].childNodes[0]
-  img_1.addEventListener('mouseover', func2 => {
-    img_1.src = 'Images/heart-icon.png';
-  })
-});
-document.querySelectorAll(".prod-card").forEach(img => {
-  let img_1 = img.childNodes[1].childNodes[1].childNodes[0]
-  img_1.addEventListener('mouseout', func2 => {
-    img_1.src = 'Images/heart-icon-trans.png';
-  })
-});
-// b) Eye icon
-document.querySelectorAll(".prod-card").forEach(img => {
-  let img_2 = img.childNodes[1].childNodes[3].childNodes[0]
-  img_2.addEventListener('mouseover', func3 => {
-    img_2.src = 'Images/eye-icon.png';
-  })
-});
-document.querySelectorAll(".prod-card").forEach(img => {
-  let img_2 = img.childNodes[1].childNodes[3].childNodes[0]
-  img_2.addEventListener('mouseout', func3 => {
-    img_2.src = 'Images/eye-icon-trans.png';
-  })
-});
-// b) Cart icon
-document.querySelectorAll(".prod-card").forEach(img => {
-  let img_3 = img.childNodes[1].childNodes[5].childNodes[0]
-  img_3.addEventListener('mouseover', func4 => {
-    img_3.src = 'Images/shopping-icon.png';
-  })
-});
-document.querySelectorAll(".prod-card").forEach(img => {
-  let img_3 = img.childNodes[1].childNodes[5].childNodes[0]
-  img_3.addEventListener('mouseout', func4 => {
-    img_3.src = 'Images/shopping-icon-trans.png';
-  })
-});
 
 
 // ---------------------------------------------------------------------------------------------------------------------------
@@ -150,15 +92,10 @@ async function showProducts(Url) {
         htmlToReturn =
           `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12">
             <div class="prod-card mb-4" id='${product.id}'>
-              <div class="icons d-flex justify-content-center" id="card_icons">
-                <a class="heart"><img class='img1' src="Images/heart-icon-trans.png" alt="inner heart icon"></a>
-                <a href="product?id=${product.id}"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
-              </div>
-              <img class="card-img-top" src="${product.image}" alt="Card image cap">
+            <a href="product?id=${product.id}"><img class="card-img-top" src="${product.image}" alt="Card image cap"></a>
               <div class="card-body d-flex flex-column align-items-center">
-                <h5 class="card-title">${product.name}</h5>
-                <p class="card-text mb-0"><strong>Rs.${product.price}</strong> <del>Rs.${product.price}</del><span class="offer">(60%Off)</span></p>
+              <a href="product?id=${product.id}"><h5 class="card-title">${product.name}</h5></a>
+                <p class="card-text mb-0">Price: <strong>${product.price}</strong></p>
                 <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">`
         // lowStar = 5 - Math.floor(product.ratings);
         // for (i = 1; i <= product.ratings; i++) {
@@ -183,15 +120,11 @@ async function showProducts(Url) {
         htmlToReturn2 =
           `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12">
               <div class="prod-card mb-4" id="card_id">
-                <div class="icons d-flex justify-content-center" id="card_icons">
-                  <a class="heart"><img class='img1' src="Images/heart-icon-trans.png" alt="inner heart icon"></a>
-                  <a href="product?id=${product.id}"><img src="Images/eye-icon-trans.png" alt="inner eye icon"></a>
-                  <a class="shopping"><img src="Images/shopping-icon-trans.png" alt="inner shopping icon"></a>
-                </div>
-                <img class="card-img-top" src="${product.image}" alt="Card image cap">
+            
+              <a href="product?id=${product.id}"><img class="card-img-top" src="${product.image}" alt="Card image cap"></a>
                 <div class="card-body d-flex flex-column align-items-center">
-                  <h5 class="card-title">${product.name}</h5>
-                  <p class="card-text mb-0"><strong>Rs.${product.price}</strong> <del>Rs.${product.price}</del><span class="offer">(60%Off)</span></p>
+                <a href="product?id=${product.id}"><h5 class="card-title">${product.name}</h5></a>
+                  <p class="card-text mb-0"><strong>${product.price}</strong></p>
                   <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">`
         // lowStar = 5 - Math.floor(product.ratings);
         // for (i = 1; i <= product.ratings; i++) {
@@ -211,65 +144,8 @@ async function showProducts(Url) {
         //     </div>`;
         // document.getElementById('productListArea2').innerHTML += htmlToReturn2;
       });
-      // Code to show icons upon hover of products
-      document.querySelectorAll(".prod-card").forEach(card => {
-        card.children[0].style.visibility = 'hidden';
-      })
 
-      document.querySelectorAll(".prod-card").forEach(card => {
-        card.addEventListener('mouseover', func => {
-          card.children[1].style.opacity = 0.2;
-          card.children[0].style.visibility = 'visible';
-        })
-      })
-
-      document.querySelectorAll(".prod-card").forEach(card => {
-        card.addEventListener('mouseout', func => {
-          card.children[1].style.opacity = 1;
-          card.children[0].style.visibility = 'hidden';
-        })
-      })
-
-      // Code to make individual icons change color on hover
-      // a) Heart icon
-      document.querySelectorAll(".prod-card").forEach(img => {
-        let img_1 = img.childNodes[1].childNodes[1].childNodes[0]
-        img_1.addEventListener('mouseover', func2 => {
-          img_1.src = 'Images/heart-icon.png';
-        })
-      });
-      document.querySelectorAll(".prod-card").forEach(img => {
-        let img_1 = img.childNodes[1].childNodes[1].childNodes[0]
-        img_1.addEventListener('mouseout', func2 => {
-          img_1.src = 'Images/heart-icon-trans.png';
-        })
-      });
-      // b) Eye icon
-      document.querySelectorAll(".prod-card").forEach(img => {
-        let img_2 = img.childNodes[1].childNodes[3].childNodes[0]
-        img_2.addEventListener('mouseover', func3 => {
-          img_2.src = 'Images/eye-icon.png';
-        })
-      });
-      document.querySelectorAll(".prod-card").forEach(img => {
-        let img_2 = img.childNodes[1].childNodes[3].childNodes[0]
-        img_2.addEventListener('mouseout', func3 => {
-          img_2.src = 'Images/eye-icon-trans.png';
-        })
-      });
-      // b) Cart icon
-      document.querySelectorAll(".prod-card").forEach(img => {
-        let img_3 = img.childNodes[1].childNodes[5].childNodes[0]
-        img_3.addEventListener('mouseover', func4 => {
-          img_3.src = 'Images/shopping-icon.png';
-        })
-      });
-      document.querySelectorAll(".prod-card").forEach(img => {
-        let img_3 = img.childNodes[1].childNodes[5].childNodes[0]
-        img_3.addEventListener('mouseout', func4 => {
-          img_3.src = 'Images/shopping-icon-trans.png';
-        })
-      })
+  
     })
 };
 //showProducts(productsListUrl);
@@ -714,7 +590,7 @@ xmlhttp.onreadystatechange = function() {
                         </div>
                     </div>
                     <div class="text2">
-                        <p class='pricing mb-0'>Rs.<strong id='final-price${i}'>${myProducts.products[j].priceAfterDiscount}</strong> Rs.<del id='initial-price${i}'>${myProducts.products[j].price}</del><span
+                        <p class='pricing mb-0'>Rs.<strong id='final-price${i}'>${myProducts.products[j].priceAfterDiscount}</strong> id='initial-price${i}'>${myProducts.products[j].price}</del><span
                             class="offer font-weight-bold ml-1">(60%Off)</span></p>
                             <small class="text-secondary">Delivery in 4 - 6 days</small>
                     </div>
@@ -959,7 +835,7 @@ xmlhttp2.onreadystatechange = function() {
                         <small class="ml-2">${myProducts.products[j].reviews}</small>
                     </div>
                     <p class='pricing mt-2 text-dark mb-0'><strong>Rs ${myProducts.products[j].priceAfterDiscount}</strong> <del>Rs ${myProducts.products[j].price}</del><span
-                        class="offer font-weight-bold ml-1">(60%Off)</span></p>
+         
                     <div class="form-group">
                         <label class='mr-2' for="exampleFormControlSelect2"></label>
                         <select class="form-control" id="exampleFormControlSelect2">
