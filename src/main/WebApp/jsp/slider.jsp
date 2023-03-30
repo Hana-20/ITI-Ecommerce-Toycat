@@ -17,24 +17,7 @@
 
                 <ul class="slider-items" id="category-slider">
 
-
-                    <!-- <li class="slider-item"><img src="https://images.pexels.com/photos/105950/pexels-photo-105950.jpeg?h=240"></li>
-            <div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <img src="Images/cat1.png" alt="womens wear" role="img" aria-label="categories image1">
-                <div class="text-box text-box1" role="textbox" aria-label='textbox3'>
-                    <h2>WOMENS</h2>
-                    <button onclick="location.href='products';">SHOP NOW</button>
-                </div>
-            </div>
-            <li class="slider-item"><img src="https://images.pexels.com/photos/5063779/pexels-photo-5063779.jpeg?h=240"></li>
-            <div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <img src="Images/cat1.png" alt="womens wear" role="img" aria-label="categories image1">
-                <div class="text-box text-box1" role="textbox" aria-label='textbox3'>
-                    <h2>WOMENS</h2>
-                    <button onclick="location.href='products';">SHOP NOW</button>
-                </div>
-            </div>
-            <li class="slider-item"><img src="https://images.pexels.com/photos/9376507/pexels-photo-9376507.jpeg?h=240"></li>
+            <li class="slider-item"> <img src="Images/image22.jpg"></li>
             <li class="slider-item"><img src="https://images.pexels.com/photos/4642403/pexels-photo-4642403.jpeg?h=240"></li>
             <li class="slider-item"><img src="https://images.pexels.com/photos/286076/pexels-photo-286076.jpeg?h=240"></li>
             <li class="slider-item"><img src="https://images.pexels.com/photos/13248624/pexels-photo-13248624.jpeg?h=240"></li>
@@ -45,13 +28,14 @@
             <li class="slider-item"><img src="https://images.pexels.com/photos/1058759/pexels-photo-1058759.jpeg?h=240"></li>
             <li class="slider-item"><img src="https://images.pexels.com/photos/3584437/pexels-photo-3584437.jpeg?h=240"></li>
             <li class="slider-item"><img src="https://images.pexels.com/photos/8782716/pexels-photo-8782716.jpeg?h=240"></li>
-            <li class="slider-item"><img src="https://images.pexels.com/photos/466685/pexels-photo-466685.jpeg?h=240"></li> -->
+            <li class="slider-item"><img src="https://images.pexels.com/photos/466685/pexels-photo-466685.jpeg?h=240"></li> 
+        <!--  -->
                 </ul>
             <!-- </div> -->
         </div>
         <!-- <div class="slider-arrows">
-            <button class="slider-arrow" data-previous>&lt;</button>
-            <button class="slider-arrow" data-next>&gt;</button>
+            <button class="slider-arrow" data-previous>&lt</button>
+            <button class="slider-arrow" data-next>&gt</button>
         </div> -->
     </section>
 </div>

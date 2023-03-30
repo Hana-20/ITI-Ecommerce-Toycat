@@ -75,7 +75,7 @@
                                    
 
                                 </ul>
-                                <div>
+                                <div class="search-boxa-container">
                                     <form action="/toycat/products" class="search-boxa" method="get">
                                         <input type="text" name="q" autocomplete="off" autocapitalize="off"
                                             placeholder="enter search" required />
