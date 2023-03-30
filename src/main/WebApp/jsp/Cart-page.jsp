@@ -26,7 +26,7 @@
                 <div class="sticky-bar-wrapper bg-white" id="sticky-section">
                     <nav class="navbar navbar-expand-lg navbar-light bg-white" id="bottom-header-navbar">
                         <div class="container-fluid">
-                            <a class="navbar-brand" href="index.html"><img id="logo_img" src="Images/logo.png"
+                            <a class="navbar-brand" href="${pageContext.request.contextPath}"><img id="logo_img" src="Images/logo.png"
                                     alt="logo" role="img" aria-label=" website logo"></a>
                             <div class="input-group d-xl-none d-lg-none" id="search-box-container">
                                 <input type="search" id="search-box-hidden" class="form-control"

@@ -235,7 +235,7 @@
         <!-- Start of Product List page  -->
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a class='text-dark' href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a class='text-dark' href="${pageContext.request.contextPath}">Home</a></li>
                 <li class="breadcrumb-item font-weight-normal" aria-current="page"><a class='text-dark'
                         href="/toycat/#categories">Categories</a></li>
                 <li class="breadcrumb-item" aria-current="page"><a class='active' href="#">${category.name}</a>
