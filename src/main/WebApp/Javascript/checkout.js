@@ -13,7 +13,11 @@ function confirmOrder(){
       if (response.ok) {
        console.log("Order Placed");
        window.location.href = window.location.origin+"/toycat";
-     
+      }
+
+      else{
+        console.log("else");
+        document.querySelector("#payment-error").style.display = "block";
       }
     })
     .catch((error) => {

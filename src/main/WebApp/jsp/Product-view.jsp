@@ -58,13 +58,13 @@
                                             <a href="Product-list.html">Ethnic</a> -->
                                         </div>
                                     </li>
-  
+
                                     <c:if test="${not empty sessionScope.user}">
-                                    <li class="nav-item notification">
-                                        <a class="nav-link" href="${pageContext.request.contextPath}/cart"
-                                            id="cart-btn">Cart</a>
-                                        <!-- <span class="badge" id="cart-badge">0</span> -->
-                                    </li>
+                                        <li class="nav-item notification">
+                                            <a class="nav-link" href="${pageContext.request.contextPath}/cart"
+                                                id="cart-btn">Cart</a>
+                                            <!-- <span class="badge" id="cart-badge">0</span> -->
+                                        </li>
                                     </c:if>
 
 
@@ -267,10 +267,8 @@
                     <div class="buttons-collection d-flex justify-content-between align-items-center">
                         <c:choose>
                             <c:when test="${product.quantity > 0}">
-                                <button type="button" class="cart-button btn-default" onclick="addToCart('${product.id}')"
-                                    aria-label='cart button'>ADD
-                                    TO
-                                    CART</button>
+                                <button type="button" class="cart-button btn-default"
+                                    onclick="addToCart('${product.id}')" aria-label='cart button'>ADD TO CART</button>
                             </c:when>
                             <c:otherwise>
                                 <button type="button" disabled class="cart-button btn-default"
@@ -281,6 +279,10 @@
                         </c:choose>
                     </div>
                 </c:if>
+
+                <div id="addedToCart" class="alert alert-success my-2 text-center" role="alert" style="display: none;"> 
+                    Item Added to Cart
+                </div>
 
                 <div class="share-on-social mt-4 d-flex justify-content-between align-items-center">
                     <h6>SHARE THIS</h6>
@@ -426,9 +428,9 @@
             function addToCart(productId) {
 
                 console.log("add To cart");
-                console.log("productId" , productId);
+                console.log("productId", productId);
                 fetch(
-                    'http://localhost:9090/toycat/cart/add?productId='+productId,
+                    'http://localhost:9090/toycat/cart/add?productId=' + productId,
                     {
                         method: 'POST',
                         headers: {
@@ -439,6 +441,7 @@
                     .then((response) => {
                         if (response.ok) {
                             console.log("Item Added To Cart");
+                            document.querySelector("#addedToCart").style.display = "block";
                         }
                     })
                     .catch((error) => {

@@ -55,23 +55,13 @@
                                             <a href="Product-list.html">Ethnic</a> -->
                                         </div>
                                     </li>
-                                    <li class="nav-item dropdown2">
-                                        <a class="nav-link drop-btn2" href="my-order.html">Orders</a>
-                                        <div class="dropdown-content2 ">
-                                            <a href="my-order.html">My Orders</a>
-                                            <a href="Track-order.html">Track Orders</a>
-                                            <a href="Return-order.html">Return Orders</a>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item wishlist">
-                                        <a class="nav-link" href="Wishlist.html">Wishlist</a>
-                                        <span class="badge" id="wishlist-badge">0</span>
-                                    </li>
-
+                                    
+                                    <c:if test="${not empty sessionScope.user}">
                                     <li class="nav-item notification">
                                         <a class="nav-link" href="${pageContext.request.contextPath}/cart" id="cart-btn">Cart</a>
-                                        <span class="badge" id="cart-badge">0</span>
+                                        <!-- <span class="badge" id="cart-badge">0</span> -->
                                     </li>
+                                    </c:if>
                                    
 
                                 </ul>

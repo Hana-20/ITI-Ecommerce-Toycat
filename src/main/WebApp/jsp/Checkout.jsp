@@ -258,10 +258,10 @@
                                         <div class="ml-4 w-100">
                                             <div class="text1">
                                                 <h6>${cartItem.productDto.name}</h6>
-                                               
+
                                             </div>
                                             <p class='pricing mb-0'>Quantity: <strong
-                                                id='final-price'>${cartItem.quantity}</strong>
+                                                    id='final-price'>${cartItem.quantity}</strong>
 
                                             <p class='pricing mb-0'>Item Price: <strong
                                                     id='final-price'>${cartItem.productDto.price}</strong>
@@ -307,9 +307,14 @@
                                 <p class='value text-success'><del class='text-dark mr-2'>Rs.99</del>Free</p>
                             </div> -->
                             <hr>
-                            <button type="button" class="btn btn-orange w-100" aria-label='edit button' onclick="confirmOrder()" >Confirm
+                            <button type="button" class="btn btn-orange w-100" aria-label='edit button'
+                                onclick="confirmOrder()">Confirm
                                 Order</button>
 
+                        </div>
+
+                        <div class="alert alert-danger text-center mt-4" id="payment-error" role="alert" style="display: none;"> 
+                            Payment Failed
                         </div>
                     </div>
                 </div>
@@ -428,7 +433,7 @@
             </div>
         </footer>
 
-  
+
         <script src="Javascript/index.js"></script>
         <script src="Javascript/cart.js"></script>
         <script src="Javascript/checkout.js"></script>
