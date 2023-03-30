@@ -57,7 +57,7 @@
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="admin/products">
+        <a class="nav-link collapsed" href="${pageContext.request.contextPath}/admin/products">
           <i class="bi bi-bag"></i>
           <span>Products</span>
         </a>

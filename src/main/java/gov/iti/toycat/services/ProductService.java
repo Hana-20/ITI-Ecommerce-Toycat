@@ -64,4 +64,7 @@ public class ProductService {
 
         return ProductMapper.toDto(productRepository.getProduct(Integer.parseInt(id)));
     }
+    public void editProduct(ProductDTO product){
+        new ProductRepository().updateProduct(ProductMapper.toEntity(product));
+    }
 }

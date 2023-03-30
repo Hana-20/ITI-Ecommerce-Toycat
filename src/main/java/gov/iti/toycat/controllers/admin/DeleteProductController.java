@@ -14,7 +14,6 @@ public class DeleteProductController extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("GET: /admin/products/delete");
 
     }
 

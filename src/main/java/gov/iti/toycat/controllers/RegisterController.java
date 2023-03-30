@@ -61,7 +61,7 @@ try {
     sDate1=request.getParameter("birthdate");
     Date date1=null;
     try {
-        date1 = new SimpleDateFormat("dd-MM-yyyy").parse(sDate1);
+        date1 = new SimpleDateFormat("yyyy-MM-dd").parse(sDate1);
     } catch (ParseException e) {
         // TODO Auto-generated catch block
         e.printStackTrace();

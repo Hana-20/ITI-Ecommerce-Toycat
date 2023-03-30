@@ -59,11 +59,10 @@
                 </li><!-- End Dashboard Nav -->
 
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#">
+                    <a class="nav-link collapsed" href="${pageContext.request.contextPath}/admin/products">
                         <i class="bi bi-bag"></i>
                         <span>Products</span>
                     </a>
-
                 </li><!-- End Products Nav -->
 
                 <li class="nav-item">
@@ -101,7 +100,7 @@
         <main id="main" class="main">
 
             <div class="pagetitle">
-                <h1>Products</h1>
+                <h1>Users</h1>
             </div><!-- End Page Title -->
 
             <section class="section dashboard">

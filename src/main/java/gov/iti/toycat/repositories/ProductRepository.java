@@ -3,6 +3,9 @@ package gov.iti.toycat.repositories;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.cache.spi.support.EntityReadOnlyAccess;
+
+import gov.iti.toycat.models.dtos.ProductDTO;
 import gov.iti.toycat.models.entities.Product;
 import gov.iti.toycat.repositories.connection.ConnectionManager;
 import jakarta.persistence.EntityManager;
@@ -75,4 +78,10 @@ public class ProductRepository {
         return products;
 
     }
+    public void updateProduct(Product product){
+        entityManager.getTransaction().begin();
+        entityManager.merge(product);
+        entityManager.getTransaction().commit();
+    }
+   
 }
