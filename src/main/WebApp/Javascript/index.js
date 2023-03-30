@@ -117,14 +117,14 @@ async function showProducts(Url) {
 
 
           
-        // if(j<6){
-        //   document.getElementById('area1').innerHTML += htmlToReturn;
-        //   document.getElementById('area2').innerHTML += htmlToReturn;
-        //   document.getElementById('area3').innerHTML += htmlToReturn;
-        //   document.getElementById('area4').innerHTML += htmlToReturn;
-        //   console.log("j= "+j);
-        //   j++;
-        // }
+        if(j<6){
+          document.getElementById('area1').innerHTML += htmlToReturn;
+          // document.getElementById('area2').innerHTML += htmlToReturn;
+          // document.getElementById('area3').innerHTML += htmlToReturn;
+          // document.getElementById('area4').innerHTML += htmlToReturn;
+          console.log("j= "+j);
+          j++;
+        }
         document.getElementById('productListArea').innerHTML += htmlToReturn;
 
         
@@ -483,20 +483,27 @@ function categoriesDisplay(curl){
     .then(json => {
       categoriesList = json;
       console.log(categoriesList);
+      let categorySlider = document.getElementById('category-slider');
       categoriesList.forEach((category) => {
+      
         htmlToReturn =
           `<a href="products?category=${category.name}">${category.name}</a>`;
 
-        htmlToReturn2 = `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-        <img src="Images/image2.jpg" alt="${category.name}" role="img" aria-label="categories image1">
-        <div class="text-box text-box1" role="textbox" aria-label='textbox3'>
-            <h2>${category.name}</h2>
-            <button onclick="location.href='products?category=${category.name}';">SHOP NOW</button>
-        </div>
-    </div>`
+    //     htmlToReturn2 = `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
+    //     <img src="Images/image2.jpg" alt="${category.name}" role="img" aria-label="categories image1">
+    //     <div class="text-box text-box1" role="textbox" aria-label='textbox3'>
+    //         <h2>${category.name}</h2>
+    //         <button onclick="location.href='products?category=${category.name}';">SHOP NOW</button>
+    //     </div>
+    // </div>`
         document.getElementById('categoriessection').innerHTML += htmlToReturn;
         
-        document.getElementById('category-slider').innerHTML += htmlToReturn2;
+    //     document.getElementById('category-slider').innerHTML += htmlToReturn2;
+    categorySlider.innerHTML +=   
+    ` <div class="slider-item align-items-center d-flex justify-content-center" style=" background-color: fd6e00; height: 120px; border-radius: 5px;">
+    <a href="products?category=${category.name}" style=" color: white; text-decoration: none;">${category.name}</a>
+  </div>
+`
       });
      
     })

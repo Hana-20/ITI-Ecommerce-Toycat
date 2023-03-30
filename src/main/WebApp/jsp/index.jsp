@@ -158,7 +158,7 @@
 
 <!--  -->
 
-<jsp:include page="slider.jsp" />
+
 
 <!-- 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -260,37 +260,38 @@
         crossorigin="anonymous"></script>
  -->
 
-    <!-- end of categroies carousel -->
-    <section class="categories-section" aria-label='Categories section'>
-        <div class="container-fluid w-75 p-0" id="categories">
-            <h1>SHOP BY CATEGORIES</h1>
-            <div class="row">
-                <div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <img src="Images/cat1.png" alt="womens wear" role="img" aria-label="categories image1">
-                    <div class="text-box text-box1" role="textbox" aria-label='textbox3'>
-                        <h2>WOMENS</h2>
-                        <button onclick="location.href='products';">SHOP NOW</button>
-                    </div>
-                </div>
-                <div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <img src="Images/cat2.png" alt="ethnic wear" role="img" aria-label="categories image2">
-                    <div class="text-box text-box2" role="textbox" aria-label='textbox2'>
-                        <h2>ETHNIC WEAR</h2>
-                        <button onclick="location.href='products';">SHOP NOW</button>
-                    </div>
-                </div>
-                <div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-lg-0 mt-md-4 mt-sm-4 mt-xs-0">
-                    <img src="Images/cat3.png" alt="mens" role="img" aria-label="categories image3">
-                    <div class="text-box text-box3" role="textbox" aria-label='textbox3'>
-                        <h2>MENS</h2>
-                        <button onclick="location.href='Product-list.html';">SHOP NOW</button>
-                    </div>
+<!-- end of categroies carousel -->
+<section class="categories-section" aria-label='Categories section'>
+    <div class="container-fluid w-75 p-0" id="categories">
+        <h1>SHOP BY CATEGORIES</h1>
+        <div class="row">
+            <jsp:include page="slider.jsp" />
+            <!-- <div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <img src="Images/cat1.png" alt="womens wear" role="img" aria-label="categories image1">
+                <div class="text-box text-box1" role="textbox" aria-label='textbox3'>
+                    <h2>WOMENS</h2>
+                    <button onclick="location.href='products';">SHOP NOW</button>
                 </div>
             </div>
+            <div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <img src="Images/cat2.png" alt="ethnic wear" role="img" aria-label="categories image2">
+                <div class="text-box text-box2" role="textbox" aria-label='textbox2'>
+                    <h2>ETHNIC WEAR</h2>
+                    <button onclick="location.href='products';">SHOP NOW</button>
+                </div>
+            </div>
+            <div class="col col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12 mt-lg-0 mt-md-4 mt-sm-4 mt-xs-0">
+                <img src="Images/cat3.png" alt="mens" role="img" aria-label="categories image3">
+                <div class="text-box text-box3" role="textbox" aria-label='textbox3'>
+                    <h2>MENS</h2>
+                    <button onclick="location.href='Product-list.html';">SHOP NOW</button>
+                </div>
+            </div> -->
         </div>
-    </section>
+    </div>
+</section>
 
-    <!--  -->
+<!--  -->
 
 
 
@@ -300,34 +301,34 @@
 
 <!--  -->
 
-    <!-- Start of Latest Products -->
-    <section class='latest-prods' aria-label='latest products section'>
-        <div class="latest-prod-title-bar" aria-label='latest products section title bar'>
-            <h2 class="text-center">LATEST PRODUCTS</h2>
-            <ul class="desc-tabs nav nav-tabs" id="myProductsTab" role="tablist">
-                <li class="nav-item">
-                    <a href="#pd-list-1" id="tab1" class='nav-link active' aria-controls="product list 1"
-                        aria-selected='true' role="tab" tabindex=1 data-toggle='tab'>All</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#pd-list-2" id="tab2" class='nav-link' aria-controls="create-account" aria-selected='false'
-                        role="tab" tabindex=0 data-toggle='tab'>Featured</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#pd-list-3" id="tab3" class='nav-link' aria-controls="create-account" aria-selected='false'
-                        role="tab" tabindex=0 data-toggle='tab'>Latest</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#pd-list-4" id="tab4" class='nav-link' aria-controls="create-account" aria-selected='false'
-                        role="tab" tabindex=0 data-toggle='tab'>Best Rated</a>
-                </li>
-            </ul>
-        </div>
-        <div class="desc-tabs-content tab-content" id="myProductsTabContent">
-            <div class="tab-pane active" id="pd-list-1" role="tabpanel" aria-labelledby="tab1" aria-hidden='false'>
-                <div class="container-fluid mt-5">
-                    <div class="row" id="area1">
-                        <!-- <div class="p-col-1 col col-lg-4 col-md-6 col-sm-12">
+<!-- Start of Latest Products -->
+<section class='latest-prods' aria-label='latest products section'>
+    <div class="latest-prod-title-bar" aria-label='latest products section title bar'>
+        <h2 class="text-center">LATEST PRODUCTS</h2>
+        <ul class="desc-tabs nav nav-tabs" id="myProductsTab" role="tablist">
+            <li class="nav-item">
+                <a href="#pd-list-1" id="tab1" class='nav-link active' aria-controls="product list 1"
+                    aria-selected='true' role="tab" tabindex=1 data-toggle='tab'>All</a>
+            </li>
+            <li class="nav-item">
+                <a href="#pd-list-2" id="tab2" class='nav-link' aria-controls="create-account" aria-selected='false'
+                    role="tab" tabindex=0 data-toggle='tab'>Featured</a>
+            </li>
+            <li class="nav-item">
+                <a href="#pd-list-3" id="tab3" class='nav-link' aria-controls="create-account" aria-selected='false'
+                    role="tab" tabindex=0 data-toggle='tab'>Latest</a>
+            </li>
+            <li class="nav-item">
+                <a href="#pd-list-4" id="tab4" class='nav-link' aria-controls="create-account" aria-selected='false'
+                    role="tab" tabindex=0 data-toggle='tab'>Best Rated</a>
+            </li>
+        </ul>
+    </div>
+    <div class="desc-tabs-content tab-content" id="myProductsTabContent">
+        <div class="tab-pane active" id="pd-list-1" role="tabpanel" aria-labelledby="tab1" aria-hidden='false'>
+            <div class="container-fluid mt-5">
+                <div class="row" id="area1">
+                    <!-- <div class="p-col-1 col col-lg-4 col-md-6 col-sm-12">
                             <div class="prod-card mb-4" id="product1">
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
@@ -510,8 +511,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div> -->
+                    </div> -->
+                </div>
             </div>
             <div class="tab-pane" id="pd-list-2" role="tabpanel" aria-labelledby="tab2" aria-hidden='false'>
                 <div class="container-fluid mt-5">
@@ -702,11 +703,11 @@
                         </div>
                     </div>
                 </div> -->
-            </div>
-            <div class="tab-pane" id="pd-list-3" role="tabpanel" aria-labelledby="tab3" aria-hidden='false'>
-                <div class="container-fluid mt-5">
-                    <div class="row" id="area3">
-                        <!-- <div class="col col-lg-4 col-md-6 col-sm-12">
+                </div>
+                <div class="tab-pane" id="pd-list-3" role="tabpanel" aria-labelledby="tab3" aria-hidden='false'>
+                    <div class="container-fluid mt-5">
+                        <div class="row" id="area3">
+                            <!-- <div class="col col-lg-4 col-md-6 col-sm-12">
                             <div class="prod-card mb-4" id="product4">
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
@@ -888,13 +889,13 @@
                                 </div>
                             </div>
                         </div> -->
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="tab-pane" id="pd-list-4" role="tabpanel" aria-labelledby="tab4" aria-hidden='false'>
-                <div class="container-fluid mt-5">
-                    <div class="row" id="area4">
-                        <!-- <div class="col col-lg-4 col-md-6 col-sm-12">
+                <div class="tab-pane" id="pd-list-4" role="tabpanel" aria-labelledby="tab4" aria-hidden='false'>
+                    <div class="container-fluid mt-5">
+                        <div class="row" id="area4">
+                            <!-- <div class="col col-lg-4 col-md-6 col-sm-12">
                             <div class="prod-card mb-4" id="product6">
                                 <div class="icons d-flex justify-content-center" id="card_icons">
                                     <a class="heart"><img class='img1' src="Images/heart-icon-trans.png"
@@ -1076,90 +1077,89 @@
                                 </div>
                             </div>
                         </div> -->
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="view-more-btn" aria-label='view more button holder'>
-            <a href="products"><button aria-labelledby="view more">VIEW MORE +</button></a>
-        </div>
-    </section>
-
-    <!-- End of Latest Products -->
-
-    <!-- Start of Payment and Help -->
-    <section class='payment-help mt-5' aria-label='payments and help section'>
-        <div class="container-fluid">
-            <div class="row">
-                <div
-                    class="col col-xl-3 col-lg-3 col-md-6 col-sm-12 d-flex flex-column align-items-center justify-content-center text-center">
-                    <img src="Images/secure-pay.png" alt="securepay" role="img" aria-label='secure pay image'>
-                    <h2>100% SECURE PAYMENTS</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, hic?</p>
-                </div>
-                <div
-                    class="col col-xl-3 col-lg-3 col-md-6 col-sm-12 d-flex flex-column align-items-center justify-content-center text-center">
-                    <img src="Images/trust-pay.png" alt="trustpay" role="img" aria-label='trust pay image'>
-                    <h2>TRUST PAY</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, hic?</p>
-                </div>
-                <div
-                    class="col col-xl-3 col-lg-3 col-md-6 col-sm-12 d-flex flex-column align-items-center justify-content-center text-center">
-                    <img src="Images/help-center.png" alt="helpcenter" role="img" aria-label='help center image'>
-                    <h2>HELP CENTER</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, hic?</p>
-                </div>
-                <div
-                    class="col col-xl-3 col-lg-3 col-md-6 col-sm-12 d-flex flex-column align-items-center justify-content-center text-center">
-                    <img src="Images/shop-on-go.png" alt="shopongo" role="img" aria-label='shop on go image'>
-                    <h2>SHOP ON THE GO</h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, hic?</p>
-                </div>
+            <div class="view-more-btn" aria-label='view more button holder'>
+                <a href="products"><button aria-labelledby="view more">VIEW MORE +</button></a>
             </div>
-        </div>
-    </section>
-
-    <!-- End of Payments and Help -->
-
-    <!-- Start of Footer -->
-    <footer class="mt-5">
-        <div class="container-fluid w-75">
-            <div class="row">
-                <div
-                    class="col col-xl-2 col-lg-3 col-md-3 col-sm-4 d-flex flex-column align-items-start justify-content-start">
-                    <h3>POLICY INFO</h3>
-                    <a href="#" role='link'>Privacy Policy</a>
-                    <a href="#" role='link'>Terms of Sale</a>
-                    <a href="#" role='link'>Terms of Use</a>
-
-                </div>
-                <div class="col col-xl-2 col-lg-3 col-md-2 col-sm-3 d-flex flex-column align-items-start">
-                    <h3>COMPANY</h3>
-                    <a href="#" role='link'>About Us</a>
-                    <a href="#" role='link'>Core Values</a>
-                    <a href="#" role='link'>Careers</a>
-
-                </div>
-                <div class="col col-xl-3 col-lg-3 col-md-4 col-sm-5 d-flex flex-column align-items-start">
-                    <h3>SNAPDEAL BUSINESS</h3>
-                    <a href="#" role='link'>Shopping App</a>
-                    <a href="#" role='link'>Sell on Snapdeal</a>
-                    <a href="#" role='link'>Advertise on Snapdeal</a>
-
-                </div>
-                <div
-                    class="col col-xl-2 col-lg-3 col-md-3 col-sm-4 mt-md-0 mt-sm-5 d-flex flex-column align-items-start">
-                    <h3>NEED HELP ?</h3>
-                    <a href="#" role='link'>Contact Us</a>
-                    <a href="FAQ.html" role='link'>FAQ</a>
-                    <a href="#" role='link'>Online Shopping</a>
-                </div>
-
-            </div>
-        </div>
-</div>
-
 </section>
+
+<!-- End of Latest Products -->
+
+<!-- Start of Payment and Help -->
+<section class='payment-help mt-5' aria-label='payments and help section'>
+    <div class="container-fluid">
+        <div class="row">
+            <div
+                class="col col-xl-3 col-lg-3 col-md-6 col-sm-12 d-flex flex-column align-items-center justify-content-center text-center">
+                <img src="Images/secure-pay.png" alt="securepay" role="img" aria-label='secure pay image'>
+                <h2>100% SECURE PAYMENTS</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, hic?</p>
+            </div>
+            <div
+                class="col col-xl-3 col-lg-3 col-md-6 col-sm-12 d-flex flex-column align-items-center justify-content-center text-center">
+                <img src="Images/trust-pay.png" alt="trustpay" role="img" aria-label='trust pay image'>
+                <h2>TRUST PAY</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, hic?</p>
+            </div>
+            <div
+                class="col col-xl-3 col-lg-3 col-md-6 col-sm-12 d-flex flex-column align-items-center justify-content-center text-center">
+                <img src="Images/help-center.png" alt="helpcenter" role="img" aria-label='help center image'>
+                <h2>HELP CENTER</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, hic?</p>
+            </div>
+            <div
+                class="col col-xl-3 col-lg-3 col-md-6 col-sm-12 d-flex flex-column align-items-center justify-content-center text-center">
+                <img src="Images/shop-on-go.png" alt="shopongo" role="img" aria-label='shop on go image'>
+                <h2>SHOP ON THE GO</h2>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, hic?</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- End of Payments and Help -->
+
+<!-- Start of Footer -->
+<footer class="mt-5">
+    <div class="container-fluid w-75">
+        <div class="row">
+            <div
+                class="col col-xl-2 col-lg-3 col-md-3 col-sm-4 d-flex flex-column align-items-start justify-content-start">
+                <h3>POLICY INFO</h3>
+                <a href="#" role='link'>Privacy Policy</a>
+                <a href="#" role='link'>Terms of Sale</a>
+                <a href="#" role='link'>Terms of Use</a>
+
+            </div>
+            <div class="col col-xl-2 col-lg-3 col-md-2 col-sm-3 d-flex flex-column align-items-start">
+                <h3>COMPANY</h3>
+                <a href="#" role='link'>About Us</a>
+                <a href="#" role='link'>Core Values</a>
+                <a href="#" role='link'>Careers</a>
+
+            </div>
+            <div class="col col-xl-3 col-lg-3 col-md-4 col-sm-5 d-flex flex-column align-items-start">
+                <h3>SNAPDEAL BUSINESS</h3>
+                <a href="#" role='link'>Shopping App</a>
+                <a href="#" role='link'>Sell on Snapdeal</a>
+                <a href="#" role='link'>Advertise on Snapdeal</a>
+
+            </div>
+            <div class="col col-xl-2 col-lg-3 col-md-3 col-sm-4 mt-md-0 mt-sm-5 d-flex flex-column align-items-start">
+                <h3>NEED HELP ?</h3>
+                <a href="#" role='link'>Contact Us</a>
+                <a href="FAQ.html" role='link'>FAQ</a>
+                <a href="#" role='link'>Online Shopping</a>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    </section>
 
 </footer>
 
