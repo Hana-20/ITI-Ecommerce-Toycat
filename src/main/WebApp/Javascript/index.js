@@ -89,7 +89,7 @@ async function showProducts(Url) {
     .then(json => {
       productsList = json;
       console.log(productsList);
-      productsList.forEach((product) => {
+      productsList.forEach((product,index) => {
         htmlToReturn =
           `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12">
             <div class="prod-card mb-4" id='${product.id}'>
@@ -117,18 +117,39 @@ async function showProducts(Url) {
 
 
           
-        // if(j<6){
-        //   document.getElementById('area1').innerHTML += htmlToReturn;
-        //   document.getElementById('area2').innerHTML += htmlToReturn;
-        //   document.getElementById('area3').innerHTML += htmlToReturn;
-        //   document.getElementById('area4').innerHTML += htmlToReturn;
-        //   console.log("j= "+j);
-        //   j++;
-        // }
+       
         document.getElementById('productListArea').innerHTML += htmlToReturn;
 
-        
-
+// if(index<6){
+//         htmlToReturn3 =
+//         `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12">
+//           <div class="prod-card mb-4" id='${product.id}'>
+//           <a href="product?id=${product.id}"><img class="card-img-top" src="${product.image}" alt="Card image cap"></a>
+//             <div class="card-body d-flex flex-column align-items-center">
+//             <a href="product?id=${product.id}"><h5 class="card-title">${product.name}</h5></a>
+//               <p class="card-text mb-0">Price: <strong>${product.price}</strong></p>
+//               <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">`
+//       // lowStar = 5 - Math.floor(product.ratings);
+//       // for (i = 1; i <= product.ratings; i++) {
+//       //   reviews += `
+//       //           <img class="stars" src="Images/star.png" alt="star-rating" role="icon" aria-label='star rating'>`;
+//       // }
+//       // for (i = 1; i <= lowStar; i++) {
+//       //   reviews += `<img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon" aria-label='star rating'>`;
+//       // }
+//       // lowStar = 0;
+//       // htmlToReturn += reviews + product.ratings + "/5";
+//       // reviews = " ";
+//       htmlToReturn3 += `
+//               </div>
+//             </div>
+//           </div>
+//         </div>`;
+       
+       
+//       document.getElementById('area1').innerHTML += htmlToReturn;
+//       console.log("index"+index);
+// }
         htmlToReturn2 =
           `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12">
               <div class="prod-card mb-4" id="card_id">
@@ -163,6 +184,112 @@ async function showProducts(Url) {
 //showProducts(productsListUrl);
 
 //-----------------------
+let k= 0;
+async function showProductsInHome(Url) {
+  fetch(Url)//'https://my-json-server.typicode.com/adithkrishnan98/swagofindia/db')
+    .then(response => response.json())
+    .then(json => {
+      productsList = json;
+      console.log(productsList);
+
+      for(let i=0 ; i < productsList.length && i <6 ; i++){
+        document.getElementById('area1').innerHTML += 
+
+        `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12">
+        <div class="prod-card mb-4" id='${productsList[i].id}'>
+        <a href="product?id=${productsList[i].id}"><img class="card-img-top" src="${productsList[i].image}" alt="Card image cap"></a>
+          <div class="card-body d-flex flex-column align-items-center">
+          <a href="product?id=${productsList[i].id}"><h5 class="card-title">${productsList[i].name}</h5></a>
+            <p class="card-text mb-0">Price: <strong>${productsList[i].price}</strong></p>
+            <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">`
+        +`
+        </div>
+      </div>
+    </div>
+  </div>`;
+
+      }
+  
+//       productsList.forEach((product,index) => {
+//         htmlToReturn3 =
+//           `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12">
+//             <div class="prod-card mb-4" id='${product.id}'>
+//             <a href="product?id=${product.id}"><img class="card-img-top" src="${product.image}" alt="Card image cap"></a>
+//               <div class="card-body d-flex flex-column align-items-center">
+//               <a href="product?id=${product.id}"><h5 class="card-title">${product.name}</h5></a>
+//                 <p class="card-text mb-0">Price: <strong>${product.price}</strong></p>
+//                 <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">`
+//         // lowStar = 5 - Math.floor(product.ratings);
+//         // for (i = 1; i <= product.ratings; i++) {
+//         //   reviews += `
+//         //           <img class="stars" src="Images/star.png" alt="star-rating" role="icon" aria-label='star rating'>`;
+//         // }
+//         // for (i = 1; i <= lowStar; i++) {
+//         //   reviews += `<img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon" aria-label='star rating'>`;
+//         // }
+//         // lowStar = 0;
+//         // htmlToReturn += reviews + product.ratings + "/5";
+//         // reviews = " ";
+//         htmlToReturn3 += `
+//                 </div>
+//               </div>
+//             </div>
+//           </div>`;
+
+
+          
+      
+//         document.getElementById('area1').innerHTML += htmlToReturn3;
+//         console.log("index" , index);
+//         k++;
+//        if(k>5){
+        
+//         return;
+       
+//        }
+
+// // if(index<6){
+// //         htmlToReturn3 =
+// //         `<div class="col col-xl-4 col-lg-4 col-md-6 col-sm-12">
+// //           <div class="prod-card mb-4" id='${product.id}'>
+// //           <a href="product?id=${product.id}"><img class="card-img-top" src="${product.image}" alt="Card image cap"></a>
+// //             <div class="card-body d-flex flex-column align-items-center">
+// //             <a href="product?id=${product.id}"><h5 class="card-title">${product.name}</h5></a>
+// //               <p class="card-text mb-0">Price: <strong>${product.price}</strong></p>
+// //               <div class="stars-group d-flex align-items-center mt-2" id="starsgroup">`
+// //       // lowStar = 5 - Math.floor(product.ratings);
+// //       // for (i = 1; i <= product.ratings; i++) {
+// //       //   reviews += `
+// //       //           <img class="stars" src="Images/star.png" alt="star-rating" role="icon" aria-label='star rating'>`;
+// //       // }
+// //       // for (i = 1; i <= lowStar; i++) {
+// //       //   reviews += `<img class="stars" src="Images/star-empty.png" alt="star-rating" role="icon" aria-label='star rating'>`;
+// //       // }
+// //       // lowStar = 0;
+// //       // htmlToReturn += reviews + product.ratings + "/5";
+// //       // reviews = " ";
+// //       htmlToReturn3 += `
+// //               </div>
+// //             </div>
+// //           </div>
+// //         </div>`;
+       
+       
+// //       document.getElementById('area1').innerHTML += htmlToReturn;
+// //       console.log("index"+index);
+// // }
+//         // document.getElementById('productListArea2').innerHTML += htmlToReturn2;
+//       });
+
+  
+    })
+};
+
+showProductsInHome(productsListUrl);
+
+
+///
+
 
 //show search result for product list page
 const queryStringa = window.location.search;
@@ -496,7 +623,7 @@ function categoriesDisplay(curl){
     </div>`
         document.getElementById('categoriessection').innerHTML += htmlToReturn;
         
-        document.getElementById('category-slider').innerHTML += htmlToReturn2;
+        // document.getElementById('category-slider').innerHTML += htmlToReturn2;
       });
      
     })
