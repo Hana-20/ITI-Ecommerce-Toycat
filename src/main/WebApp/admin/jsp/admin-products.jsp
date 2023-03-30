@@ -59,7 +59,7 @@
                 </li><!-- End Dashboard Nav -->
 
                 <li class="nav-item">
-                    <a class="nav-link collapsed" href="#">
+                    <a class="nav-link collapsed" href="${pageContext.request.contextPath}/admin/products">
                         <i class="bi bi-bag"></i>
                         <span>Products</span>
                     </a>
@@ -140,12 +140,14 @@
                                                     action="${pageContext.request.contextPath}/admin/products/delete?id=${product.id}">
                                                     <button class="icon-delete-button" type="submit"><i
                                                             class="bi bi-trash-fill"></i></button>
-                                                </form>
+                                                    </form>
 
-
-                                                <a
-                                                    href="${pageContext.request.contextPath}/admin/products/edit?id=${product.id}"><i
-                                                        class="bi bi-pencil-square"></i></a>
+                                                    <form method="get"
+                                                    action="${pageContext.request.contextPath}/admin/products/edit">
+                                                    <input type="hidden" name="id" value="${product.id}">
+                                                        <button class="icon-update-button" type="submit"><i
+                                                            class="bi bi-pencil-square"></i></button>
+                                                    </form>
 
                                             </td>
                                         </tr>

@@ -49,6 +49,10 @@ public class CartService {
          cartRepository.delete(cartId);
     }
 
+    public void deleteAllCartItemsForUser(String userEmail){
+        cartRepository.deleteCartItemsForUser(userEmail);
+    }
+    
     public CartItemDTO updateCartItemQuantity(String userEmail, int productId, int quantity) {
         CartItemPK cartId = new CartItemPK(userEmail, productId);
         CartItem cartEntity = cartRepository.findById(cartId);

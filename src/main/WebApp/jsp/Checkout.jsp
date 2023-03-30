@@ -4,8 +4,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ToyCat</title>
-        <link rel="icon" type="image/svg" href="Images/favicon.svg">
+        <title>ToyCat - Checkout</title>
+        <link rel="icon" type="image/png" href="Images/carts.png">
         <link rel="stylesheet" href="style/style.css">
         <link rel="stylesheet" href="style/styleSheet.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
@@ -17,7 +17,7 @@
     </head>
 
     <body>
-        <header class='mb-5'>
+        <header>
             <div name="lang-select" id="lang-select" aria-labelledby="select box">
             </div>
 
@@ -26,20 +26,15 @@
                 <div class="sticky-bar-wrapper bg-white" id="sticky-section">
                     <nav class="navbar navbar-expand-lg navbar-light bg-white" id="bottom-header-navbar">
                         <div class="container-fluid">
-                            <a class="navbar-brand" href="home"><img id="logo_img" src="Images/logo.png" alt="logo"
-                                    role="img" aria-label=" website logo"></a>
-                            <form action="/toycat/products">
-
-                                <div class="input-group d-xl-none d-lg-none" id="search-box-container">
-                                    <input name="q" type="search" id="search-box-hidden" class="form-control"
-                                        placeholder="Search products and Brands" aria-label="search box"
-                                        aria-describedby="basic-addon1">
-                                    <span id="basic-addon1"><img src="Images/magglass.png" alt="search-icon" role="icon"
-                                            aria-labelledby="magnifying glass icon"></span>
-
-                                </div>
-                            </form>
-
+                            <a class="navbar-brand" href="${pageContext.request.contextPath}"><img id="logo_img" src="Images/logo.png"
+                                    alt="logo" role="img" aria-label=" website logo"></a>
+                            <div class="input-group d-xl-none d-lg-none" id="search-box-container">
+                                <input type="search" id="search-box-hidden" class="form-control"
+                                    placeholder="Search products and Brands" aria-label="search box"
+                                    aria-describedby="basic-addon1">
+                                <span id="basic-addon1"><img src="Images/magglass.png" alt="search-icon" role="icon"
+                                        aria-labelledby="magnifying glass icon"></span>
+                            </div>
                             <button class="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
                                 aria-expanded="false" aria-label="Toggle navigation">
@@ -48,25 +43,23 @@
                             <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                                 <ul class="navbar-nav mr-auto mt-2 ml-xl-5 ml-lg-5 ml-md-0 mt-lg-0 text-center">
                                     <li class="nav-item">
-                                        <a class="nav-link active" href="/toycat">Home</a>
+                                        <a class="nav-link active" href="${pageContext.request.contextPath}">Home</a>
                                     </li>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link drop-btn" href="/toycat/#categories">Categories</a>
-                                        <div id="categoriessection" class="dropdown-content ">
-                                            <!-- <a href="Product-list.html">Men</a>
+                                        <a class="nav-link drop-btn" href="Product-list.html">Categories</a>
+                                        <div class="dropdown-content mt-2">
+                                            <a href="Product-list.html">Men</a>
                                             <a href="Product-list.html">Women</a>
-                                            <a href="Product-list.html">Ethnic</a> -->
+                                            <a href="Product-list.html">Ethnic</a>
                                         </div>
                                     </li>
 
-                                    <c:if test="${not empty sessionScope.user}">
-                                        <li class="nav-item notification">
-                                            <a class="nav-link" href="${pageContext.request.contextPath}/cart"
-                                                id="cart-btn">Cart</a>
-                                            <!-- <span class="badge" id="cart-badge">0</span> -->
-                                        </li>
-                                    </c:if>
-
+                                    <li class="nav-item notification">
+                                        <a class="nav-link" href="${pageContext.request.contextPath}/cart"
+                                            id="cart-btn">Cart</a>
+                                        <!-- <span class="badge" id="cart-badge">0</span> -->
+                                    </li>
+                                    <li>
 
                                 </ul>
                                 <div>
@@ -230,79 +223,103 @@
         <a class='back-to-top-btn float-right' id="scroll-btn" role='button' aria-label='back to top button'>
             <img src="Images/up-green.png" alt="goto top" role="icon" aria-label='back to top image'>
         </a>
-        <!-- End of Latest Products -->
+        <!-- End of Bottom Header -->
 
-        <!-- Start of Product List page  -->
+        <!-- Start of my-profile page -->
+
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a class='text-dark' href="${pageContext.request.contextPath}">Home</a></li>
-                <li class="breadcrumb-item font-weight-normal" aria-current="page"><a class='text-dark'
-                        href="/toycat/#categories">Categories</a></li>
-                <li class="breadcrumb-item" aria-current="page"><a class='active' href="#">${category.name}</a>
-                </li>
+                <li class="breadcrumb-item"><a class="text-dark" href="${pageContext.request.contextPath}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Checkout</li>
             </ol>
         </nav>
-        <!-- Image banner + desc -->
-        <div
-            class="main-container d-flex flex-lg-row align-items-lg-start justify-content-lg-center flex-md-column align-items-md-start justify-content-md-start flex-sm-column align-items-sm-center justify-content-sm-center">
-            <div
-                class="left-main-container container-fluid d-md-flex flex-md-column align-items-md-center d-sm-flex flex-sm-column align-items-sm-center justify-content-sm-center">
+
+        <section class="cart-section">
+            <div class="container-fluid">
+                <div class="top-flex-container">
+                    <h4 class="font-weight-bold mb-3">MY Order</h4>
+                    <!-- <div class="totalCost d-flex justify-content-xl-between">
+                        <p class='key font-weight-bold mr-2'>Total</p>
+                        :
+                        <p class='value d-flex font-weight-bold ml-2'>Rs.<span id="totalCartValue">0</span></p>
+                    </div> -->
+                </div>
                 <div class="row">
-                    <div class="img-col-2 col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                        <img src="${product.image}" alt="">
+                    <div class="column1 col ml-xl-0 ml-sm-2 mb-2 col-xl-8 col-lg-12 col-md-12 col-sm-12">
+                        <!-- cart items -->
+                        <c:set var="totalPrice" value="0" />
+                        <div class="cart-items-area" id="cart-items-area">
+                            <c:forEach var="cartItem" items="${cart}">
+                                <c:set var="totalPrice"
+                                    value="${totalPrice + cartItem.productDto.price*cartItem.quantity }" />
+                                <div class="cart-items-holder" id='cart-${cartItem.productDto.id}'>
+                                    <div class='pdt-container' id='pdt-single'>
+                                        <img class='img-sweater' src="${cartItem.productDto.image}" alt="Sweater Image">
+                                        <div class="ml-4 w-100">
+                                            <div class="text1">
+                                                <h6>${cartItem.productDto.name}</h6>
+
+                                            </div>
+                                            <p class='pricing mb-0'>Quantity: <strong
+                                                    id='final-price'>${cartItem.quantity}</strong>
+
+                                            <p class='pricing mb-0'>Item Price: <strong
+                                                    id='final-price'>${cartItem.productDto.price}</strong>
+
+                                            <p class='pricing mb-0'>Total: <strong
+                                                    id='final-price'>${cartItem.productDto.price *
+                                                    cartItem.quantity}</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                            </c:forEach>
+
+                        </div>
+                    </div>
+                    <div class="column2 col ml-xl-0 ml-sm-2 mb-2 col-xl-4 col-lg-12 col-md-12 col-sm-12">
+                        <div class="billing-section">
+                            <!-- <h5 class="font-weight-bold">COUPONS</h5>
+                            <span class="font-weight-bold"><img class="mr-2" src="Images/tag-icon.png"
+                                    alt="tag icon">Apply Coupons</span>
+                            <button type="button" class="btn btn-default ml-3" aria-label='edit button'>Apply</button>
+                            <hr> -->
+                            <h6>Summary</h6>
+                            <br>
+                            <div class="flex-item flex-item-1 d-flex justify-content-between">
+                                <p class='key'>Total Price</p>
+                                <p class='value'><span id="total-price">${totalPrice}</span></p>
+                            </div>
+                            <!-- <div class="flex-item flex-item-1 d-flex justify-content-between">
+                                <p class='key'>Bag Discount</p>
+                                <p class='value text-success'>Rs.<span id="bagDiscount">0</span></p>
+                            </div>
+                            <div class="flex-item flex-item-1 d-flex justify-content-between">
+                                <p class='key'>Coupon Discount</p>
+                                <p class='value'><a href="#">Apply Coupon</a></p>
+                            </div>
+                            <div class="flex-item flex-item-1 d-flex justify-content-between">
+                                <p class='key'>Order Total</p>
+                                <p class='value'>Rs.<span id="orderTotal">0</span></p>
+                            </div>
+                            <div class="flex-item flex-item-1 d-flex justify-content-between">
+                                <p class='key'>Delivery Charges</p>
+                                <p class='value text-success'><del class='text-dark mr-2'>Rs.99</del>Free</p>
+                            </div> -->
+                            <hr>
+                            <button type="button" class="btn btn-orange w-100" aria-label='edit button'
+                                onclick="confirmOrder()">Confirm
+                                Order</button>
+
+                        </div>
+
+                        <div class="alert alert-danger text-center mt-4" id="payment-error" role="alert" style="display: none;"> 
+                            Payment Failed
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="right-main-container">
-                <h5 class="font-weight-bold">${product.name}</h5>
-
-                <p class='pricing mt-4 mb-0'><strong>Price: ${product.price}</strong></p>
-                <div class="description-text">
-                    <h6 class="font-weight-bold mt-4">Description</h6>
-                    <p>${product.description}</p>
-                </div>
-
-
-                <c:if test="${not empty sessionScope.user}">
-                    <div class="buttons-collection d-flex justify-content-between align-items-center">
-                        <c:choose>
-                            <c:when test="${product.quantity > 0}">
-                                <button type="button" class="cart-button btn-default"
-                                    onclick="addToCart('${product.id}')" aria-label='cart button'>ADD TO CART</button>
-                            </c:when>
-                            <c:otherwise>
-                                <button type="button" disabled class="cart-button btn-default"
-                                    aria-label='cart button'>Out
-                                    Of
-                                    Stock</button>
-                            </c:otherwise>
-                        </c:choose>
-                    </div>
-                </c:if>
-
-                <div id="addedToCart" class="alert alert-success my-2 text-center" role="alert" style="display: none;"> 
-                    Item Added to Cart
-                </div>
-
-                <div class="share-on-social mt-4 d-flex justify-content-between align-items-center">
-                    <h6>SHARE THIS</h6>
-                    <img src="Images/facebook.png" alt="facebook-icon" role='icon' aria-label='facebook icon'>
-                    <img src="Images/youtube.png" alt="youtube-icon" role='icon' aria-label='youtube icon'>
-                    <img src="Images/Twitter.png" alt="twitter-icon" role='icon' aria-label='twitter icon'>
-                </div>
-                <div class="delivery-support mt-3 d-flex justify-content-between align-items-center">
-                    <div class="delivery">
-                        <span><img class='mr-2' src="Images/delivery.png" alt="">DELIVERY & RETURN</span>
-                    </div>
-                    <div class="support">
-                        <span><img class='mr-2' src="Images/support.png" alt="">ONLINE SUPPORT 24/7</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr>
-
-
+        </section>
 
         <!-- Start of Payment and Help -->
 
@@ -336,7 +353,6 @@
                 </div>
             </div>
         </section>
-
         <!-- End of Payments and Help -->
 
         <!-- Start of Footer -->
@@ -371,7 +387,7 @@
                         class="col col-xl-2 col-lg-3 col-md-3 col-sm-4 mt-md-0 mt-sm-5 d-flex flex-column align-items-start">
                         <h3>NEED HELP ?</h3>
                         <a href="#" role='link'>Contact Us</a>
-                        <a href="FAQ.html" role='link'>FAQ</a>
+                        <a href="#" role='link'>FAQ</a>
                         <a href="#" role='link'>Online Shopping</a>
                     </div>
                     <div class="col col-xl-3 col-lg-5 col-md-6 col-sm-7 mt-xl-0 mt-lg-5 mt-md-5 mt-sm-5">
@@ -416,7 +432,11 @@
                 </div>
             </div>
         </footer>
+
+
         <script src="Javascript/index.js"></script>
+        <script src="Javascript/cart.js"></script>
+        <script src="Javascript/checkout.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
             </script>
@@ -425,32 +445,8 @@
             integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
             </script>
         <script>
-            function addToCart(productId) {
 
-                console.log("add To cart");
-                console.log("productId", productId);
-                fetch(
-                    'http://localhost:9090/toycat/cart/add?productId=' + productId,
-                    {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                    }
-                )
-                    .then((response) => {
-                        if (response.ok) {
-                            console.log("Item Added To Cart");
-                            document.querySelector("#addedToCart").style.display = "block";
-                        }
-                    })
-                    .catch((error) => {
-                        console.error('Error updating cart item', error);
-                    });
-
-            }
         </script>
-
     </body>
 
     </html>

@@ -55,7 +55,7 @@ public class EditProfileController extends HttpServlet{
         Date date = null;
         if(birthDate!=null){
         try {
-            date = new SimpleDateFormat("dd-MM-yyyy").parse(birthDate);
+            date = new SimpleDateFormat("yyyy-MM-dd").parse(birthDate);
             System.out.println(date);
         } catch (ParseException e) {
             // TODO Auto-generated catch block
