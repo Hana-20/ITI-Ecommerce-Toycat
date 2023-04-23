@@ -57,7 +57,7 @@ View and manage orders and view all users.
   
 ## 👷‍♀️ Contributors
   
- - [abdelrahmen zaki](https://github.com/a342z)
+ - [Abdulrahman Zaki](https://github.com/a342z)
  - [Hazem Abdelmouez](https://github.com/HazemAbdelmouez)
  - [Hana Alaa](https://github.com/Hana-20)
 
